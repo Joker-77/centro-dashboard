@@ -30,7 +30,16 @@ function App() {
 
   return (
     <CacheProvider value={rtlCache}>
-      <ThemeProvider theme={theme}></ThemeProvider>
+      <ThemeProvider theme={theme}>
+            {/* <Sidenav
+              color={sidenavColor}
+              brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
+              brandName="My"
+              routes={routes}
+              onMouseEnter={handleOnMouseEnter}
+              onMouseLeave={handleOnMouseLeave}
+            /> */}
+      </ThemeProvider>
     </CacheProvider>
   );
 }
