@@ -1,15 +1,11 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import React from "react";
 import logo from "./logo.svg";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
-import createCache from "@emotion/cache";
+import createCache
 import "./App.css";
-import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  const [rtlCache, setRtlCache] = useState(null);
-  // const { pathname } = useLocation();
   return (
     <div className="App">
       <header className="App-header">
