@@ -11,11 +11,10 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Icon from "@mui/material/Icon";
 import theme from "./assets/theme/index";
 import { prefixer } from "stylis";
-import Sidenav from "./components/Sidenav/index";
+import Sidenav from "./components/Sidenav/";
 
 function App() {
   const [rtlCache, setRtlCache] = useState<any>(null);
-  const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
 
   useMemo(() => {
@@ -25,38 +24,22 @@ function App() {
     });
     setRtlCache(cacheRtl);
   }, []);
-
   useEffect(() => {
     document.documentElement!.scrollTop = 0;
     document.scrollingElement!.scrollTop = 0;
   }, [pathname]);
 
-  // Open sidenav when mouse enter on mini sidenav
-  const handleOnMouseEnter = () => {
-    // if (miniSidenav && !onMouseEnter) {
-    //   setMiniSidenav(dispatch, false);
-    //   setOnMouseEnter(true);
-    // }
-  };
-
-  // Close sidenav when mouse leave mini sidenav
-  const handleOnMouseLeave = () => {
-    // if (onMouseEnter) {
-    //   setMiniSidenav(dispatch, true);
-    //   setOnMouseEnter(false);
-    // }
-  };
   return (
     <CacheProvider value={rtlCache}>
       <ThemeProvider theme={theme}>
-        <Sidenav
-          color={'info'}
-          brand={null}
-          brandName="My"
-          routes={[]}
-          onMouseEnter={handleOnMouseEnter}
-          onMouseLeave={handleOnMouseLeave}
-        />
+      <Sidenav
+              color={sidenavColor}
+              brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
+              brandName="My"
+              routes={routes}
+              onMouseEnter={handleOnMouseEnter}
+              onMouseLeave={handleOnMouseLeave}
+            />
       </ThemeProvider>
     </CacheProvider>
   );

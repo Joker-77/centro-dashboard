@@ -41,10 +41,10 @@ function App() {
 
   // Close sidenav when mouse leave mini sidenav
   const handleOnMouseLeave = () => {
-    // if (onMouseEnter) {
-    //   setMiniSidenav(dispatch, true);
-    //   setOnMouseEnter(false);
-    // }
+    if (onMouseEnter) {
+      setMiniSidenav(dispatch, true);
+      setOnMouseEnter(false);
+    }
   };
   return (
     <CacheProvider value={rtlCache}>

@@ -17,7 +17,7 @@ function App() {
   const [rtlCache, setRtlCache] = useState<any>(null);
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
-
+  
   useMemo(() => {
     const cacheRtl = createCache({
       key: "rtl",
@@ -31,32 +31,32 @@ function App() {
     document.scrollingElement!.scrollTop = 0;
   }, [pathname]);
 
-  // Open sidenav when mouse enter on mini sidenav
-  const handleOnMouseEnter = () => {
-    // if (miniSidenav && !onMouseEnter) {
-    //   setMiniSidenav(dispatch, false);
-    //   setOnMouseEnter(true);
-    // }
+   // Open sidenav when mouse enter on mini sidenav
+   const handleOnMouseEnter = () => {
+    if (miniSidenav && !onMouseEnter) {
+      setMiniSidenav(dispatch, false);
+      setOnMouseEnter(true);
+    }
   };
 
   // Close sidenav when mouse leave mini sidenav
   const handleOnMouseLeave = () => {
-    // if (onMouseEnter) {
-    //   setMiniSidenav(dispatch, true);
-    //   setOnMouseEnter(false);
-    // }
+    if (onMouseEnter) {
+      setMiniSidenav(dispatch, true);
+      setOnMouseEnter(false);
+    }
   };
   return (
     <CacheProvider value={rtlCache}>
       <ThemeProvider theme={theme}>
-        <Sidenav
-          color={'info'}
-          brand={null}
-          brandName="My"
-          routes={[]}
-          onMouseEnter={handleOnMouseEnter}
-          onMouseLeave={handleOnMouseLeave}
-        />
+            <Sidenav
+              color={sidenavColor}
+              brand={(transparentSidenav && !darkMode) || whiteSidenav ? brandDark : brandWhite}
+              brandName="My"
+              routes={routes}
+              onMouseEnter={handleOnMouseEnter}
+              onMouseLeave={handleOnMouseLeave}
+            />
       </ThemeProvider>
     </CacheProvider>
   );
