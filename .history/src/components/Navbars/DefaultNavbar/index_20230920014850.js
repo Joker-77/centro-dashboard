@@ -146,15 +146,7 @@ function DefaultNavbar({ transparent, light, action }) {
             >
               <SearchIcon />
             </IconButton>
-            <MDInput
-              placeholder="ابحث هنا..."
-              style={{ width: "100%" }}
-              inputProps={{
-                style: {
-                  paddingRight: 40,
-                },
-              }}
-            />
+            <MDInput placeholder="ابحث هنا..." style={{ width: "100%", paddingRight: "20px" }} />
             <IconButton
               color="primary"
               sx={{ p: "10px" }}

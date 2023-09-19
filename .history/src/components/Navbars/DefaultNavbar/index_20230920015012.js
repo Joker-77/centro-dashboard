@@ -151,7 +151,7 @@ function DefaultNavbar({ transparent, light, action }) {
               style={{ width: "100%" }}
               inputProps={{
                 style: {
-                  paddingRight: 40,
+                  paddingRight: 2,
                 },
               }}
             />

@@ -114,7 +114,7 @@ function DefaultNavbar({ transparent, light, action }) {
           //py={transparent ? 2 : 2}
           lineHeight={0.2}
           p={{ md: "13px" }}
-          ml={3}
+          ml={2}
           style={{ backgroundColor: "lightgrey", borderRadius: "10px" }}
         >
           <MessageIcon />
@@ -125,7 +125,7 @@ function DefaultNavbar({ transparent, light, action }) {
           py={transparent ? 2 : 2}
           lineHeight={1}
           p={{ xs: 0, lg: 2 }}
-          ml={2}
+          ml={1}
           width="30%"
         >
           <Paper
@@ -146,15 +146,7 @@ function DefaultNavbar({ transparent, light, action }) {
             >
               <SearchIcon />
             </IconButton>
-            <MDInput
-              placeholder="ابحث هنا..."
-              style={{ width: "100%" }}
-              inputProps={{
-                style: {
-                  paddingRight: 40,
-                },
-              }}
-            />
+            <MDInput placeholder="ابحث هنا..." style={{ width: "100%" }} />
             <IconButton
               color="primary"
               sx={{ p: "10px" }}
