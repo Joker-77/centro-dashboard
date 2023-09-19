@@ -149,8 +149,10 @@ function DefaultNavbar({ transparent, light, action }) {
               placeholder="ابحث هنا..."
               style={{
                 width: "100%",
+                borderTopLeftRadius: "0",
+                borderBottomLeftRadius: "0",
               }}
-              InputProps={{
+              inputProps={{
                 style: {
                   paddingRight: 40,
                   borderTopLeftRadius: "0",
@@ -169,10 +171,10 @@ function DefaultNavbar({ transparent, light, action }) {
             <MDButton
               style={{
                 position: "relative",
-                left: "3.85em",
-                borderTopRightRadius: 0,
+                left: "3.8em",
+                borderTopRightRadius: "0",
                 borderBottomRightRadius: 0,
-                padding: "1.15em",
+                padding: "1.1em",
               }}
               color="primary"
             >

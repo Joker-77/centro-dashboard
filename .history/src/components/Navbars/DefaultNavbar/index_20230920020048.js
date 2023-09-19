@@ -148,9 +148,12 @@ function DefaultNavbar({ transparent, light, action }) {
             <MDInput
               placeholder="ابحث هنا..."
               style={{
+                border
                 width: "100%",
+                borderTopLeftRadius: "0",
+                borderBottomLeftRadius: "0",
               }}
-              InputProps={{
+              inputProps={{
                 style: {
                   paddingRight: 40,
                   borderTopLeftRadius: "0",
@@ -166,18 +169,7 @@ function DefaultNavbar({ transparent, light, action }) {
             >
               <TuneIcon style={{ color: "grey" }} />
             </IconButton>
-            <MDButton
-              style={{
-                position: "relative",
-                left: "3.85em",
-                borderTopRightRadius: 0,
-                borderBottomRightRadius: 0,
-                padding: "1.15em",
-              }}
-              color="primary"
-            >
-              ابحث
-            </MDButton>
+            <MDButton color="primary">ابحث</MDButton>
           </Paper>
         </MDBox>
         {action &&

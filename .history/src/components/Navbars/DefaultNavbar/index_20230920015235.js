@@ -126,6 +126,7 @@ function DefaultNavbar({ transparent, light, action }) {
           lineHeight={1}
           p={{ xs: 0, lg: 2 }}
           ml={2}
+          width="30%"
         >
           <Paper
             component="form"
@@ -147,14 +148,10 @@ function DefaultNavbar({ transparent, light, action }) {
             </IconButton>
             <MDInput
               placeholder="ابحث هنا..."
-              style={{
-                width: "100%",
-              }}
-              InputProps={{
+              style={{ width: "100%" }}
+              inputProps={{
                 style: {
                   paddingRight: 40,
-                  borderTopLeftRadius: "0",
-                  borderBottomLeftRadius: "0",
                 },
               }}
             />
@@ -166,18 +163,7 @@ function DefaultNavbar({ transparent, light, action }) {
             >
               <TuneIcon style={{ color: "grey" }} />
             </IconButton>
-            <MDButton
-              style={{
-                position: "relative",
-                left: "3.85em",
-                borderTopRightRadius: 0,
-                borderBottomRightRadius: 0,
-                padding: "1.15em",
-              }}
-              color="primary"
-            >
-              ابحث
-            </MDButton>
+            <MDButton variant= >ابحث</MDButton>
           </Paper>
         </MDBox>
         {action &&
