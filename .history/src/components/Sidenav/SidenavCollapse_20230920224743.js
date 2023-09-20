@@ -64,8 +64,8 @@ function SidenavCollapse({ icon, name, active, ...rest }) {
 
         <ListItemText
           primary={name}
-          style={{
-            color: "#88cb60",
+          style={{ 
+            color: #88cb60
           }}
           sx={(theme) =>
             collapseText(theme, {

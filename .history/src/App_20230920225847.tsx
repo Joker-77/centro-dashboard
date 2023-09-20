@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useLocation, Routes, Route, Navigate } from "react-router-dom";
+import logo from "./logo.svg";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import "./App.css";
@@ -16,7 +17,7 @@ import DefaultNavbar from "./components/Navbars/DefaultNavbar/index";
 import "@fontsource/readex-pro"; // Defaults to weight 400
 import "@fontsource/readex-pro/400.css"; // Specify weight
 import routes from "./routes";
-import logo from "./assets/images/logo.png";
+import logo from './'
 import {
   useMaterialUIController,
   setMiniSidenav,
@@ -71,7 +72,7 @@ function App() {
         <CssBaseline />
         <Sidenav
           color={"info"}
-          brand={logo}
+          brand={null}
           brandName=""
           routes={routes}
           onMouseEnter={handleOnMouseEnter}

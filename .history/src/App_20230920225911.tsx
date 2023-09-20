@@ -16,7 +16,7 @@ import DefaultNavbar from "./components/Navbars/DefaultNavbar/index";
 import "@fontsource/readex-pro"; // Defaults to weight 400
 import "@fontsource/readex-pro/400.css"; // Specify weight
 import routes from "./routes";
-import logo from "./assets/images/logo.png";
+import logo from "./assets/images/logo";
 import {
   useMaterialUIController,
   setMiniSidenav,
