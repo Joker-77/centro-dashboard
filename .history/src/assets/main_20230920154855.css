@@ -1,0 +1,6 @@
+import "@fontsource/readex-pro"; // Defaults to weight 400
+import "@fontsource/readex-pro/400.css"; // Specify weight
+import "@fontsource/readex-pro/400-italic.css"; // Specify weight and style
+body {
+  font-family: "Readex Pro";
+}
