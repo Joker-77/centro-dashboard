@@ -94,7 +94,7 @@ function DefaultNavbar({ transparent, light, action }) {
             marginLeft: "0",
           },
           [breakpoints.up("md")]: {
-            width: "calc(85% - 0px)",
+            width: "calc(83.9% - 0px)",
             marginLeft: "11em",
           },
         })}
@@ -146,7 +146,7 @@ function DefaultNavbar({ transparent, light, action }) {
               [breakpoints.down("md")]: {
                 borderRadius: "10px",
                 marginLeft: "0.5em",
-                width: "85%",
+                width: "84%",
               },
               [breakpoints.up("md")]: {
                 borderRadius: "10px",
