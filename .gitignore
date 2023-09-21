@@ -60,6 +60,7 @@ Thumbs.db
 
 # production
 /build
+.history/
 
 # misc
 .DS_Store

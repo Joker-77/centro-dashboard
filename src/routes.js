@@ -7,7 +7,7 @@ const routes = [
   {
     type: "collapse",
     name: "Home",
-    ar_name: "الصفحة الرئيسية",
+    ar_name: "الرئيسية",
     key: "home",
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard",
