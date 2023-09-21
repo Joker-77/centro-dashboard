@@ -36,18 +36,20 @@ export const MuiPhone: React.FC<any> = ({ value, ...props }) => {
   return (
     <TextField
       variant="outlined"
-      placeholder="Phone number"
+      placeholder=""
       value={phone}
       onChange={handlePhoneValueChange}
       type="tel"
       sx={{
         width: "75%",
+        "& .MuiOutlinedInput-root": {
+          backgroundColor: "#fff",
+        },
         "& .MuiFormHelperText-root": {
           color: "red",
+          backgroundColor: "#f0f2f5",
         },
-        "& .MuiOutlinedInput-root.MuiInputBase-colorPrimary": {
-          backgroundColor: "white",
-        },
+        "& .MuiOutlinedInput-root.MuiInputBase-colorPrimary": {},
       }}
       inputRef={inputRef}
       InputProps={{
@@ -56,15 +58,12 @@ export const MuiPhone: React.FC<any> = ({ value, ...props }) => {
             position="start"
             style={{
               marginRight: "2px",
-              marginLeft: "-8px",
-              backgroundColor: "white",
+              marginLeft: "0px",
             }}
           >
             <Select
               MenuProps={{
                 style: {
-                  // height: "300px",
-                  //width: "360px",
                   top: "4em",
                   left: "-1em",
                 },
@@ -74,12 +73,12 @@ export const MuiPhone: React.FC<any> = ({ value, ...props }) => {
                 },
               }}
               sx={{
-                backgroundColor: "white",
                 width: "max-content",
                 // Remove default outline (display only on focus)
                 fieldset: {
                   display: "none",
                 },
+
                 '&.Mui-focused:has(div[aria-expanded="false"])': {
                   fieldset: {
                     display: "block",

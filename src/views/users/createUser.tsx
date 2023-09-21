@@ -119,7 +119,6 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     style={{
                       direction: "ltr",
                       justifyContent: "end",
-                      backgroundColor: "white",
                     }}
                     name="phone"
                     value={values.phone}
@@ -163,11 +162,11 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                   </MDTypography>
                   <MDInput
                     label={_label}
-                    name="email"
-                    value={values.email}
+                    name="role"
+                    value={values.role}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    helperText={errors.email && touched.email && errors.email}
+                    helperText={errors.role && touched.role && errors.role}
                     sx={{
                       width: "75%",
                       "& .MuiFormHelperText-root": {
