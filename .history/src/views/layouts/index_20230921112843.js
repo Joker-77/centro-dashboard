@@ -28,7 +28,7 @@ function DashboardLayout({ children }) {
         p: 3,
         position: "relative",
         [breakpoints.up("xl")]: {
-          marginLeft: miniSidenav ? pxToRem(120) : pxToRem(225),
+          marginLeft: miniSidenav ? pxToRem(120) : pxToRem(274),
           transition: transitions.create(["margin-left", "margin-right"], {
             easing: transitions.easing.easeInOut,
             duration: transitions.duration.standard,
@@ -42,10 +42,8 @@ function DashboardLayout({ children }) {
         sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
           p: 3,
           position: "relative",
-          width: "100%",
-          marginTop: pxToRem(20),
           [breakpoints.up("xl")]: {
-            // marginLeft: miniSidenav ? pxToRem(120) : pxToRem(274),
+            marginLeft: miniSidenav ? pxToRem(120) : pxToRem(274),
             transition: transitions.create(["margin-left", "margin-right"], {
               easing: transitions.easing.easeInOut,
               duration: transitions.duration.standard,

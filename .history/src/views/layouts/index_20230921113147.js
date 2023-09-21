@@ -28,7 +28,7 @@ function DashboardLayout({ children }) {
         p: 3,
         position: "relative",
         [breakpoints.up("xl")]: {
-          marginLeft: miniSidenav ? pxToRem(120) : pxToRem(225),
+          marginLeft: miniSidenav ? pxToRem(120) : pxToRem(250),
           transition: transitions.create(["margin-left", "margin-right"], {
             easing: transitions.easing.easeInOut,
             duration: transitions.duration.standard,

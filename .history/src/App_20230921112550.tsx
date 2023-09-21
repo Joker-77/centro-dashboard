@@ -105,8 +105,8 @@ function App() {
         />
         <DefaultNavbar />
         <Routes>
-          <Route path="*" element={<Navigate to="/" />} />
           {getRoutes(routes)}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </ThemeProvider>
     </CacheProvider>
