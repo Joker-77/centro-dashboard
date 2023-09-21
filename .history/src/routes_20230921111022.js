@@ -1,8 +1,7 @@
 /* eslint-disable */
 import Icon from "@mui/material/Icon";
-import React from "react";
-// const Users = React.Lazy(() => import("./views/users/index"));
-import Users from "./views/users/index.tsx";
+import React from ''
+const Users = React
 const routes = [
   {
     type: "collapse",

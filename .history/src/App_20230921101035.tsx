@@ -32,7 +32,7 @@ function App() {
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
   const userDetails =
-    JSON.parse(localStorage.getItem("userDetails")!) || useAuthState();
+    JSON.parse(localStorage.getItem("userDetails")) || useAuthState();
 
   useMemo(() => {
     const cacheRtl = createCache({
@@ -68,7 +68,7 @@ function App() {
     document.body.setAttribute("dir", direction);
   }, [direction]);
 
-  const getRoutes = (allRoutes: any) =>
+  const getRoutes = (allRoutes: []) =>
     allRoutes.map((route: any) => {
       if (route.collapse) {
         return getRoutes(route.collapse);

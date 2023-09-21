@@ -22,7 +22,6 @@ import {
   setMiniSidenav,
   setOpenConfigurator,
 } from "./context/index";
-import { useAuthState } from "./context/Auth";
 
 function App() {
   const [controller, dispatch] = useMaterialUIController();
@@ -31,8 +30,7 @@ function App() {
   const [rtlCache, setRtlCache] = useState<any>(null);
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
-  const userDetails =
-    JSON.parse(localStorage.getItem("userDetails")!) || useAuthState();
+  const userDetails = JSON.parse(localStorage.getItem("userDetails")) || useAuthState();
 
   useMemo(() => {
     const cacheRtl = createCache({
@@ -68,14 +66,15 @@ function App() {
     document.body.setAttribute("dir", direction);
   }, [direction]);
 
-  const getRoutes = (allRoutes: any) =>
-    allRoutes.map((route: any) => {
+  const getRoutes = (allRoutes) =>
+    allRoutes.map((route) => {
       if (route.collapse) {
         return getRoutes(route.collapse);
       }
       if (route.route) {
         return (
           <Route
+            exact
             path={route.route}
             element={
               route.isPrivate && !userDetails.isLoggedIn ? (

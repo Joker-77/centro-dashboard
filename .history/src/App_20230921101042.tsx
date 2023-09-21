@@ -32,7 +32,7 @@ function App() {
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
   const userDetails =
-    JSON.parse(localStorage.getItem("userDetails")!) || useAuthState();
+    JSON.parse(localStorage.getItem("userDetails")) || useAuthState();
 
   useMemo(() => {
     const cacheRtl = createCache({

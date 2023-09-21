@@ -1,8 +1,6 @@
 /* eslint-disable */
 import Icon from "@mui/material/Icon";
-import React from "react";
-// const Users = React.Lazy(() => import("./views/users/index"));
-import Users from "./views/users/index.tsx";
+
 const routes = [
   {
     type: "collapse",
@@ -21,7 +19,7 @@ const routes = [
     key: "users",
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/users",
-    component: <Users />, //<Dashboard />,
+    component: <> </>, //<Dashboard />,
     isPrivate: false,
   },
   {

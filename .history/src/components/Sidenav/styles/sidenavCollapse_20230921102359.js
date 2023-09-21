@@ -10,7 +10,12 @@ function collapseItem(theme, ownerState) {
   const { pxToRem, rgba, linearGradient } = functions;
 
   return {
-    background: active ? '#e2e9ed' : transparent.main,
+    background: active
+      ? linearGradient(
+          white,
+          rgba(226, 233, 237)
+        )
+      : transparent.main,
     color:
       (transparentSidenav && !darkMode && !active) || (whiteSidenav && !active)
         ? dark.main
