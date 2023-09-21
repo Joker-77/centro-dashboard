@@ -46,8 +46,38 @@ const Users: React.FC<UsersProps> = ({}) => {
       <Grid
         container
         spaceing={2}
-        style={{ display: "flex", justifyContent: "center" }}
+        sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
+          p: 3,
+          position: "relative",
+          [breakpoints.down("md")]: {
+            display: "flex",
+            justifyContent: "start",
+            transition: transitions.create(["margin-left", "margin-right"], {
+              easing: transitions.easing.easeInOut,
+              duration: transitions.duration.standard,
+            }),
+          },
+          [breakpoints.up("md")]: {
+            display: "flex",
+            justifyContent: "start",
+            transition: transitions.create(["margin-left", "margin-right"], {
+              easing: transitions.easing.easeInOut,
+              duration: transitions.duration.standard,
+            }),
+          },
+          [breakpoints.up("xl")]: {
+            display: "flex",
+            justifyContent: "start",
+            transition: transitions.create(["margin-left", "margin-right"], {
+              easing: transitions.easing.easeInOut,
+              duration: transitions.duration.standard,
+            }),
+          },
+        })}
       >
+        <Grid item md={3} xs={12} my={1}>
+          <UserCard />
+        </Grid>
         <Grid item md={3} xs={12} my={1}>
           <UserCard />
         </Grid>
