@@ -122,8 +122,6 @@ function DefaultNavbar({ transparent, light, action }) {
           <MessageIcon />
         </MDBox>
         <MDBox
-          component={Link}
-          to="/"
           py={transparent ? 2 : 2}
           lineHeight={1}
           p={{ xs: 0, lg: 2 }}
@@ -182,6 +180,7 @@ function DefaultNavbar({ transparent, light, action }) {
                   backgroundColor: "#e2e9ed",
                 },
               }}
+              onChange={() => {}}
             />
             <IconButton
               color="primary"

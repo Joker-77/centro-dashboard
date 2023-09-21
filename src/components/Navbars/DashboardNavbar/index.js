@@ -148,7 +148,7 @@ function DashboardNavbar({ absolute, light, isMini, name }) {
         {isMini ? null : (
           <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
             <MDBox pr={1}>
-              <MDInput label="ابحث هنا" />
+              <MDInput label="ابحث هنا" value="" onChange={(e) => {}} />
             </MDBox>
             <MDBox color={light ? "white" : "inherit"}>
               {/* <Link to="/authentication/sign-in/basic">
