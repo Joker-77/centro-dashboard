@@ -46,7 +46,7 @@ const SignIn: React.FC<Props> = (props) => {
           md={4}
           xs={12}
         >
-          <Card sx={{ width: 400, mr: 10, mt: 5, height: "80%" }}>
+          <Card sx={{ width: 400, mr: 10, mt: 3, height: "95%" }}>
             <CardContent>
               <MDTypography
                 style={{ textAlign: "center", fontSize: "16px" }}
@@ -62,20 +62,7 @@ const SignIn: React.FC<Props> = (props) => {
                 display: "flex",
                 justifyContent: "space-between",
               }}
-            >
-              {/* <MDButton
-                style={{
-                  backgroundColor: "darkgreen",
-                  width: "50%",
-                  color: "white",
-                }}
-              >
-                محادثة
-              </MDButton>
-              <MDButton color="primary" style={{ width: "50%" }}>
-                تعديل
-              </MDButton> */}
-            </CardActions>
+            ></CardActions>
           </Card>
         </Grid>
       </Grid>

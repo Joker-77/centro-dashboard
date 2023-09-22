@@ -5,6 +5,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import SignInForm from "./signInForm";
+import SignUpForm from "./signUpForm";
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
@@ -92,7 +93,7 @@ export default function BasicTabs() {
         <SignInForm />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <SignUpForm />
       </TabPanel>
     </Box>
   );
