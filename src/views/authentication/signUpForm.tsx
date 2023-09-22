@@ -15,11 +15,18 @@ const SignUpForm: React.FC<Props> = () => {
   const navigate = useNavigate();
   const validationSchema = yup.object({
     name: yup.string("اكتب هنا..").required("حقل الاسم مطلوب"),
+    phone: yup.string("اكتب هنا..").required("حقل رقم الهاتف مطلوب"),
     email: yup
       .string("اكتب هنا..")
       .email("ادخل ايميل صالح")
       .required("حقل الايميل مطلوب"),
     password: yup.string("اكتب هنا..").required("حقل رمز المرور مطلوب"),
+    passwordConfirmation: yup
+      .string()
+      .oneOf(
+        [yup.ref("password"), null],
+        "رمز المرور وتأكيد رمز المرور لايتطابقان"
+      ),
   });
   const initialValues = React.useMemo(() => {
     return {};
@@ -115,12 +122,41 @@ const SignUpForm: React.FC<Props> = () => {
                 </Grid>
                 <Grid item xs={4} md={12}>
                   <MDTypography style={{ fontSize: "15px" }} mb={2}>
+                    رقم الهاتف <span style={{ color: "red" }}>*</span>
+                  </MDTypography>
+                  <MDInput
+                    size="small"
+                    label={"رقم الهاتف..."}
+                    name="phone"
+                    value={values.phone}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    helperText={errors.phone && touched.phone && errors.phone}
+                    sx={{
+                      width: "100%",
+                      "& .MuiFormHelperText-root": {
+                        color: "red",
+                      },
+                      "& .MuiOutlinedInput-input": {
+                        backgroundColor: "#E5E5E5",
+                      },
+                    }}
+                    InputProps={{
+                      style: {
+                        backgroundColor: "white",
+                      },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={4} md={12}>
+                  <MDTypography style={{ fontSize: "15px" }} mb={2}>
                     رمز المرور <span style={{ color: "red" }}>*</span>
                   </MDTypography>
                   <MDInput
                     size="small"
                     label={"رمز المرور..."}
                     name="password"
+                    type="password"
                     value={values.password}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -143,39 +179,38 @@ const SignUpForm: React.FC<Props> = () => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={4} md={6} sx={{ pt: 0 }}>
-                  <FormControlLabel
+                <Grid item xs={4} md={12}>
+                  <MDTypography style={{ fontSize: "15px" }} mb={2}>
+                    تأكيد رمز المرور <span style={{ color: "red" }}>*</span>
+                  </MDTypography>
+                  <MDInput
+                    size="small"
+                    label={"رمز المرور..."}
+                    name="passwordConfirmation"
+                    type="password"
+                    value={values.passwordConfirmation}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    helperText={
+                      errors.passwordConfirmation &&
+                      touched.passwordConfirmation &&
+                      errors.passwordConfirmation
+                    }
                     sx={{
-                      "& .MuiFormControlLabel-label": {
-                        fontSize: "10px",
+                      width: "100%",
+                      "& .MuiFormHelperText-root": {
+                        color: "red",
+                      },
+                      "& .MuiOutlinedInput-input": {
+                        backgroundColor: "#E5E5E5",
                       },
                     }}
-                    control={
-                      <Checkbox
-                        style={{
-                          transform: "scale(.9)",
-                        }}
-                        defaultChecked
-                      />
-                    }
-                    label="تذكرني"
+                    InputProps={{
+                      style: {
+                        backgroundColor: "white",
+                      },
+                    }}
                   />
-                </Grid>
-                <Grid
-                  style={{ display: "flex", alignItems: "center" }}
-                  item
-                  xs={4}
-                  md={6}
-                >
-                  <Link>
-                    <MDTypography
-                      style={{
-                        fontSize: "12px",
-                      }}
-                    >
-                      هل نسيت كلمة المرور؟
-                    </MDTypography>
-                  </Link>
                 </Grid>
                 <Grid item md={12}>
                   <MDButton
@@ -184,7 +219,7 @@ const SignUpForm: React.FC<Props> = () => {
                     color="primary"
                     disabled={isSubmitting}
                   >
-                    تسجيل الدخول
+                    إنشاء حساب الآن
                   </MDButton>
                 </Grid>
               </Grid>

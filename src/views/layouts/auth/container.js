@@ -12,7 +12,7 @@ import MDBox from "./../../../components/MDBox/index";
 // Material Dashboard 2 React context
 import { useMaterialUIController, setLayout } from "../../../context/index";
 
-function LayoutContainer({ background, children }) {
+function LayoutContainer({ background, image, children }) {
   const [, dispatch] = useMaterialUIController();
   const { pathname } = useLocation();
 
@@ -22,11 +22,23 @@ function LayoutContainer({ background, children }) {
 
   return (
     <MDBox
-      width="100vw"
-      height="100%"
+      position="absolute"
+      width="100%"
       minHeight="100vh"
-      bgColor={background}
-      sx={{ overflowX: "hidden" }}
+      sx={{
+        backgroundImage: ({
+          functions: { linearGradient, rgba },
+          palette: { gradients },
+        }) =>
+          image &&
+          `${linearGradient(
+            rgba(gradients.dark.main, 0.6),
+            rgba(gradients.dark.state, 0.6)
+          )}, url(${image})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       {children}
     </MDBox>

@@ -55,7 +55,7 @@ const SignInForm: React.FC<Props> = () => {
             }}
           >
             <Grid container spacing={2} my={{ sx: 1, md: 2, pt: 0 }}>
-              <Grid item xs={4} md={12}>
+              <Grid item style={{ paddingTop: "0 !important" }} xs={4} md={12}>
                 <MDTypography style={{ fontSize: "15px" }} mb={2}>
                   البريد الالكتروني <span style={{ color: "red" }}>*</span>
                 </MDTypography>
@@ -83,7 +83,7 @@ const SignInForm: React.FC<Props> = () => {
                   }}
                 />
               </Grid>
-              <Grid item xs={4} md={12}>
+              <Grid item style={{ paddingTop: "0 !important" }} xs={4} md={12}>
                 <MDTypography style={{ fontSize: "15px" }} mb={2}>
                   رمز المرور <span style={{ color: "red" }}>*</span>
                 </MDTypography>
