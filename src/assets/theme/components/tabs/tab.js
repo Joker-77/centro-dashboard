@@ -26,13 +26,16 @@ const tab = {
       textTransform: "none",
       lineHeight: "inherit",
       padding: pxToRem(4),
-      borderRadius: borderRadius.lg,
-      color: `${dark.main} !important`,
+      // borderRadius: borderRadius.lg,
+      // color: `${dark.main} !important`,
       opacity: "1 !important",
 
       "& .material-icons, .material-icons-round": {
         marginBottom: "0 !important",
         marginRight: pxToRem(6),
+      },
+      "& .MuiTabs-root": {
+        backgroundColor: "white",
       },
 
       "& svg": {

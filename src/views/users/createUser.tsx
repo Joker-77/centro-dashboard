@@ -305,7 +305,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                   md={4}
                   style={{
                     display: "flex",
-                    alignItems: "center",
+                    alignItems: "end",
                   }}
                 >
                   <Badge
@@ -319,9 +319,17 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                       uploadInputRef.current && uploadInputRef.current.click()
                     }
                   >
-                    <Avatar alt="Remy Sharp" src={!!file ? file : user1} />
+                    <Avatar alt="العضو" src={!!file ? file : user1} />
                   </Badge>
-                  <MDTypography variant="caption">
+                  <MDTypography
+                    style={{
+                      alignSelf: "center",
+                    }}
+                    sx={{
+                      mt: 5,
+                    }}
+                    variant="caption"
+                  >
                     صورة العضو الشخصية
                   </MDTypography>
                   <input

@@ -1,9 +1,19 @@
 /* eslint-disable */
 import Icon from "@mui/material/Icon";
 import React from "react";
-// const Users = React.Lazy(() => import("./views/users/index"));
 import Users from "./views/users/index.tsx";
+import SignIn from "./views/authentication/sign-in.tsx";
 const routes = [
+  {
+    type: "collapse",
+    name: "sign-in",
+    ar_name: "الرئيسية",
+    key: "sign-in",
+    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    route: "/authentication/sign-in",
+    component: <SignIn />, //<Dashboard />,
+    isPrivate: false,
+  },
   {
     type: "collapse",
     name: "Home",
@@ -30,7 +40,7 @@ const routes = [
     ar_name: "المناطق والأماكن",
     key: "places",
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
-    route: "/places",
+    route: "/authentication/sign-in",
     component: <> </>, //<Dashboard />,
     isPrivate: false,
   },

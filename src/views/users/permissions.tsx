@@ -111,7 +111,11 @@ export default function Permissions() {
             width: 280,
           }}
           input={<OutlinedInput />}
-          renderValue={(selected) => selected.map((x) => x.name).join(", ")}
+          renderValue={(selected) => {
+            if (selected.map((x) => x.name).length > 3)
+              return selected.map((x) => x.name).length;
+            else return selected.map((x) => x.name).join(",");
+          }}
           MenuProps={MenuProps}
         >
           {permissions.map((variant) => (

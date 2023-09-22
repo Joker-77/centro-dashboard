@@ -14,7 +14,7 @@ const tabs = {
   styleOverrides: {
     root: {
       position: "relative",
-      backgroundColor: grey[100],
+      backgroundColor: "white",
       borderRadius: borderRadius.xl,
       minHeight: "unset",
       padding: pxToRem(4),
@@ -31,19 +31,14 @@ const tabs = {
       overflowX: "unset !important",
     },
 
-    vertical: {
-      "& .MuiTabs-indicator": {
-        width: "100%",
-      },
-    },
-
-    indicator: {
-      height: "100%",
-      borderRadius: borderRadius.lg,
-      backgroundColor: white.main,
-      boxShadow: tabsBoxShadow.indicator,
-      transition: "all 500ms ease",
-    },
+    vertical: {},
+    // indicator: {
+    //   backgroundColor: "white",
+    //   height: "100%",
+    //   width: "25% !important",
+    //   borderBottom: "2px solid #FF8900",
+    //   transition: "all 500ms ease",
+    // },
   },
 };
 

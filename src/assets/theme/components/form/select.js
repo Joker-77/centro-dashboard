@@ -24,9 +24,9 @@ const select = {
       minHeight: "none",
       overflow: "unset",
     },
-
     icon: {
-      display: "none",
+      fontSize: "20px !important",
+      // display: "none",
     },
   },
 };
