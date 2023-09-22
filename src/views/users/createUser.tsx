@@ -15,6 +15,7 @@ import user1 from "./../../assets/images/user1.jpg";
 import Badge from "@mui/material/Badge";
 import EditIcon from "@mui/icons-material/Edit";
 import Permissions from "./permissions";
+import MDButton from "./../../components/MDButton/index";
 interface IProps {
   user: any;
 }
@@ -339,10 +340,14 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     onChange={handleCapture}
                   />
                 </Grid>
-                <Grid container spacing={2} my={{ sx: 1, md: 2 }}>
-                  <Grid item xs={4} md={4}>
-                    <Permissions />
-                  </Grid>
+                <Grid item xs={4} md={4}>
+                  <Permissions />
+                </Grid>
+                <Grid item xs={12} md={12}>
+                  <MDButton color="primary">أضف العضو الآن</MDButton>
+                  <MDButton color="error" variant="outlined" sx={{ mx: 1 }}>
+                    إيقاف الصلاحيات
+                  </MDButton>
                 </Grid>
               </Grid>
             </Form>

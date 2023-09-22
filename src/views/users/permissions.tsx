@@ -88,17 +88,10 @@ export default function Permissions() {
 
   return (
     <>
-      <MDTypography
-        id="perm"
-        variant="caption"
-        sx={{ width: 300, mt: 1, ml: 2 }}
-      >
+      <MDTypography id="perm" variant="caption" sx={{ width: 300, mt: 1 }}>
         صلاحيات العضو
       </MDTypography>
-      <FormControl
-        sx={{ width: 300, mt: 1, ml: 2 }}
-        style={{ fontSize: "15px" }}
-      >
+      <FormControl sx={{ width: 300, mt: 1 }} style={{ fontSize: "15px" }}>
         <Select
           labelId="permissions"
           id="permissions"
