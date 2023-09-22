@@ -20,7 +20,7 @@ const SignIn: React.FC<Props> = (props) => {
         <Grid
           sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
             zIndex: "999",
-            ml: 25,
+            ml: 20,
             mt: 20,
             height: "50%",
             display: "flex",
@@ -46,7 +46,7 @@ const SignIn: React.FC<Props> = (props) => {
           md={4}
           xs={12}
         >
-          <Card sx={{ width: 400, height: "80%" }}>
+          <Card sx={{ width: 400, mr: 10, mt: 5, height: "80%" }}>
             <CardContent>
               <MDTypography
                 style={{ textAlign: "center", fontSize: "16px" }}
