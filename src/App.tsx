@@ -32,8 +32,7 @@ function App() {
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
   const userDetails =
-    JSON.parse(localStorage.getItem("userDetails")!) || useAuthState();
-
+    JSON.parse(localStorage.getItem("currentUser")!) || useAuthState();
   useMemo(() => {
     const cacheRtl = createCache({
       key: "rtl",
@@ -105,12 +104,12 @@ function App() {
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}
             />
-            <DefaultNavbar />{" "}
+            <DefaultNavbar />
           </>
         )}
         <Routes>
           {getRoutes(routes)}
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<Navigate to="/dashboard" />} />
         </Routes>
       </ThemeProvider>
     </CacheProvider>

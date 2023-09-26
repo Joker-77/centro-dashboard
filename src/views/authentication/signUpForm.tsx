@@ -9,11 +9,13 @@ import { useFormik, Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
-
+import UserService from "./../../services/UserService";
+import { toast } from "react-toastify";
 interface Props {}
 const SignUpForm: React.FC<Props> = () => {
   const navigate = useNavigate();
   const validationSchema = yup.object({
+    username: yup.string("اكتب هنا..").required("حقل المستخدم مطلوب"),
     name: yup.string("اكتب هنا..").required("حقل الاسم مطلوب"),
     phone: yup.string("اكتب هنا..").required("حقل رقم الهاتف مطلوب"),
     email: yup
@@ -31,14 +33,32 @@ const SignUpForm: React.FC<Props> = () => {
   const initialValues = React.useMemo(() => {
     return {};
   }, []);
-  const submitLogin = (values, props) => {
-    return navigate("/");
+  const submitRegister = (values, setSubmitting) => {
+    const formData = new FormData();
+    formData.append("Username", values.username);
+    formData.append("Email", values.email);
+    formData.append("Password", values.password);
+    formData.append("PhoneNumber", values.phone);
+    formData.append("FullName", values.name);
+    formData.append("Roles", "Administrator");
+    console.log(values);
+    UserService.createUser(formData)
+      .then((resp) => {
+        toast.success(resp);
+        setSubmitting(false);
+      })
+      .catch((e) => {
+        console.error(e);
+        setSubmitting(false);
+      });
   };
   return (
     <>
       <Formik
         initialValues={initialValues}
-        onSubmit={submitLogin}
+        onSubmit={(values, { setSubmitting }) =>
+          submitRegister(values, setSubmitting)
+        }
         validationSchema={validationSchema}
       >
         {(props) => {
@@ -64,13 +84,13 @@ const SignUpForm: React.FC<Props> = () => {
               }}
             >
               <Grid container spacing={2} my={{ sx: 1, md: 2 }}>
-                <Grid item xs={4} md={12}>
+                <Grid item xs={12} md={12}>
                   <MDTypography style={{ fontSize: "15px" }} mb={2}>
                     الاسم بالكامل <span style={{ color: "red" }}>*</span>
                   </MDTypography>
                   <MDInput
                     size="small"
-                    label={"البريد..."}
+                    label={"الاسم..."}
                     name="name"
                     value={values.name}
                     onChange={handleChange}
@@ -92,7 +112,37 @@ const SignUpForm: React.FC<Props> = () => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={4} md={12}>
+                <Grid item xs={12} md={12}>
+                  <MDTypography style={{ fontSize: "15px" }} mb={2}>
+                    اسم المستخدم <span style={{ color: "red" }}>*</span>
+                  </MDTypography>
+                  <MDInput
+                    size="small"
+                    label={"اسم المستخدم..."}
+                    name="username"
+                    value={values.username}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    helperText={
+                      errors.username && touched.username && errors.username
+                    }
+                    sx={{
+                      width: "100%",
+                      "& .MuiFormHelperText-root": {
+                        color: "red",
+                      },
+                      "& .MuiOutlinedInput-input": {
+                        backgroundColor: "#E5E5E5",
+                      },
+                    }}
+                    InputProps={{
+                      style: {
+                        backgroundColor: "white",
+                      },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={12}>
                   <MDTypography style={{ fontSize: "15px" }} mb={2}>
                     البريد الالكتروني <span style={{ color: "red" }}>*</span>
                   </MDTypography>
@@ -120,7 +170,7 @@ const SignUpForm: React.FC<Props> = () => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={4} md={12}>
+                <Grid item xs={12} md={12}>
                   <MDTypography style={{ fontSize: "15px" }} mb={2}>
                     رقم الهاتف <span style={{ color: "red" }}>*</span>
                   </MDTypography>
@@ -148,7 +198,7 @@ const SignUpForm: React.FC<Props> = () => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={4} md={12}>
+                <Grid item xs={12} md={12}>
                   <MDTypography style={{ fontSize: "15px" }} mb={2}>
                     رمز المرور <span style={{ color: "red" }}>*</span>
                   </MDTypography>
@@ -179,7 +229,7 @@ const SignUpForm: React.FC<Props> = () => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={4} md={12}>
+                <Grid item xs={12} md={12}>
                   <MDTypography style={{ fontSize: "15px" }} mb={2}>
                     تأكيد رمز المرور <span style={{ color: "red" }}>*</span>
                   </MDTypography>

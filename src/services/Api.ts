@@ -9,20 +9,22 @@
 import axios from "axios";
 import TokenService from "./TokenService";
 
-const API_URL = "backendUrl";
+const API_URL = "http://13.39.245.93:259/api";
 // const API_URL = "https://www.trendfuture.shop/api/welcome2";
 
 const instance = axios.create({
   baseURL: API_URL,
   headers: {
-    'Content-Type': 'application/json'
+    "Content-Type": "application/json",
+    "DeviceId": 5000,
+    "Latitude": 31.964909,
+    "Longitude": 35.883818,
   },
 });
 
 instance.interceptors.request.use(
   (config: any) => {
-    // const token = TokenService.getLocalAccessToken();
-    let token = "";
+    const token = TokenService.getLocalAccessToken();
     if (token) {
       config.headers["Authorization"] = "Bearer " + token; // for Spring Boot back-end
       //   config.headers['x-access-token'] = token // for Node.js Express back-end
@@ -40,8 +42,8 @@ instance.interceptors.response.use(
   },
   async (err: any) => {
     const originalConfig = err.config;
-    console.log(err)
-    if (originalConfig.url !== "/login" && err.response) {
+    console.log(err);
+    if (originalConfig.url !== "/authentication/sign-in" && err.response) {
       // Access Token was expired
       if (err.response.status === 401 && !originalConfig._retry) {
         originalConfig._retry = true;

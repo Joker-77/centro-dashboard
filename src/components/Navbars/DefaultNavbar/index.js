@@ -67,8 +67,6 @@ function DefaultNavbar({ transparent, light, action }) {
     // Remove event listener on cleanup
     return () => window.removeEventListener("resize", displayMobileNavbar);
   }, []);
-  console.clear();
-  console.log(mobileNavbar);
   return (
     <Container maxWidth={false}>
       <MDBox

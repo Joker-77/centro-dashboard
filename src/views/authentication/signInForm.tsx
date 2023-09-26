@@ -1,6 +1,7 @@
 // @ts-nocheck
 import * as React from "react";
 import Grid from "@mui/material/Grid";
+import { Navigate } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
 import MDButton from "./../../components/MDButton/index";
 import MDInput from "./../../components/MDInput/index";
@@ -9,22 +10,25 @@ import { useFormik, Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
-
-interface Props {}
-const SignInForm: React.FC<Props> = () => {
-  const navigate = useNavigate();
+import { useAuthDispatch, useAuthState } from "./../../context/Auth";
+import { loginUser } from "./../../context/Auth";
+interface Props {
+  dispatch: any;
+}
+const SignInForm: React.FC<Props> = ({ dispatch }) => {
+  console.log(dispatch);
   const validationSchema = yup.object({
     email: yup
       .string("اكتب هنا..")
-      .email("ادخل ايميل صالح")
+      //.email("ادخل ايميل صالح")
       .required("حقل الايميل مطلوب"),
     password: yup.string("اكتب هنا..").required("حقل رمز المرور مطلوب"),
   });
   const initialValues = React.useMemo(() => {
     return {};
   }, []);
-  const submitLogin = (values, props) => {
-    return navigate("/");
+  const submitLogin = async (values, props) => {
+    await loginUser(dispatch, values.email, values.password);
   };
   return (
     <Formik
@@ -55,7 +59,7 @@ const SignInForm: React.FC<Props> = () => {
             }}
           >
             <Grid container spacing={2} my={{ sx: 1, md: 2, pt: 0 }}>
-              <Grid item style={{ paddingTop: "0 !important" }} xs={4} md={12}>
+              <Grid item style={{ paddingTop: "0 !important" }} xs={12} md={12}>
                 <MDTypography style={{ fontSize: "15px" }} mb={2}>
                   البريد الالكتروني <span style={{ color: "red" }}>*</span>
                 </MDTypography>
@@ -83,12 +87,13 @@ const SignInForm: React.FC<Props> = () => {
                   }}
                 />
               </Grid>
-              <Grid item style={{ paddingTop: "0 !important" }} xs={4} md={12}>
+              <Grid item style={{ paddingTop: "0 !important" }} xs={12} md={12}>
                 <MDTypography style={{ fontSize: "15px" }} mb={2}>
                   رمز المرور <span style={{ color: "red" }}>*</span>
                 </MDTypography>
                 <MDInput
                   size="small"
+                  type="password"
                   label={"رمز المرور..."}
                   name="password"
                   value={values.password}
@@ -113,7 +118,7 @@ const SignInForm: React.FC<Props> = () => {
                   }}
                 />
               </Grid>
-              <Grid item xs={4} md={6} sx={{ pt: 0 }}>
+              <Grid item xs={12} md={6} sx={{ pt: 0 }}>
                 <FormControlLabel
                   sx={{
                     "& .MuiFormControlLabel-label": {
@@ -134,7 +139,7 @@ const SignInForm: React.FC<Props> = () => {
               <Grid
                 style={{ display: "flex", alignItems: "center" }}
                 item
-                xs={4}
+                xs={12}
                 md={6}
               >
                 <Link>

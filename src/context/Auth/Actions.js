@@ -5,37 +5,39 @@ import TokenService from "../../services/TokenService";
 export async function loginUser(dispatch, email, password) {
   try {
     let payload = {
-      email: email,
+      loginName: email,
       password: password,
-      fcm_token: "dsd"
-    }
+      fcmToken:
+        "dbNldUTQRj68hFz0GVwn4u:APA91bFUVGlwyERx2NaXsX9bdiPyzODdDe5dGBasj_5heu5Lz5hQVh7zHlP5Xl14S9u8MfUIVmSVjw2lJ4ew6llIeG5URbO5Mdwp4ETvo-kXO2uI5CYDYTce0L8exvK9rOKgzCnL3jXN",
+    };
     dispatch({
-      type: "REQUEST_LOGIN"
+      type: "REQUEST_LOGIN",
     });
     let data = await AuthService.login(payload);
-    if (data.user) {
+    console.log("REQUEST_LOGIN", data);
+    if (data) {
       dispatch({
         type: "LOGIN_SUCCESS",
-        payload: data
+        payload: data,
       });
       return data;
     }
     dispatch({
       type: "LOGIN_ERROR",
-      error: data
+      error: data,
     });
     return;
   } catch (error) {
     dispatch({
       type: "LOGIN_ERROR",
-      error: error
+      error: error,
     });
   }
 }
 
 export async function logout(dispatch) {
   dispatch({
-    type: "LOGOUT"
+    type: "LOGOUT",
   });
   TokenService.removecurrentUser();
 }

@@ -7,7 +7,7 @@ const routes = [
   {
     type: "collapse",
     name: "sign-in",
-    ar_name: "الرئيسية",
+    ar_name: "تسجيل الدخول",
     key: "sign-in",
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/authentication/sign-in",
@@ -22,7 +22,7 @@ const routes = [
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard",
     component: <> </>, //<Dashboard />,
-    isPrivate: false,
+    isPrivate: true,
   },
   {
     type: "collapse",
@@ -32,7 +32,7 @@ const routes = [
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/users",
     component: <Users />, //<Dashboard />,
-    isPrivate: false,
+    isPrivate: true,
   },
   {
     type: "collapse",
@@ -42,7 +42,7 @@ const routes = [
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/authentication/sign-in",
     component: <> </>, //<Dashboard />,
-    isPrivate: false,
+    isPrivate: true,
   },
 ];
 

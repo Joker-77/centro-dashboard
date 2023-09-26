@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UserCard from "./userCard";
 import DashboardLayouts from "../layouts/index";
 import Grid from "@mui/material/Grid";
@@ -7,19 +7,55 @@ import MDBox from "../../components/MDBox/index";
 import MDTypography from "../../components/MDTypography/index";
 import MDButton from "../../components/MDButton/index";
 import CreateUser from "./createUser";
+import UserDetails from "./userDetails";
+import Drawer from "@mui/material/Drawer";
+import UserService from "./../../services/UserService";
+import { toast } from "react-toastify";
+import Skeleton from "@mui/material/Skeleton";
+import CircularProgress from "@mui/material/CircularProgress";
 
 interface UsersProps {}
 
 const Users: React.FC<UsersProps> = ({}) => {
+  const [open, setOpen] = React.useState(false);
   const [isCreate, setIsCreate] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [users, setUsers] = useState<any>([]);
+  const [user, setUser] = useState(null);
   const addUser = () => {
     setIsCreate(true);
   };
+  useEffect(() => {
+    setLoading(true);
+    UserService.getUsers()
+      .then((resp) => {
+        setUsers(resp);
+        setLoading(false);
+      })
+      .catch((e) => {
+        toast.error(e);
+        setLoading(false);
+      });
+  }, []);
+
+  const toggleDrawer =
+    (user, inOpen: boolean) =>
+    (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
+      setOpen(inOpen);
+    };
+
   return (
     <DashboardLayouts>
+      <UserDetails open={open} toggleDrawer={toggleDrawer}></UserDetails>
       {!isCreate && (
         <>
-          {" "}
           <Grid container spacing={2} my={{ sx: 1, md: 2 }}>
             <Grid item xs={8}>
               <MDBox
@@ -84,22 +120,35 @@ const Users: React.FC<UsersProps> = ({}) => {
               },
             })}
           >
-            <Grid item md={3} xs={12} my={1}>
-              <UserCard />
-            </Grid>
-            <Grid item md={3} xs={12} my={1}>
-              <UserCard />
-            </Grid>
-            <Grid item md={3} xs={12} my={1}>
-              <UserCard />
-            </Grid>
-            <Grid item md={3} xs={12} my={1}>
-              <UserCard />
-            </Grid>
-            <Grid item md={3} xs={12} my={1}>
-              <UserCard />
-            </Grid>
-          </Grid>{" "}
+            {loading ? (
+              <>
+                <Grid item md={5} />
+                <Grid sx={{ mt: 20 }} item md={4}>
+                  <CircularProgress />
+                </Grid>
+              </>
+            ) : users.length > 0 ? (
+              users.map((item: any) => {
+                return (
+                  <Grid item md={3} xs={12} my={1}>
+                    {item ? (
+                      <UserCard user={item} toggleUser={toggleDrawer} />
+                    ) : (
+                      <Skeleton
+                        variant="rectangular"
+                        width={210}
+                        height={118}
+                      />
+                    )}
+                  </Grid>
+                );
+              })
+            ) : (
+              <Grid item md={6} xs={12} my={1}>
+                <MDTypography>لا توجد عناصر لعرضها</MDTypography>
+              </Grid>
+            )}
+          </Grid>
         </>
       )}
       {isCreate && <CreateUser />}

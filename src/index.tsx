@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { HashRouter } from "react-router-dom";
 import { MaterialUIControllerProvider } from "./context/index";
 import { AuthProvider } from "./context/Auth";
+import { ToastContainer } from "react-toastify";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -15,6 +16,7 @@ root.render(
     <HashRouter>
       <AuthProvider>
         <MaterialUIControllerProvider>
+          <ToastContainer autoClose={2000} theme="colored" />
           <App />
         </MaterialUIControllerProvider>
       </AuthProvider>

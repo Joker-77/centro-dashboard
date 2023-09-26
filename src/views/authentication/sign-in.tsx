@@ -12,8 +12,22 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import BasicTabs from "./authTapPanel";
+import { Link, Navigate } from "react-router-dom";
+import { useAuthState, useAuthDispatch } from "./../../context/Auth";
+import { toast } from "react-toastify";
+
 interface Props {}
 const SignIn: React.FC<Props> = (props) => {
+  const userDetails =
+    JSON.parse(localStorage.getItem("currentUser")) || useAuthState();
+  const dispatch = useAuthDispatch();
+  if (!!userDetails && userDetails.isLoggedIn) {
+    localStorage.setItem("userDetails", JSON.stringify(userDetails));
+    return <Navigate to="/dashboard" />;
+  }
+  if (!!userDetails && userDetails.errorMessage) {
+    toast.error(userDetails.errorMessage?.response?.data[0].errorMessage);
+  }
   return (
     <AuthLayout image={bgImage}>
       <Grid container spacing={2} sx={{ height: "100%" }}>
@@ -36,17 +50,41 @@ const SignIn: React.FC<Props> = (props) => {
           <img height="150" alt="bg-log" src={bgLogo} />
         </Grid>
         <Grid
-          sx={{
+          sx={({
+            palette: { transparent, transparentColor, white, background },
+            functions: { rgba },
+            breakpoints,
+          }) => ({
             zIndex: "999",
             mt: 5,
             display: "flex",
-            justifyContent: "end",
-          }}
+            justifyContent: "center",
+            [breakpoints.down("md")]: {
+              // padding: "0 1em",
+              paddingLeft: "21px",
+              paddingRight: "0px !important",
+            },
+            [breakpoints.up("md")]: {},
+          })}
           item
           md={4}
           xs={12}
         >
-          <Card sx={{ width: 400, mr: 10, mt: 3, height: "95%" }}>
+          <Card
+            sx={({
+              palette: { transparent, transparentColor, white, background },
+              functions: { rgba },
+              breakpoints,
+            }) => ({
+              [breakpoints.down("md")]: {
+                margin: "0 1.2em",
+              },
+              [breakpoints.up("md")]: {
+                width: 400,
+                height: "95%",
+              },
+            })}
+          >
             <CardContent>
               <MDTypography
                 style={{ textAlign: "center", fontSize: "16px" }}
@@ -55,7 +93,7 @@ const SignIn: React.FC<Props> = (props) => {
               >
                 {`مرحبا بك في بوابة دخول وزارة الاستثمار`}
               </MDTypography>
-              <BasicTabs />
+              <BasicTabs dispatch={dispatch} />
             </CardContent>
             <CardActions
               style={{

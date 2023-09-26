@@ -9,7 +9,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import user1 from "./../../assets/images/user1.jpg";
-const UserCard = ({}) => {
+const UserCard = ({ user, toggleUser }) => {
   return (
     <Card sx={{ maxWidth: 250 }}>
       <CardMedia
@@ -20,19 +20,27 @@ const UserCard = ({}) => {
           borderRadius: "100px",
           marginTop: "1em",
         }}
-        image={user1}
+        image={user?.profilePicture}
         title="test"
       />
       <CardContent>
         <MDTypography style={{ textAlign: "center" }}>
-          محمد مصطفى علي
+          {user?.name}
         </MDTypography>
         <MDTypography
           style={{ margin: "auto", textAlign: "center", fontSize: "12px" }}
         >
-          منصب العضو{" "}
-          <MDTypography variant="caption" style={{ color: "orange" }}>
+          منصب العضو
+          <MDTypography variant="caption" ml={1} style={{ color: "orange" }}>
             (عضو داخلي)
+          </MDTypography>
+        </MDTypography>
+        <MDTypography
+          style={{ margin: "auto", textAlign: "center", fontSize: "12px" }}
+        >
+          رقم الهاتف:
+          <MDTypography variant="caption" ml={1} style={{ color: "orange" }}>
+            {user?.mobileNumber}
           </MDTypography>
         </MDTypography>
       </CardContent>
@@ -43,6 +51,7 @@ const UserCard = ({}) => {
         }}
       >
         <MDButton
+          onClick={toggleUser(user, true)}
           style={{ backgroundColor: "darkgreen", width: "50%", color: "white" }}
         >
           محادثة
