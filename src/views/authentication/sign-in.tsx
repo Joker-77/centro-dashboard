@@ -30,7 +30,7 @@ const SignIn: React.FC<Props> = (props) => {
   }
   return (
     <AuthLayout image={bgImage}>
-      <Grid container spacing={2} sx={{ height: "100%" }}>
+      <Grid container spacing={1} sx={{ height: "100%" }}>
         <Grid
           sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
             zIndex: "999",
@@ -44,8 +44,6 @@ const SignIn: React.FC<Props> = (props) => {
             },
           })}
           item
-          md={6}
-          xs={12}
         >
           <img height="150" alt="bg-log" src={bgLogo} />
         </Grid>
@@ -65,9 +63,11 @@ const SignIn: React.FC<Props> = (props) => {
               paddingRight: "0px !important",
             },
             [breakpoints.up("md")]: {},
+            [breakpoints.up("lg")]: {},
           })}
           item
-          md={4}
+          md={12}
+          lg={6}
           xs={12}
         >
           <Card
