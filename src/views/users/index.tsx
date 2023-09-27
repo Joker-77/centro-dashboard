@@ -30,7 +30,7 @@ const Users: React.FC<UsersProps> = ({}) => {
     UserService.getUsers()
       .then((resp) => {
         setUsers(resp);
-        setLoading(true);
+        setLoading(false);
       })
       .catch((e) => {
         toast.error(e);
