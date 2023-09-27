@@ -70,6 +70,7 @@ MDTypography.propTypes = {
     "dark",
     "text",
     "white",
+    "#88cb60",
   ]),
   fontWeight: PropTypes.oneOf([false, "light", "regular", "medium", "bold"]),
   textTransform: PropTypes.oneOf([

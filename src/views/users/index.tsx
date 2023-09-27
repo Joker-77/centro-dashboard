@@ -133,11 +133,15 @@ const Users: React.FC<UsersProps> = ({}) => {
                 </Grid>
               </>
             ) : users.length > 0 ? (
-              users.map((item: any) => {
+              users.map((item: any, index) => {
                 return (
-                  <Grid item md={3} xs={12} my={1}>
+                  <Grid key={index} item md={3} xs={12} my={1}>
                     {item ? (
-                      <UserCard user={item} toggleUser={toggleDrawer} />
+                      <UserCard
+                        key={index}
+                        user={item}
+                        toggleUser={toggleDrawer}
+                      />
                     ) : (
                       <Skeleton
                         variant="rectangular"

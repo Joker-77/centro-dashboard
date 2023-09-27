@@ -9,35 +9,35 @@ const UserDetails: React.FC<any> = ({ open, toggleDrawer, user }) => {
   return (
     <Drawer open={open} onClose={toggleDrawer(false)}>
       <Grid>
-        <Grid md={4}>
+        <Grid item md={4}>
           <Typography>رقم الهاتف</Typography>
           <Typography>{user?.phone}</Typography>
         </Grid>
-        <Grid md={4}>
+        <Grid item md={4}>
           <Typography>البريد الالكتروني</Typography>
           <Typography>{user?.email}</Typography>
         </Grid>
-        <Grid md={4}>
+        <Grid item md={4}>
           <Typography>دولة العضو</Typography>
           <Typography>{user?.country}</Typography>
         </Grid>
-        <Grid md={4}>
+        <Grid item md={4}>
           <Typography>جهة العضو</Typography>
           <Typography>{user?.side}</Typography>
         </Grid>
-        <Grid md={4}>
+        <Grid item md={4}>
           <Typography>رمز وكود العضو</Typography>
           <Typography>{user?.code}</Typography>
         </Grid>
-        <Grid md={4}>
+        <Grid item md={4}>
           <Typography> نبذة عن العضو</Typography>
           <Typography>{user?.brief}</Typography>
         </Grid>
-        <Grid md={4}>
+        <Grid item md={4}>
           <Typography>صلاحيات العضو</Typography>
           <Typography>{user?.permissions}</Typography>
         </Grid>
-        <Grid md={4}>
+        <Grid item md={4}>
           <MDButton>محادثة</MDButton>
         </Grid>
       </Grid>

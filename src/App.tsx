@@ -32,8 +32,6 @@ function App() {
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
   let userState = useAuthState();
-  console.clear();
-  console.log("userState", userState);
   const userDetails =
     JSON.parse(localStorage.getItem("currentUser")!) || userState?.userDetails;
   useMemo(() => {
@@ -80,7 +78,7 @@ function App() {
           <Route
             path={route.route}
             element={
-              route.isPrivate && !userDetails.isLoggedIn ? (
+              route.isPrivate && !userDetails?.isLoggedIn ? (
                 <Navigate replace to={"/authentication/sign-in"} />
               ) : (
                 route.component

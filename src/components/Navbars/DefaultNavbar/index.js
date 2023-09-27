@@ -321,7 +321,6 @@ function DefaultNavbar({ transparent, light, action }) {
         >
           <AccountCircleIcon
             size="small"
-            disableRipple
             color="inherit"
             aria-controls="notification-menu"
             aria-haspopup="true"
