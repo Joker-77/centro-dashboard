@@ -88,6 +88,7 @@ function DashboardNavbar({ absolute, light, isMini, name }) {
   const handleConfiguratorOpen = () =>
     setOpenConfigurator(dispatch, !openConfigurator);
   const handleOpenMenu = (event) => setOpenMenu(event.currentTarget);
+
   const handleCloseMenu = () => setOpenMenu(false);
   const logoutUser = async () => {
     await logout(authDispatch);

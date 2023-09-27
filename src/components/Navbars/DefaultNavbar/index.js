@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 // react-router components
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // prop-types is a library for typechecking of props.
 import PropTypes from "prop-types";
@@ -15,34 +15,61 @@ import MDBox from "../../MDBox/index";
 import MDInput from "../../MDInput/index";
 import MDButton from "../../MDButton/index";
 import MDTypography from "../../MDTypography/index";
-// Material Dashboard 2 React example components
-import DefaultNavbarLink from "./DefaultNavbarLink";
-import DefaultNavbarMobile from "./DefaultNavbarMobile";
-
-// Material Dashboard 2 React base styles
 import breakpoints from "../../../assets/theme/base/breakpoints";
 import Paper from "@mui/material/Paper";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import DirectionsIcon from "@mui/icons-material/Directions";
 import IconButton from "@mui/material/IconButton";
 import TuneIcon from "@mui/icons-material/Tune";
 // Material Dashboard 2 React context
-import { useMaterialUIController } from "../../../context/index";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MessageIcon from "@mui/icons-material/Message";
 import PersonIcon from "@mui/icons-material/Person";
-function DefaultNavbar({ transparent, light, action }) {
-  const [controller] = useMaterialUIController();
-  const { darkMode } = controller;
+import CloseIcon from "@mui/icons-material/Close";
+import Menu from "@mui/material/Menu";
+import {
+  useMaterialUIController,
+  setMiniSidenav,
+} from "../../../context/index.js";
+import { navbarMobileMenu, navbarIconButton } from "./styles";
+import { useAuthDispatch } from "../../../context/Auth/index";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import LogoutIcon from "@mui/icons-material/Logout";
+import NotificationItem from "../../Items/NotificationItem";
+import { logout } from "../../../context/Auth";
 
+function DefaultNavbar({ transparent, light, action }) {
+  const [controller, dispatch] = useMaterialUIController();
+  const { miniSidenav, transparentNavbar, darkMode, direction } = controller;
+  const authDispatch = useAuthDispatch();
+  const handleMiniSidenav = () => setMiniSidenav(dispatch, !miniSidenav);
   const [mobileNavbar, setMobileNavbar] = useState(false);
   const [mobileView, setMobileView] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
+  const navigate = useNavigate();
 
-  const openMobileNavbar = ({ currentTarget }) =>
+  const iconsStyle = ({
+    palette: { dark, white, text },
+    functions: { rgba },
+  }) => ({
+    color: () => {
+      let colorValue = light || darkMode ? white.main : dark.main;
+      if (transparentNavbar && !light) {
+        colorValue = darkMode ? rgba(text.main, 0.6) : text.main;
+      }
+      return colorValue;
+    },
+  });
+  const handleCloseMenu = () => setOpenMenu(false);
+  const handleOpenMenu = (event) => setOpenMenu(event.currentTarget);
+  const openMobileNavbar = ({ currentTarget }) => {
     setMobileNavbar(currentTarget.parentNode);
+  };
   const closeMobileNavbar = () => setMobileNavbar(false);
-
+  const logoutUser = async () => {
+    await logout(authDispatch);
+    navigate("/authentication/sign-in");
+  };
   useEffect(() => {
     // A function that sets the display state for the DefaultNavbarMobile.
     function displayMobileNavbar() {
@@ -54,21 +81,49 @@ function DefaultNavbar({ transparent, light, action }) {
         setMobileNavbar(false);
       }
     }
-
     /** 
      The event listener that's calling the displayMobileNavbar function when 
      resizing the window.
     */
     window.addEventListener("resize", displayMobileNavbar);
-
     // Call the displayMobileNavbar function to set the state with the initial value.
     displayMobileNavbar();
-
     // Remove event listener on cleanup
     return () => window.removeEventListener("resize", displayMobileNavbar);
   }, []);
+  const renderMenu = () => (
+    <Menu
+      anchorEl={openMenu}
+      anchorReference={null}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "left",
+      }}
+      open={Boolean(openMenu)}
+      onClose={handleCloseMenu}
+      sx={{ mt: 2 }}
+    >
+      <NotificationItem
+        onClick={logoutUser}
+        icon={<LogoutIcon />}
+        title={direction == "rtl" ? `تسجيل الخروج` : `logout`}
+      />
+    </Menu>
+  );
   return (
-    <Container maxWidth={false}>
+    <Container
+      maxWidth={false}
+      sx={({
+        palette: { transparent, transparentColor, background },
+        functions: { rgba },
+        breakpoints,
+      }) => ({
+        [breakpoints.down("md")]: {
+          paddingRight: "0 !important",
+          paddingLeft: "0 !important",
+        },
+      })}
+    >
       <MDBox
         borderRadius="0"
         shadow={transparent ? "none" : "md"}
@@ -92,7 +147,7 @@ function DefaultNavbar({ transparent, light, action }) {
             marginLeft: "0",
           },
           [breakpoints.up("md")]: {
-            width: "calc(83.9% - 0px)",
+            width: "calc(85% - 0px)",
             marginLeft: "11em",
           },
         })}
@@ -227,6 +282,7 @@ function DefaultNavbar({ transparent, light, action }) {
               borderRadius: "10px",
               marginLeft: "0.5em",
               width: "30%",
+              display: "none",
             },
             [breakpoints.up("md")]: {
               borderRadius: "10px",
@@ -250,50 +306,58 @@ function DefaultNavbar({ transparent, light, action }) {
             محمد مصطفى علي
           </MDTypography>
         </MDBox>
-        {/* {action &&
-          (action.type === "internal" ? (
-            <MDBox display={{ xs: "none", lg: "inline-block" }}>
-              <MDButton
-                component={Link}
-                to={action.route}
-                variant="gradient"
-                color={action.color ? action.color : "info"}
-                size="small"
-              >
-                {action.label}
-              </MDButton>
-            </MDBox>
-          ) : (
-            <MDBox display={{ xs: "none", lg: "inline-block" }}>
-              <MDButton
-                component="a"
-                href={action.route}
-                target="_blank"
-                rel="noreferrer"
-                variant="gradient"
-                color={action.color ? action.color : "info"}
-                size="small"
-                sx={{ mt: -0.3 }}
-              >
-                {action.label}
-              </MDButton>
-            </MDBox>
-          ))} */}
-        {/* <MDBox
+        <MDBox
           display={{ xs: "inline-block", lg: "none" }}
           lineHeight={0}
           py={1.5}
           pl={1.5}
           color="inherit"
-          sx={{ cursor: "pointer" }}
+          sx={({ breakpoints }) => ({
+            [breakpoints.down["md"]]: {
+              marginLeft: "1em !important",
+            },
+          })}
           onClick={openMobileNavbar}
         >
-          <Icon fontSize="default">{mobileNavbar ? "close" : "menu"}</Icon>
-        </MDBox> */}
+          <AccountCircleIcon
+            size="small"
+            disableRipple
+            color="inherit"
+            aria-controls="notification-menu"
+            aria-haspopup="true"
+            variant="contained"
+            onClick={handleOpenMenu}
+          />
+          {renderMenu()}
+        </MDBox>
+        <MDBox
+          display={{ xs: "inline-block", lg: "none" }}
+          lineHeight={0}
+          py={1.5}
+          pl={1.5}
+          color="inherit"
+          sx={({ breakpoints }) => ({
+            [breakpoints.down["md"]]: {
+              marginLeft: "1em !important",
+            },
+          })}
+          onClick={openMobileNavbar}
+        >
+          <IconButton
+            size="small"
+            disableRipple
+            color="inherit"
+            sx={navbarMobileMenu}
+            onClick={handleMiniSidenav}
+          >
+            {miniSidenav ? (
+              <MenuIcon sx={iconsStyle} fontSize="medium" />
+            ) : (
+              <CloseIcon sx={iconsStyle} fontSize="medium" />
+            )}
+          </IconButton>
+        </MDBox>
       </MDBox>
-      {mobileView && (
-        <DefaultNavbarMobile open={mobileNavbar} close={closeMobileNavbar} />
-      )}
     </Container>
   );
 }

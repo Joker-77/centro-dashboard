@@ -31,8 +31,11 @@ function App() {
   const [rtlCache, setRtlCache] = useState<any>(null);
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
+  let userState = useAuthState();
+  console.clear();
+  console.log("userState", userState);
   const userDetails =
-    JSON.parse(localStorage.getItem("currentUser")!) || useAuthState();
+    JSON.parse(localStorage.getItem("currentUser")!) || userState?.userDetails;
   useMemo(() => {
     const cacheRtl = createCache({
       key: "rtl",
