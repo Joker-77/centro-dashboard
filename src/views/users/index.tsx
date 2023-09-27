@@ -30,7 +30,7 @@ const Users: React.FC<UsersProps> = ({}) => {
     UserService.getUsers()
       .then((resp) => {
         setUsers(resp);
-        setLoading(false);
+        setLoading(true);
       })
       .catch((e) => {
         toast.error(e);
@@ -122,8 +122,13 @@ const Users: React.FC<UsersProps> = ({}) => {
           >
             {loading ? (
               <>
-                <Grid item md={5} />
-                <Grid sx={{ mt: 20 }} item md={4}>
+                <Grid item md={4} />
+                <Grid
+                  item
+                  md={4}
+                  xs={12}
+                  sx={{ display: "flex", mt: 20, justifyContent: "center" }}
+                >
                   <CircularProgress />
                 </Grid>
               </>
