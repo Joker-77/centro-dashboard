@@ -21,8 +21,6 @@ export interface MUIPhoneProps extends BaseTextFieldProps {
 }
 
 export const MuiPhone: React.FC<any> = ({ value, ...props }) => {
-  console.log(props);
-  console.log(defaultCountries);
   const { phone, handlePhoneValueChange, inputRef, country, setCountry } =
     usePhoneInput({
       defaultCountry: "us",

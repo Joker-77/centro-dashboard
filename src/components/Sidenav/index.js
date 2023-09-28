@@ -13,6 +13,7 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import Link from "@mui/material/Link";
 import Icon from "@mui/material/Icon";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 // Material Dashboard 2 React components
 import MDBox from "../MDBox/index";
@@ -166,7 +167,23 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           </MDBox>
         </MDBox>
       </MDBox>
-      <List>{renderRoutes}</List>
+      <List>
+        {renderRoutes}
+        <Link
+          onClick={() => {
+            alert("logging out");
+          }}
+          key="logout"
+          target="_blank"
+          rel="noreferrer"
+          sx={{ textDecoration: "none", position: "relative" }}
+        >
+          <SidenavCollapse
+            name={direction == "ltr" ? "Logout" : "تسجيل الخروج"}
+            icon={<LogoutIcon />}
+          />
+        </Link>
+      </List>
     </SidenavRoot>
   );
 }

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import * as React from "react";
+import React, { useEffect } from "react";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -38,8 +38,6 @@ export default function Permissions() {
     const {
       target: { value },
     } = event;
-
-    console.log(value);
 
     const filterdValue = value.filter(
       (item) => permissionName.findIndex((o) => o.id === item.id) >= 0
@@ -87,43 +85,42 @@ export default function Permissions() {
   // };
 
   return (
-    <>
-      <MDTypography id="perm" variant="caption" sx={{ width: 300, mt: 1 }}>
-        صلاحيات العضو
-      </MDTypography>
-      <FormControl sx={{ width: 300, mt: 1 }} style={{ fontSize: "15px" }}>
-        <Select
-          labelId="permissions"
-          id="permissions"
-          multiple
-          value={permissionName}
-          onChange={handleChange}
-          style={{
-            backgroundColor: "white",
-            height: 45,
-            width: 280,
-          }}
-          input={<OutlinedInput />}
-          renderValue={(selected) => {
-            if (selected.map((x) => x.name).length > 3)
-              return selected.map((x) => x.name).length;
-            else return selected.map((x) => x.name).join(",");
-          }}
-          MenuProps={MenuProps}
-        >
-          {permissions.map((variant) => (
-            <MenuItem key={variant.id} value={variant}>
-              <Checkbox
-                checked={
-                  permissionName.findIndex((item) => item.id === variant.id) >=
-                  0
-                }
-              />
-              <ListItemText primary={variant.name} />
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </>
+    <FormControl
+      sx={({ breakpoints }) => ({
+        [breakpoints.down("md")]: { width: 215, mt: 1 },
+        [breakpoints.up("md")]: { width: 295, mt: 1 },
+      })}
+      style={{ fontSize: "15px" }}
+    >
+      <Select
+        labelId="permissions"
+        id="permissions"
+        multiple
+        value={permissionName}
+        onChange={handleChange}
+        style={{
+          backgroundColor: "white",
+          height: 45,
+        }}
+        input={<OutlinedInput />}
+        renderValue={(selected) => {
+          if (selected.map((x) => x.name).length > 3)
+            return selected.map((x) => x.name).length;
+          else return selected.map((x) => x.name).join(",");
+        }}
+        MenuProps={MenuProps}
+      >
+        {permissions.map((variant) => (
+          <MenuItem key={variant.id} value={variant}>
+            <Checkbox
+              checked={
+                permissionName.findIndex((item) => item.id === variant.id) >= 0
+              }
+            />
+            <ListItemText primary={variant.name} />
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 }

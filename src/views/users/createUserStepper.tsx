@@ -13,7 +13,6 @@ const steps = ["إدخال المعلومات الأساسية", "", ""];
 const CreateUserStepper: React.FC<IProps> = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [skipped, setSkipped] = useState(new Set<number>());
-
   return;
 };
 

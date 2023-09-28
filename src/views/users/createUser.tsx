@@ -45,7 +45,9 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
     setSelectedFile(e.target.files[0]);
     setFile(URL.createObjectURL(e.target.files[0]));
   };
-  const submitCreate = () => {};
+  const submitCreate = (values, setSubmitting) => {
+    console.log(values);
+  };
   return (
     <Grid container spacing={2} my={{ sx: 1, md: 2 }}>
       <Grid item xs={8}>
@@ -60,7 +62,9 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
       </Grid>
       <Formik
         initialValues={initialValues}
-        onSubmit={submitCreate}
+        onSubmit={(values, { setSubmitting }) =>
+          submitCreate(values, setSubmitting)
+        }
         validationSchema={validationSchema}
       >
         {(props) => {
@@ -85,7 +89,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
               }}
             >
               <Grid container spacing={2} my={{ sx: 1, md: 2 }}>
-                <Grid item xs={4} md={4}>
+                <Grid item xs={12} md={4}>
                   <MDTypography style={{ fontSize: "15px" }} mb={2}>
                     اسم العضو <span style={{ color: "red" }}>*</span>
                   </MDTypography>
@@ -95,7 +99,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     value={values.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    helperText={errors.name && touched.name && errors.name}
+                    helperText={errors.name || touched.name}
                     sx={{
                       width: "75%",
                       "& .MuiFormHelperText-root": {
@@ -112,7 +116,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={4} md={4}>
+                <Grid item xs={12} md={4}>
                   <MDTypography style={{ fontSize: "15px" }} mb={2}>
                     رقم الهاتف <span style={{ color: "red" }}>*</span>
                   </MDTypography>
@@ -127,10 +131,10 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                       handleChange(val);
                     }}
                     onBlur={handleBlur}
-                    helperText={errors.phone && touched.phone && errors.phone}
+                    helperText={errors.phone || touched.phone}
                   />
                 </Grid>
-                <Grid item xs={4} md={4}>
+                <Grid item xs={12} md={4}>
                   <MDTypography style={{ fontSize: "15px" }} mb={2}>
                     البريد الالكتروني <span style={{ color: "red" }}>*</span>
                   </MDTypography>
@@ -140,7 +144,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    helperText={errors.email && touched.email && errors.email}
+                    helperText={errors.email || touched.email}
                     sx={{
                       width: "75%",
                       "& .MuiFormHelperText-root": {
@@ -157,7 +161,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={4} md={4}>
+                <Grid item xs={12} md={4}>
                   <MDTypography style={{ fontSize: "15px" }} mb={2}>
                     منصب العضو
                   </MDTypography>
@@ -167,7 +171,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     value={values.role}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    helperText={errors.role && touched.role && errors.role}
+                    helperText={errors.role || touched.role}
                     sx={{
                       width: "75%",
                       "& .MuiFormHelperText-root": {
@@ -184,7 +188,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={4} md={4}>
+                <Grid item xs={12} md={4}>
                   <MDTypography style={{ fontSize: "15px" }} mb={2}>
                     دولة العضو
                   </MDTypography>
@@ -194,9 +198,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     value={values.country}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    helperText={
-                      errors.country && touched.country && errors.country
-                    }
+                    helperText={errors.country || touched.country}
                     sx={{
                       width: "75%",
                       "& .MuiFormHelperText-root": {
@@ -213,7 +215,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={4} md={4}>
+                <Grid item xs={12} md={4}>
                   <MDTypography style={{ fontSize: "15px" }} mb={2}>
                     جهة العضو
                   </MDTypography>
@@ -223,11 +225,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     value={values.memberSide}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    helperText={
-                      errors.memberSide &&
-                      touched.memberSide &&
-                      errors.memberSide
-                    }
+                    helperText={errors.memberSide || touched.memberSide}
                     sx={{
                       width: "75%",
                       "& .MuiFormHelperText-root": {
@@ -244,7 +242,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={4} md={4}>
+                <Grid item xs={12} md={4}>
                   <MDTypography style={{ fontSize: "15px" }} mb={2}>
                     رقم العضو
                   </MDTypography>
@@ -254,9 +252,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     value={values.number}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    helperText={
-                      errors.number && touched.number && errors.number
-                    }
+                    helperText={errors.number || touched.number}
                     sx={{
                       width: "75%",
                       "& .MuiFormHelperText-root": {
@@ -273,7 +269,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={4} md={4}>
+                <Grid item xs={12} md={4}>
                   <MDTypography style={{ fontSize: "15px" }} mb={2}>
                     نبذة عن العضو
                   </MDTypography>
@@ -302,7 +298,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                 </Grid>
                 <Grid
                   item
-                  xs={4}
+                  xs={12}
                   md={4}
                   style={{
                     display: "flex",
@@ -340,11 +336,16 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     onChange={handleCapture}
                   />
                 </Grid>
-                <Grid item xs={4} md={4}>
+                <Grid item xs={12} md={4}>
+                  <MDTypography id="perm" style={{ fontSize: "15px" }}>
+                    صلاحيات العضو
+                  </MDTypography>
                   <Permissions />
                 </Grid>
-                <Grid item xs={12} md={12}>
-                  <MDButton color="primary">أضف العضو الآن</MDButton>
+                <Grid item xs={12} md={12} style={{ display: "flex" }}>
+                  <MDButton type="submit" color="primary">
+                    أضف العضو الآن
+                  </MDButton>
                   <MDButton color="error" variant="outlined" sx={{ mx: 1 }}>
                     إيقاف الصلاحيات
                   </MDButton>
