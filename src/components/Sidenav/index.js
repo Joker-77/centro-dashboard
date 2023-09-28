@@ -167,7 +167,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           </MDBox>
         </MDBox>
       </MDBox>
-      <List>
+      <List style={{ display: "flex", flexDirection: "column" }}>
         {renderRoutes}
         <Link
           onClick={() => {
@@ -176,7 +176,11 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           key="logout"
           target="_blank"
           rel="noreferrer"
-          sx={{ textDecoration: "none", position: "relative" }}
+          sx={{
+            textDecoration: "none",
+            position: "relative",
+            "& .MuiTypography-root": { color: "red" },
+          }}
         >
           <SidenavCollapse
             name={direction == "ltr" ? "Logout" : "تسجيل الخروج"}
