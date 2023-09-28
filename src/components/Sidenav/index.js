@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 // react-router-dom components
-import { useLocation, NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 // prop-types is a library for typechecking of props.
 import PropTypes from "prop-types";
@@ -34,11 +34,15 @@ import {
   setWhiteSidenav,
 } from "../../context/index.js";
 
+import { logout } from "../../context/Auth/index";
+import { useAuthDispatch } from "../../context/Auth/index";
+
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
   const [controller, dispatch] = useMaterialUIController();
   const { direction, miniSidenav, transparentSidenav, whiteSidenav, darkMode } =
     controller;
-  const location = useLocation();
+  const navigate = useNavigate();
+  const authDispatch = useAuthDispatch();
   const collapseName = location.pathname.replace("/", "");
 
   let textColor = "#88cb60";
@@ -167,16 +171,20 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           </MDBox>
         </MDBox>
       </MDBox>
-      <List style={{ display: "flex", flexDirection: "column" }}>
+      <List
+        style={{ display: "flex", flexDirection: "column", height: "100%" }}
+      >
         {renderRoutes}
         <Link
-          onClick={() => {
-            alert("logging out");
+          onClick={async () => {
+            await logout(authDispatch);
+            navigate("/authentication/sign-in");
           }}
           key="logout"
           target="_blank"
           rel="noreferrer"
           sx={{
+            marginTop: "auto",
             textDecoration: "none",
             position: "relative",
             "& .MuiTypography-root": { color: "red" },
