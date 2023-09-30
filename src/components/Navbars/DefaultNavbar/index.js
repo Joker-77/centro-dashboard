@@ -147,7 +147,7 @@ function DefaultNavbar({ transparent, light, action }) {
             marginLeft: "0",
           },
           [breakpoints.up("md")]: {
-            width: "calc(85% - 0px)",
+            width: "calc(84% - 0px)",
             marginLeft: "11em",
           },
         })}

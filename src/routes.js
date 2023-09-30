@@ -3,6 +3,7 @@ import Icon from "@mui/material/Icon";
 import React from "react";
 import Users from "./views/users/index.tsx";
 import SignIn from "./views/authentication/sign-in.tsx";
+import Dashboard from "./views/dashboard/index.tsx";
 const routes = [
   {
     type: "collapse",
@@ -21,7 +22,7 @@ const routes = [
     key: "home",
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard",
-    component: <> </>, //<Dashboard />,
+    component: <Dashboard />, //<Dashboard />,
     isPrivate: true,
   },
   {

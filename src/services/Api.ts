@@ -9,16 +9,17 @@
 import axios from "axios";
 import TokenService from "./TokenService";
 
-const API_URL = "http://13.39.245.93:259/api";
+// const API_URL = "http://13.39.245.93:259/api";
+const API_URL = "https://stage-e43a1242bz81a86.roya-tech.com:257/api";
 // const API_URL = "https://www.trendfuture.shop/api/welcome2";
 
 const instance = axios.create({
   baseURL: API_URL,
   headers: {
     "Content-Type": "application/json",
-    "DeviceId": 5000,
-    "Latitude": 31.964909,
-    "Longitude": 35.883818,
+    DeviceId: 5000,
+    Latitude: 31.964909,
+    Longitude: 35.883818,
   },
 });
 

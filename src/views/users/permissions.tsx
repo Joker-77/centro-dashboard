@@ -8,7 +8,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import MDTypography from "../../components/MDTypography/index";
-
+import RoleService from "../../services/RoleService";
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -20,31 +20,31 @@ const MenuProps = {
   },
 };
 
-const permissions = [
-  {
-    id: 10,
-    name: "permission",
-    slug: "permission",
-    type: "permission",
-    created_at: "2021-11-15T08:30:08.000Z",
-    updated_at: "2021-11-15T08:30:08.000Z",
-  },
-];
-
 export default function Permissions() {
+  const [permissions, setPermissions] = React.useState([]);
   const [permissionName, setPermissionName] = React.useState([]);
 
+  React.useEffect(() => {
+    RoleService.getAll()
+      .then((response) => {
+        console.clear();
+        console.log(response);
+        setPermissions(response);
+      })
+      .catch((e) => console.error(e));
+  }, []);
   const handleChange = (event) => {
     const {
       target: { value },
     } = event;
-
+    console.clear();
+    console.log(event.target.value);
     const filterdValue = value.filter(
-      (item) => permissionName.findIndex((o) => o.id === item.id) >= 0
+      (item) => permissionName.findIndex((o) => o === item) >= 0
     );
 
     let duplicatesRemoved = value.filter((item, itemIndex) =>
-      value.findIndex((o, oIndex) => o.id === item.id && oIndex !== itemIndex)
+      value.findIndex((o, oIndex) => o === item && oIndex !== itemIndex)
     );
 
     // console.log(duplicatesRemoved);
@@ -57,15 +57,13 @@ export default function Permissions() {
     // console.log('Using Map', Object.values(map));
 
     let duplicateRemoved = [];
-
     value.forEach((item) => {
-      if (duplicateRemoved.findIndex((o) => o.id === item.id) >= 0) {
-        duplicateRemoved = duplicateRemoved.filter((x) => x.id === item.id);
+      if (duplicateRemoved.findIndex((o) => o === item) >= 0) {
+        duplicateRemoved = duplicateRemoved.filter((x) => x === item);
       } else {
         duplicateRemoved.push(item);
       }
     });
-
     setPermissionName(duplicateRemoved);
   };
 
@@ -104,20 +102,20 @@ export default function Permissions() {
         }}
         input={<OutlinedInput />}
         renderValue={(selected) => {
-          if (selected.map((x) => x.name).length > 3)
-            return selected.map((x) => x.name).length;
-          else return selected.map((x) => x.name).join(",");
+          if (selected.map((x) => x).length > 3)
+            return selected.map((x) => x).length;
+          else return selected.map((x) => x).join(",");
         }}
         MenuProps={MenuProps}
       >
         {permissions.map((variant) => (
-          <MenuItem key={variant.id} value={variant}>
+          <MenuItem key={variant} value={variant}>
             <Checkbox
               checked={
-                permissionName.findIndex((item) => item.id === variant.id) >= 0
+                permissionName.findIndex((item) => item === variant) >= 0
               }
             />
-            <ListItemText primary={variant.name} />
+            <ListItemText primary={variant} />
           </MenuItem>
         ))}
       </Select>
