@@ -37,7 +37,7 @@ function App() {
   useMemo(() => {
     const cacheRtl = createCache({
       key: "rtl",
-      stylisPlugins: [rtlPlugin, prefixer],
+      stylisPlugins: [prefixer, rtlPlugin],
     });
     setRtlCache(cacheRtl);
   }, []);
