@@ -34,14 +34,14 @@ function App() {
   let userState = useAuthState();
   const userDetails =
     JSON.parse(localStorage.getItem("currentUser")!) || userState?.userDetails;
+
   useMemo(() => {
     const cacheRtl = createCache({
       key: "rtl",
-      stylisPlugins: [prefixer, rtlPlugin],
+      stylisPlugins: [rtlPlugin, prefixer],
     });
     setRtlCache(cacheRtl);
   }, []);
-
   useEffect(() => {
     document.documentElement!.scrollTop = 0;
     document.scrollingElement!.scrollTop = 0;
