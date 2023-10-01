@@ -16,7 +16,6 @@ interface Props {
   dispatch: any;
 }
 const SignInForm: React.FC<Props> = ({ dispatch }) => {
-  console.log(dispatch);
   const validationSchema = yup.object({
     email: yup
       .string("اكتب هنا..")

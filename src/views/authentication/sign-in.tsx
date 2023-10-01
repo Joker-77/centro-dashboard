@@ -27,8 +27,8 @@ const SignIn: React.FC<Props> = (props) => {
     localStorage.setItem("userDetails", JSON.stringify(userDetails));
     return <Navigate to="/dashboard" />;
   }
-  if (!!userDetails && userDetails.errorMessage) {
-    toast.error(userDetails.errorMessage?.response?.data[0].errorMessage);
+  if (userState?.errorMessage != null) {
+    toast.error(userState.errorMessage?.response?.data[0].errorMessage);
   }
   return (
     <AuthLayout image={bgImage}>

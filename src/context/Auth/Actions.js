@@ -14,7 +14,6 @@ export async function loginUser(dispatch, email, password) {
       type: "REQUEST_LOGIN",
     });
     let data = await AuthService.login(payload);
-    console.log("REQUEST_LOGIN", data);
     if (data) {
       dispatch({
         type: "LOGIN_SUCCESS",
