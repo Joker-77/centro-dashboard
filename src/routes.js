@@ -4,6 +4,8 @@ import React from "react";
 import Users from "./views/users/index.tsx";
 import SignIn from "./views/authentication/sign-in.tsx";
 import Dashboard from "./views/dashboard/index.tsx";
+import Dashboard2 from "./views/dashboard2/index.tsx";
+
 const routes = [
   {
     type: "collapse",
@@ -43,6 +45,16 @@ const routes = [
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/authentication/sign-in",
     component: <> </>, //<Dashboard />,
+    isPrivate: true,
+  },
+  {
+    type: "collapse",
+    name: "Home2",
+    ar_name: "الرئيسية 2",
+    key: "home2",
+    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    route: "/dashboard2",
+    component: <Dashboard2 />, //<Dashboard />,
     isPrivate: true,
   },
 ];
