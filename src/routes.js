@@ -5,7 +5,7 @@ import Users from "./views/users/index.tsx";
 import SignIn from "./views/authentication/sign-in.tsx";
 import Dashboard from "./views/dashboard/index.tsx";
 import Dashboard2 from "./views/dashboard2/index.tsx";
-
+import Calendar from "./views/calendar/index";
 const routes = [
   {
     type: "collapse",
@@ -35,6 +35,16 @@ const routes = [
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/users",
     component: <Users />, //<Dashboard />,
+    isPrivate: true,
+  },
+  {
+    type: "collapse",
+    name: "Calendar",
+    ar_name: "التقويم",
+    key: "calendar",
+    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    route: "/calendar",
+    component: <Calendar />, //<Dashboard />,
     isPrivate: true,
   },
   {
