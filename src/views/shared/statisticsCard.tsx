@@ -2,16 +2,36 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import MDTypography from "./../../components/MDTypography/index";
-interface IProps {
-  style?: any;
-  color?: string;
-}
+interface IProps {}
 
-const StatisticCard: React.FC<IProps> = ({ name, value, svg, ...props }) => {
+const StatisticCard: React.FC<IProps> = ({
+  num,
+  svg,
+  value,
+  name,
+  fontSize,
+  ...props
+}) => {
+  console.log(props);
   return (
-    <Grid container md={11} mt={2} {...props}>
+    <Grid
+      container
+      md={11}
+      mt={num > 0 ? 4 : 0}
+      {...props}
+      style={{ backgroundColor: "white" }}
+      {...props.style}
+    >
       <Grid container md={10}>
-        <Grid item md={2}>
+        <Grid
+          item
+          md={2}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           {svg}
         </Grid>
         <Grid
@@ -21,7 +41,7 @@ const StatisticCard: React.FC<IProps> = ({ name, value, svg, ...props }) => {
             alignItems: "center",
           }}
           item
-          md={3}
+          md={5}
         >
           <MDTypography
             style={{
@@ -48,6 +68,7 @@ const StatisticCard: React.FC<IProps> = ({ name, value, svg, ...props }) => {
           style={{
             color: "white",
             textAlign: "center",
+            fontSize: fontSize,
           }}
         >
           {value}

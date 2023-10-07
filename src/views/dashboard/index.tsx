@@ -1,33 +1,23 @@
 // @ts-nocheck
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import DashboardLayout from "./../layouts/index";
-import StatisticCard from "./statisticsCard";
-import Calender from "./calender";
-import MDTyporgraphy from "./../../components/MDTypography/index";
+import StatisticCard from "../shared/statisticsCard";
+import Calender from "../shared/calender";
+import MDTypography from "./../../components/MDTypography/index";
+import { DateHelper } from "./../../Helpers/DateHelper";
+import { Link } from "react-router-dom";
 interface IProps {}
-
 const Dashboard: React.FC<IProps> = () => {
+  const [date, setDate] = useState("");
+  useEffect(() => {
+    let day = DateHelper.getDay(new Date().getDay() + 1);
+    let date = new Date().toLocaleDateString();
+    setDate(`${day}، ${date}`);
+  }, []);
   return (
     <DashboardLayout>
-      <Grid
-        container
-        spacing={2}
-        style={{
-          position: "relative",
-          top: "1em",
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <Grid item md={8}>
-          <MDTyporgraphy>مرحباً بك مرة أخرى...</MDTyporgraphy>
-        </Grid>
-        <Grid item md={4}>
-          <MDTyporgraphy> التقويم اليومي ومواعيدك</MDTyporgraphy>
-        </Grid>
-      </Grid>
       <Grid
         container
         spacing={2}
@@ -39,7 +29,11 @@ const Dashboard: React.FC<IProps> = () => {
         }}
       >
         <Grid container md={8}>
+          <Grid item md={12} height={".1em"}>
+            <MDTypography fontSize="14px">مرحباً بك مرة أخرى...</MDTypography>
+          </Grid>
           <StatisticCard
+            num={0}
             bgLeftColor={"#FF8900"}
             svg={
               <svg
@@ -62,28 +56,167 @@ const Dashboard: React.FC<IProps> = () => {
             style={{ border: "1px solid #FF8900", borderRadius: "10px" }}
           />
           <StatisticCard
+            num={1}
             name="رحلات السفر"
             value={32}
+            svg={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="51.437"
+                height="32"
+                viewBox="0 0 51.437 32"
+              >
+                <path
+                  id="Path_142512"
+                  data-name="Path 142512"
+                  d="M51.178,104.113a4.268,4.268,0,0,0-2.222-2.424,15.452,15.452,0,0,0-11.893-.519l-4.079,1.485L21.342,96.892a1.508,1.508,0,0,0-1.184-.065l-6.951,2.53a1.507,1.507,0,0,0-.364,2.64l7.377,5.3L9.968,111.031l-3.8-3.085A1.507,1.507,0,0,0,4.7,107.7L.992,109.051a1.507,1.507,0,0,0-.9,1.932l2.361,6.488a8.411,8.411,0,0,0,10.78,5.027l9.032-3.287-1.948,7.648a1.507,1.507,0,0,0,1.976,1.788l6.951-2.53a1.507,1.507,0,0,0,.865-.811l4.667-10.648,13.834-5.035A4.3,4.3,0,0,0,51.178,104.113Zm-34.26-2.9,3.666-1.334,8.486,4.2-5.421,1.973Zm30.662,5.575-14.44,5.256a1.507,1.507,0,0,0-.865.811L27.608,123.5l-3.666,1.334,1.948-7.648a1.507,1.507,0,0,0-1.976-1.788L12.2,119.664a5.4,5.4,0,0,1-6.917-3.226l-1.846-5.071,1.489-.542,3.8,3.085a1.508,1.508,0,0,0,1.465.246L38.094,104a12.458,12.458,0,0,1,9.589.419,1.283,1.283,0,0,1-.1,2.368Z"
+                  transform="translate(-0.001 -96.736)"
+                  fill="#655dc6"
+                />
+              </svg>
+            }
             bgLeftColor={"#655DC6"}
             style={{ border: "1px solid #0095FF", borderRadius: "10px" }}
           />
           <StatisticCard
+            num={2}
             name="الاجتماعات القادمة"
             value={32}
+            svg={
+              <svg
+                id="Group_26660"
+                data-name="Group 26660"
+                xmlns="http://www.w3.org/2000/svg"
+                width="31.998"
+                height="32"
+                viewBox="0 0 31.998 32"
+              >
+                <path
+                  id="Path_142505"
+                  data-name="Path 142505"
+                  d="M31.975,23.038l0-.014L30.6,15.53a2.8,2.8,0,0,0-2.773-2.343H22.57v-1A6.565,6.565,0,0,0,18.806,6.25a3.75,3.75,0,1,0-5.585,0,6.571,6.571,0,0,0-3.77,5.938v1H4.2A2.8,2.8,0,0,0,1.423,15.53L.054,23.023l0,.014A2.851,2.851,0,0,0,2.609,26.3a6.637,6.637,0,0,0-.658,2.889v1.875A.938.938,0,0,0,2.888,32h11.25a.932.932,0,0,0,.931-.937V29.188a6.66,6.66,0,0,0-.644-2.881H17.6a6.665,6.665,0,0,0-.651,2.881v1.875a.938.938,0,0,0,.938.937h11.25a.932.932,0,0,0,.931-.937V29.188a6.632,6.632,0,0,0-.652-2.889A2.851,2.851,0,0,0,31.975,23.038ZM16.013,1.875A1.875,1.875,0,1,1,14.138,3.75,1.877,1.877,0,0,1,16.013,1.875ZM11.32,12.188a4.691,4.691,0,0,1,9.381,0v1H11.32v-1ZM13.2,30.125H3.82v-.938a4.691,4.691,0,1,1,9.381,0ZM6.638,20.688a1.875,1.875,0,1,1,1.875,1.875A1.877,1.877,0,0,1,6.638,20.688ZM28.2,30.125H18.82v-.938a4.691,4.691,0,1,1,9.381,0Zm-6.563-9.438a1.875,1.875,0,1,1,1.875,1.875A1.877,1.877,0,0,1,21.638,20.688Zm7.5,3.75H28.083A6.589,6.589,0,0,0,26.3,23.191a3.75,3.75,0,1,0-5.578,0,6.589,6.589,0,0,0-1.781,1.246H13.083A6.589,6.589,0,0,0,11.3,23.191a3.75,3.75,0,1,0-5.577,0,6.591,6.591,0,0,0-1.781,1.246H2.888A.983.983,0,0,1,1.9,23.352L3.268,15.86l0-.014a.935.935,0,0,1,.925-.783H27.831a.935.935,0,0,1,.925.783l0,.014,1.368,7.491A.983.983,0,0,1,29.138,24.438Z"
+                  transform="translate(-0.014 0)"
+                  fill="#73c3d5"
+                />
+              </svg>
+            }
             bgLeftColor={"#73C3D5"}
             style={{ border: "1px solid #0095FF", borderRadius: "10px" }}
           />
           <StatisticCard
+            num={3}
             name="طلبات الاستدعاء"
             value={32}
+            svg={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  id="conversation"
+                  d="M27.7,23.292a5.168,5.168,0,1,0-8.659,0,8.6,8.6,0,0,0-4.3,7.457A1.25,1.25,0,0,0,16,32H30.75A1.25,1.25,0,0,0,32,30.749,8.6,8.6,0,0,0,27.7,23.292Zm-4.329-5.485a2.668,2.668,0,1,1-2.668,2.668A2.671,2.671,0,0,1,23.375,17.807Zm-6,11.692a6.138,6.138,0,0,1,3.666-4.414,5.149,5.149,0,0,0,4.664,0A6.137,6.137,0,0,1,29.374,29.5ZM1.25,16.691H16a1.25,1.25,0,0,0,1.25-1.25,8.6,8.6,0,0,0-4.3-7.457,5.168,5.168,0,1,0-8.659,0A8.6,8.6,0,0,0,0,15.441,1.25,1.25,0,0,0,1.25,16.691ZM8.625,2.5A2.668,2.668,0,1,1,5.958,5.167,2.671,2.671,0,0,1,8.625,2.5ZM6.293,9.776a5.149,5.149,0,0,0,4.664,0,6.137,6.137,0,0,1,3.666,4.414h-12A6.138,6.138,0,0,1,6.293,9.776Zm6.841,17.106L9.776,30.241a1.25,1.25,0,1,1-1.768-1.768l1.225-1.225H1.25A1.25,1.25,0,0,1,0,26v-6.25a1.25,1.25,0,0,1,2.5,0v5H9.233L8.008,23.524a1.25,1.25,0,1,1,1.768-1.768l3.359,3.359a1.252,1.252,0,0,1,0,1.768ZM32,4.608v6.25a1.25,1.25,0,1,1-2.5,0v-5H22.768l1.225,1.225A1.25,1.25,0,0,1,22.225,8.85L18.867,5.492a1.252,1.252,0,0,1,0-1.768L22.225.365a1.25,1.25,0,0,1,1.768,1.768L22.768,3.358H30.75A1.25,1.25,0,0,1,32,4.608Zm0,0"
+                  transform="translate(0 0.001)"
+                  fill="#0095ff"
+                />
+              </svg>
+            }
             bgLeftColor={"#0095FF"}
             style={{ border: "1px solid #0095FF", borderRadius: "10px" }}
           />
         </Grid>
-        <Grid container md={3} mr={8} mt={1}>
-          <Card style={{ width: "100%" }}>
-            <Calender />
-          </Card>
+        <Grid container md={3} mr={8}>
+          <Grid item md={12}>
+            <MDTypography fontSize="14px">التقويم اليومي ومواعيدك</MDTypography>
+          </Grid>
+          <Grid item md={12} xs={12}>
+            <Card style={{ marginTop: "1em" }}>
+              <Grid container md={12}>
+                <Grid item md={1} p={1} mt={0.5}>
+                  <svg width="18.008" height="18" viewBox="0 0 18.008 18">
+                    <defs>
+                      <linearGradient
+                        id="linear-gradient"
+                        x1="0.161"
+                        y1="-0.447"
+                        x2="1"
+                        y2="1.232"
+                        gradientUnits="objectBoundingBox"
+                      >
+                        <stop offset="0" stop-color="#13714d" />
+                        <stop offset="1" stop-color="#88cb60" />
+                      </linearGradient>
+                    </defs>
+                    <g
+                      id="calendar_3_"
+                      data-name="calendar (3)"
+                      transform="translate(0 -0.114)"
+                    >
+                      <path
+                        id="Path_354"
+                        data-name="Path 354"
+                        d="M14.531,1.5H13.86V.817a.7.7,0,0,0-1.406,0V1.5h-6.9V.817a.7.7,0,0,0-1.406,0V1.5H3.477A3.481,3.481,0,0,0,0,4.974v9.664a3.481,3.481,0,0,0,3.477,3.477H14.531a3.481,3.481,0,0,0,3.477-3.477V4.974A3.481,3.481,0,0,0,14.531,1.5ZM3.477,2.9h.672V4.274a.7.7,0,0,0,1.406,0V2.9h6.9V4.274a.7.7,0,1,0,1.406,0V2.9h.672a2.073,2.073,0,0,1,2.07,2.07v.672H1.406V4.974A2.073,2.073,0,0,1,3.477,2.9Zm11.054,13.8H3.477a2.073,2.073,0,0,1-2.071-2.071V7.051H16.6v7.586a2.073,2.073,0,0,1-2.071,2.071ZM6.246,9.817a.7.7,0,0,1-.7.7H4.16a.7.7,0,1,1,0-1.406H5.543A.7.7,0,0,1,6.246,9.817Zm8.3,0a.7.7,0,0,1-.7.7H12.465a.7.7,0,0,1,0-1.406h1.383A.7.7,0,0,1,14.551,9.817Zm-4.156,0a.7.7,0,0,1-.7.7H8.309a.7.7,0,1,1,0-1.406H9.691A.7.7,0,0,1,10.395,9.817ZM6.246,13.966a.7.7,0,0,1-.7.7H4.16a.7.7,0,1,1,0-1.406H5.543A.7.7,0,0,1,6.246,13.966Zm8.3,0a.7.7,0,0,1-.7.7H12.465a.7.7,0,0,1,0-1.406h1.383A.7.7,0,0,1,14.551,13.966Zm-4.156,0a.7.7,0,0,1-.7.7H8.309a.7.7,0,0,1,0-1.406H9.691A.7.7,0,0,1,10.395,13.966Z"
+                        transform="translate(0)"
+                        fill="url(#linear-gradient)"
+                      />
+                    </g>
+                  </svg>
+                </Grid>
+                <Grid item md={8} p={1}>
+                  <MDTypography variant="span" fontSize={14}>
+                    {date}
+                  </MDTypography>
+                </Grid>
+                <Grid
+                  item
+                  md={3}
+                  style={{
+                    backgroundColor: "#13714D",
+                    borderTopLeftRadius: "10px",
+                    borderBottomLeftRadius: "10px",
+                    paddingRight: ".6em",
+                    paddingTop: ".3em",
+                  }}
+                >
+                  <MDTypography variant="span" fontSize={14} color="white">
+                    تقويمي
+                  </MDTypography>
+                </Grid>
+              </Grid>
+            </Card>
+          </Grid>
+          <Grid item md={12} mt={2}>
+            <Card style={{ width: "100%" }}>
+              <Calender />
+            </Card>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid
+        container
+        spacing={2}
+        style={{
+          position: "relative",
+          top: "4em",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <Grid container md={8}>
+          <Grid item md={10}>
+            <MDTypography fontSize="12px">أحدث الطلبات</MDTypography>
+          </Grid>
+          <Grid item md={2}>
+            <Link>
+              <MDTypography
+                style={{ textDecoration: "underline" }}
+                fontSize="12px"
+              >
+                عرض الكل
+              </MDTypography>
+            </Link>
+          </Grid>
         </Grid>
       </Grid>
     </DashboardLayout>

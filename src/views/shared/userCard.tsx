@@ -9,7 +9,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import user1 from "./../../assets/images/user1.jpg";
-const UserCard = ({ user, toggleUser }) => {
+const UserCard = ({ user, toggleUser, hasbuttons }) => {
   return (
     <Card sx={{ maxWidth: 250 }}>
       <CardMedia
@@ -50,15 +50,23 @@ const UserCard = ({ user, toggleUser }) => {
           justifyContent: "space-between",
         }}
       >
-        <MDButton
-          onClick={toggleUser(user, true)}
-          style={{ backgroundColor: "darkgreen", width: "50%", color: "white" }}
-        >
-          محادثة
-        </MDButton>
-        <MDButton color="primary" style={{ width: "50%" }}>
-          تعديل
-        </MDButton>
+        {hasbuttons && (
+          <>
+            <MDButton
+              onClick={toggleUser(user, true)}
+              style={{
+                backgroundColor: "darkgreen",
+                width: "50%",
+                color: "white",
+              }}
+            >
+              محادثة
+            </MDButton>
+            <MDButton color="primary" style={{ width: "50%" }}>
+              تعديل
+            </MDButton>
+          </>
+        )}
       </CardActions>
     </Card>
   );

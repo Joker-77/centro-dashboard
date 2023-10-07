@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useState, useEffect } from "react";
-import UserCard from "./userCard";
+import UserCard from "../shared/userCard";
 import DashboardLayouts from "../layouts/index";
 import Grid from "@mui/material/Grid";
 import MDBox from "../../components/MDBox/index";
@@ -8,7 +8,6 @@ import MDTypography from "../../components/MDTypography/index";
 import MDButton from "../../components/MDButton/index";
 import CreateUser from "./createUser";
 import UserDetails from "./userDetails";
-import Drawer from "@mui/material/Drawer";
 import UserService from "./../../services/UserService";
 import { toast } from "react-toastify";
 import Skeleton from "@mui/material/Skeleton";
@@ -138,6 +137,7 @@ const Users: React.FC<UsersProps> = ({}) => {
                   <Grid key={index} item md={3} xs={12} my={1}>
                     {item ? (
                       <UserCard
+                        hasbuttons
                         key={index}
                         user={item}
                         toggleUser={toggleDrawer}
