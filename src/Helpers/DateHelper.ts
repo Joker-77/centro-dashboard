@@ -1,11 +1,11 @@
 const days: string[] = [
-  "السبت",
   "الأحد",
   "الاثنين",
   "الثلاثاء",
   "الأربعاء",
   "الخميس",
   "الجمعة",
+  "السبت",
 ];
 export class DateHelper {
   static getDay(day: number) {
