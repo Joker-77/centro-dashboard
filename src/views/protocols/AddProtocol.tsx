@@ -1,0 +1,125 @@
+// @ts-nocheck
+import { Grid, Typography } from '@mui/material'
+import React, { useMemo } from 'react'
+import MDBox from '../../components/MDBox'
+import MDTypography from '../../components/MDTypography'
+import { Form, Formik } from 'formik';
+import MDInput from '../../components/MDInput';
+
+
+export const AddProtocol = () => {
+
+	const initialValues = useMemo(() => {
+		return {};
+	}, []);
+	const submitCreate = (values, setSubmitting) => {
+		console.log(values);
+	};
+	return (
+		<Grid container spacing={2} my={{ sx: 1, md: 2 }}>
+			<Grid item xs={8}>
+				<MDTypography>إضافة بروتكول للرحلة</MDTypography>
+			</Grid>
+			<Formik
+				initialValues={initialValues}
+				onSubmit={(values, { setSubmitting }) =>
+					submitCreate(values, setSubmitting)
+				}
+			>
+				{(props) => {
+					const {
+						values,
+						touched,
+						errors,
+						dirty,
+						isSubmitting,
+						handleChange,
+						handleBlur,
+						handleSubmit,
+						handleReset,
+					} = props;
+					return (
+						<Form
+							style={{
+								width: "95%",
+								padding: "inherit",
+								display: "flex",
+								flexDirection: "column",
+								marginRight: "1rem",
+							}}
+						>
+							<MDInput
+								label={''}
+								name="name"
+								value={values.type}
+								onChange={handleChange}
+								onBlur={handleBlur}
+								helperText={errors.type || touched.type}
+								sx={{
+									marginTop: 3,
+									width: "75%",
+									"& .MuiFormHelperText-root": {
+										color: "red",
+									},
+									"& .MuiOutlinedInput-input": {
+										backgroundColor: "white",
+									},
+								}}
+								InputProps={{
+									style: {
+										backgroundColor: "white",
+									},
+								}}
+							/>
+							<Grid item xs={9} mt={2} sx={{ border: 1, borderColor: '#88cb60', borderRadius: 2, padding: 1.5 }}>
+								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, perspiciatis laudantium fugiat doloremque labore nemo ad eaque possimus et, repudiandae deleniti soluta ducimus culpa reiciendis rem ipsam velit quaerat voluptatem?
+							</Grid>
+							<Grid item xs={9} mt={3}>
+								<MDTypography fontSize={'large'}>إضافة ملف</MDTypography>
+								<Grid container gap={2} mt={3}>
+									<Grid item xs={2} sx={{ border: 1, borderColor: '#cc4b4c', borderRadius: 2, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: 2 }}>
+										Image
+										<Typography fontSize={'medium'} color='#cc4b4c'>ملف PDF</Typography>
+									</Grid>
+
+									<Grid item xs={2} sx={{ border: 1, borderColor: '#659c35', borderRadius: 2, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: 2 }}>
+										Image
+										<Typography fontSize={'medium'} color='#659c35'>ملف PNG</Typography>
+									</Grid>
+
+									<Grid item xs={2} sx={{ border: 1, borderColor: '#7d6599', borderRadius: 2, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: 2 }}>
+										Image
+										<Typography fontSize={'medium'} color='#7d6599'>ملف MP3</Typography>
+									</Grid>
+									<Grid item xs={2} sx={{ border: 1, borderColor: '#f2d45b', borderRadius: 2, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: 2 }}>
+										Image
+										<Typography fontSize={'medium'} color='#f2d45b'>إرفاق ملف</Typography>
+									</Grid>
+								</Grid>
+							</Grid>
+							<Grid
+								item
+								xs={9}
+								mt={3}
+								sx={{
+									borderTop: 1, borderBottom: 1, borderStyle: 'dashed',
+									borderColor: '#0095ff', borderLeft: 0, borderRight: 0, paddingY: 3
+								}}>
+								<Grid item xs={12} sx={{ border: 1, borderColor: '#659c35', borderRadius: 2, padding: 2, bgcolor: '#fff' }}>
+									<Typography fontSize={'medium'}>Image ملف البند .pdf</Typography>
+
+								</Grid>
+								<Grid itemxs={12} mt={2} sx={{ border: 1, borderColor: '#659c35', borderRadius: 2, padding: 2, bgcolor: '#fff' }}>
+									<Typography fontSize={'medium'}>Image ملف البند .avi</Typography>
+								</Grid>
+								<Grid itemxs={12} mt={2} sx={{ border: 1, borderColor: '#659c35', borderRadius: 2, padding: 2, bgcolor: '#fff' }}>
+									<Typography fontSize={'medium'}>Image ملف البند .doc</Typography>
+								</Grid>
+							</Grid> 
+						</Form>
+					)
+				}}
+			</Formik>
+		</Grid >
+	)
+}
