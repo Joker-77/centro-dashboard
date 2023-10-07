@@ -12,11 +12,10 @@ const StatisticCard: React.FC<IProps> = ({
   fontSize,
   ...props
 }) => {
-  console.log(props);
   return (
     <Grid
       container
-      md={11}
+      md={12}
       mt={num > 0 ? 4 : 0}
       {...props}
       style={{ backgroundColor: "white" }}
