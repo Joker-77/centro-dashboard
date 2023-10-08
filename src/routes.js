@@ -2,13 +2,13 @@
 import Icon from "@mui/material/Icon";
 import React from "react";
 import Users from "./views/users/index.tsx";
+import PendingRequests from "./views/pendingRequests/index.tsx";
 import SignIn from "./views/authentication/sign-in.tsx";
 import Dashboard from "./views/dashboard/index.tsx";
 import Dashboard2 from "./views/dashboard2/index.tsx";
 import { Protocols } from "./views/protocols";
 import Calendar from "./views/calendar/index.tsx";
 import { Dashboard3 } from "./views/dashboard3";
-
 const routes = [
   {
     type: "collapse",
@@ -56,8 +56,18 @@ const routes = [
     ar_name: "المناطق والأماكن",
     key: "places",
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
-    route: "/authentication/sign-in",
+    route: "/places",
     component: <> </>, //<Dashboard />,
+    isPrivate: true,
+  },
+  {
+    type: "collapse",
+    name: "pendingRequests",
+    ar_name: "الطلبات المعلّقة",
+    key: "pendingRequests",
+    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    route: "/pendingRequests",
+    component: <PendingRequests />, //<Dashboard />,
     isPrivate: true,
   },
   {
