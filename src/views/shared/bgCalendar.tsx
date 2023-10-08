@@ -29,7 +29,7 @@ const BgCalendar: React.FC<IProps> = ({ events, ...props }) => {
     showMore: (total) => `+${total} إضافي`,
   };
   return (
-    <DashboardLayouts height={"500%"}>
+    <DashboardLayouts height={"600%"}>
       <Calendar
         culture={"ar-sa"}
         style={{ width: "200%" }}
