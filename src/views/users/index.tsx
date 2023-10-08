@@ -12,9 +12,8 @@ import UserService from "./../../services/UserService";
 import { toast } from "react-toastify";
 import Skeleton from "@mui/material/Skeleton";
 import CircularProgress from "@mui/material/CircularProgress";
-
+import "./../../assets/drawer.css";
 interface UsersProps {}
-
 const Users: React.FC<UsersProps> = ({}) => {
   const [open, setOpen] = React.useState(false);
   const [isCreate, setIsCreate] = useState<boolean>(false);
@@ -48,11 +47,23 @@ const Users: React.FC<UsersProps> = ({}) => {
         return;
       }
       setOpen(inOpen);
+      setUser(user);
     };
-
+  const toggleClose = (inOpen: boolean) => {
+    setOpen(!inOpen);
+  };
+  const editUser = (event, user) => {
+    setIsCreate(true);
+    setUser(user);
+  };
   return (
     <DashboardLayouts>
-      <UserDetails open={open} toggleDrawer={toggleDrawer}></UserDetails>
+      <UserDetails
+        open={open}
+        user={user}
+        toggleClose={toggleClose}
+        toggleDrawer={toggleDrawer}
+      ></UserDetails>
       {!isCreate && (
         <>
           <Grid container spacing={2} my={{ sx: 1, md: 2 }}>
@@ -141,6 +152,7 @@ const Users: React.FC<UsersProps> = ({}) => {
                         key={index}
                         user={item}
                         toggleUser={toggleDrawer}
+                        editUser={editUser}
                       />
                     ) : (
                       <Skeleton
@@ -160,7 +172,7 @@ const Users: React.FC<UsersProps> = ({}) => {
           </Grid>
         </>
       )}
-      {isCreate && <CreateUser />}
+      {isCreate && <CreateUser user={user} />}
     </DashboardLayouts>
   );
 };

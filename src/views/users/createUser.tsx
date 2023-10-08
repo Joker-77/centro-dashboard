@@ -21,7 +21,7 @@ interface IProps {
 }
 
 const CreateUser: React.FC<IProps> = ({ user }) => {
-  const [file, setFile] = useState<any>();
+  const [file, setFile] = useState<any>(user?.profilePicture);
   const [selectedFile, setSelectedFile] = useState(null);
   const uploadInputRef = useRef(null);
   const _label = "اكتب هنا..";
@@ -38,8 +38,19 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
     number: yup.number(),
     brief: yup.string("اكتب هنا..."),
   });
+  console.clear();
+  console.log(user);
   const initialValues = useMemo(() => {
-    return {};
+    return {
+      name: user?.name,
+      phone: user?.mobileNumber,
+      email: user?.email,
+      role: user?.role,
+      country: user?.country,
+      memberSide: user?.memeberSide,
+      number: user?.number,
+      brief: user?.breif,
+    };
   }, [user]);
   const handleCapture = (e) => {
     setSelectedFile(e.target.files[0]);

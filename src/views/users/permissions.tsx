@@ -27,8 +27,6 @@ export default function Permissions() {
   React.useEffect(() => {
     RoleService.getAll()
       .then((response) => {
-        console.clear();
-        console.log(response);
         setPermissions(response);
       })
       .catch((e) => console.error(e));

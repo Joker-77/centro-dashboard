@@ -25,7 +25,6 @@ const BgCalendar: React.FC<IProps> = ({ events, ...props }) => {
     next: "التالي",
     today: "اليوم",
     agenda: "جدول أعمال",
-
     showMore: (total) => `+${total} إضافي`,
   };
   return (
