@@ -9,6 +9,8 @@ import Dashboard2 from "./views/dashboard2/index.tsx";
 import { Protocols } from "./views/protocols";
 import Calendar from "./views/calendar/index.tsx";
 import { Dashboard3 } from "./views/dashboard3";
+import { MeetingsRequests } from "./views/meetings";
+
 const routes = [
   {
     type: "collapse",
@@ -98,6 +100,16 @@ const routes = [
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/protocols",
     component: <Protocols />, //<Dashboard />,
+    isPrivate: true,
+  },
+  {
+    type: "collapse",
+    name: "MeetingsRequests",
+    ar_name: "طلبات الاجتماعات",
+    key: "meetings_requests",
+    icon: null,
+    route: "/meetings",
+    component: <MeetingsRequests />,
     isPrivate: true,
   },
 ];
