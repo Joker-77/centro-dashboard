@@ -6,7 +6,6 @@ import StatisticCard from "../shared/statisticsCard";
 import DailyCalender from "../shared/dailyCalendar";
 import MDTypography from "./../../components/MDTypography/index";
 import { DateHelper } from "./../../Helpers/DateHelper";
-import { Link } from "react-router-dom";
 import Meetings from "../shared/meetings";
 
 interface IProps { }
