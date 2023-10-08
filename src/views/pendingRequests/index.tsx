@@ -44,6 +44,7 @@ const PendingRequests: React.FC<IProps> = () => {
         style={{
           position: "relative",
           top: "4em",
+          height: "13em",
           display: "flex",
           justifyContent: "space-between",
         }}
