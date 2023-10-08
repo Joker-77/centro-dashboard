@@ -87,7 +87,7 @@ const routes = [
     key: "calendar",
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/calendar",
-    component: <CalendarPage />, //<Dashboard />,
+    component: <Calendar />, //<Dashboard />,
     isPrivate: true,
   },
   {
