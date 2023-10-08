@@ -1,10 +1,14 @@
 // @ts-nocheck
-import { Grid, Typography } from '@mui/material'
+import { Grid, Typography, Button } from '@mui/material'
 import React, { useMemo } from 'react'
-import MDBox from '../../components/MDBox'
+import MDButton from '../../components/MDButton';
+import { Add, KeyboardArrowLeft } from '@mui/icons-material';
 import MDTypography from '../../components/MDTypography'
 import { Form, Formik } from 'formik';
 import MDInput from '../../components/MDInput';
+import user3 from '../../assets/images/user3.jpg'
+import MDBox from '../../components/MDBox';
+import { CheckCircle } from '@mui/icons-material';
 
 
 export const AddProtocol = () => {
@@ -17,8 +21,12 @@ export const AddProtocol = () => {
 	};
 	return (
 		<Grid container spacing={2} my={{ sx: 1, md: 2 }}>
-			<Grid item xs={8}>
+			<Grid item xs={12} sx={{ display: 'flex', justifyContent: 'space-between' }} >
 				<MDTypography>إضافة بروتكول للرحلة</MDTypography>
+				<Grid item xs={1} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+					<Typography color={'#e54562'} fontSize={'small'}>عودة</Typography>
+					<KeyboardArrowLeft  sx={{ color: '#e54562' }} />
+				</Grid>
 			</Grid>
 			<Formik
 				initialValues={initialValues}
@@ -109,13 +117,58 @@ export const AddProtocol = () => {
 									<Typography fontSize={'medium'}>Image ملف البند .pdf</Typography>
 
 								</Grid>
-								<Grid itemxs={12} mt={2} sx={{ border: 1, borderColor: '#659c35', borderRadius: 2, padding: 2, bgcolor: '#fff' }}>
+								<Grid item xs={12} mt={2} sx={{ border: 1, borderColor: '#659c35', borderRadius: 2, padding: 2, bgcolor: '#fff' }}>
 									<Typography fontSize={'medium'}>Image ملف البند .avi</Typography>
 								</Grid>
-								<Grid itemxs={12} mt={2} sx={{ border: 1, borderColor: '#659c35', borderRadius: 2, padding: 2, bgcolor: '#fff' }}>
+								<Grid item xs={12} mt={2} sx={{ border: 1, borderColor: '#659c35', borderRadius: 2, padding: 2, bgcolor: '#fff' }}>
 									<Typography fontSize={'medium'}>Image ملف البند .doc</Typography>
 								</Grid>
-							</Grid> 
+							</Grid>
+							<Grid container xs={9} mt={2} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+								<MDTypography fontSize={'large'}>إضافة الشخص المسؤول عن البروتوكول</MDTypography>
+								<MDButton
+									style={{
+										borderRadius: 10,
+										fontSize: 'large'
+									}}
+									color="primary"
+								>
+									<Add />
+								</MDButton>
+							</Grid>
+							<Grid container xs={9}>
+								<Grid item xs={12} mt={2} sx={{ display: 'flex', justifyContent: 'space-between' }}>
+									<MDBox gap={2} sx={{ display: 'flex', alignItems: 'center' }}>
+										<img src={user3} alt="user_photo" style={{ border: 1, borderRadius: '50%', width: 40 }} />
+										<MDTypography fontSize={'small'}>عبدالله الاحمدي</MDTypography>
+										<CheckCircle sx={{ color: '#13714d' }} />
+									</MDBox>
+									<Typography color={'#e54562'} sx={{ textDecoration: 'underline' }} fontSize={'small'}>حذف الشخص</Typography>
+								</Grid>
+							</Grid>
+							<Grid item md={9} mt={3}>
+								<MDButton
+									style={{
+										marginLeft: 25,
+										background: "linear-gradient(270deg, #88cb60,darkgreen)",
+										color: "white",
+									}}
+									color="primary"
+								>
+									ارسال للمسؤول
+								</MDButton>
+								<Button
+									sx={{
+										color: "#479956",
+										border: 1,
+										borderColor: '#479956',
+										backgroundColor: "#FFF",
+									}}
+									color='success'
+								>
+									اعتماد البروتوكول
+								</Button>
+							</Grid>
 						</Form>
 					)
 				}}

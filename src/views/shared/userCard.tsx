@@ -9,7 +9,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import user1 from "./../../assets/images/user1.jpg";
-const UserCard = ({ user, toggleUser, hasbuttons }) => {
+const UserCard = ({ user, toggleUser, editUser, hasbuttons }) => {
   return (
     <Card sx={{ maxWidth: 250 }}>
       <CardMedia
@@ -62,7 +62,11 @@ const UserCard = ({ user, toggleUser, hasbuttons }) => {
             >
               محادثة
             </MDButton>
-            <MDButton color="primary" style={{ width: "50%" }}>
+            <MDButton
+              onClick={(event) => editUser(event,user)}
+              color="primary"
+              style={{ width: "50%" }}
+            >
               تعديل
             </MDButton>
           </>

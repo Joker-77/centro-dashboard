@@ -13,7 +13,7 @@ import MDBox from "./../../components/MDBox";
 import { useMaterialUIController, setLayout } from "../../context";
 import Container from "@mui/material/Container";
 
-function DashboardLayout({ children }) {
+function DashboardLayout({ children, ...props }) {
   const [controller, dispatch] = useMaterialUIController();
   const { miniSidenav } = controller;
   const { pathname } = useLocation();
@@ -21,7 +21,6 @@ function DashboardLayout({ children }) {
   useEffect(() => {
     setLayout(dispatch, "dashboard");
   }, [pathname]);
-
   return (
     <MDBox
       sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
@@ -44,6 +43,7 @@ function DashboardLayout({ children }) {
           p: 3,
           position: "relative",
           width: "100%",
+          height: `${props.height}`,
           marginTop: pxToRem(20),
           [breakpoints.up("xl")]: {
             // marginLeft: miniSidenav ? pxToRem(120) : pxToRem(274),
