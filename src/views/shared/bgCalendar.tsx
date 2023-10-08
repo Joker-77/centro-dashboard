@@ -7,6 +7,8 @@ import DashboardLayouts from "../layouts/index";
 import Grid from "@mui/material/Grid";
 import "moment/locale/ar-sa";
 import "moment/locale/ar";
+import EventComponent from "./calendarEvent/event";
+import "../../assets/calendar.css";
 require("react-big-calendar/lib/css/react-big-calendar.css");
 
 interface IProps {
@@ -27,7 +29,7 @@ const BgCalendar: React.FC<IProps> = ({ events, ...props }) => {
     showMore: (total) => `+${total} إضافي`,
   };
   return (
-    <DashboardLayouts>
+    <DashboardLayouts height={"500%"}>
       <Calendar
         culture={"ar-sa"}
         style={{ width: "200%" }}
@@ -36,6 +38,9 @@ const BgCalendar: React.FC<IProps> = ({ events, ...props }) => {
         timeslots={2}
         defaultDate={new Date()}
         messages={messages}
+        components={{
+          event: EventComponent,
+        }}
         // selectable={true}
         // onSelectEvent={(event) => this.handleEventSelected(event)}
         // onSelectSlot={(slotInfo) => this.handleSlotSelected(slotInfo)}

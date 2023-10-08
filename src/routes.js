@@ -82,16 +82,6 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "calendar",
-    ar_name: "التقويم",
-    key: "calendar",
-    icon: null, //<Icon fontSize="small">dashboard</Icon>,
-    route: "/calendar",
-    component: <CalendarPage />, //<Dashboard />,
-    isPrivate: true,
-  },
-  {
-    type: "collapse",
     name: "Protocols",
     ar_name: "طلبات البروتوكول",
     key: "protocols",
