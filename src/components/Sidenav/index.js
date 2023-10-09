@@ -144,7 +144,6 @@ function Sidenav({ color, brand, brandName, routes, userRoles, ...rest }) {
       return returnValue;
     }
   );
-
   return (
     <SidenavRoot
       {...rest}

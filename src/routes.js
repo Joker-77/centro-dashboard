@@ -242,6 +242,28 @@ export const secretaryRoutes = [
 export const protocolRoutes = [
   {
     type: "collapse",
+    name: "Home",
+    ar_name: "الرئيسية",
+    key: "home",
+    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    route: "/dashboard",
+    component: <Dashboard3 />, //<Dashboard />,
+    isPrivate: true,
+    roles: appRoles[0],
+  },
+  {
+    type: "collapse",
+    name: "Calendar",
+    ar_name: "التقويم",
+    key: "calendar",
+    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    route: "/calendar",
+    component: <Calendar />, //<Dashboard />,
+    isPrivate: true,
+    roles: appRoles[2],
+  },
+  {
+    type: "collapse",
     name: "Protocols",
     ar_name: "طلبات البروتوكول",
     key: "protocols",
