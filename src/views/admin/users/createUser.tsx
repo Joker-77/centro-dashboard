@@ -2,20 +2,20 @@
 import React, { useState, useMemo, useRef } from "react";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
-import MDBox from "./../../components/MDBox/index";
-import MDTypography from "./../../components/MDTypography/index";
-import MDInput from "./../../components/MDInput/index";
+import MDBox from "../../../components/MDBox/index";
+import MDTypography from "../../../components/MDTypography/index";
+import MDInput from "../../../components/MDInput/index";
 import { useFormik, Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import { MuiPhone } from "./muiPhone";
 import Avatar from "@mui/material/Avatar";
-import user1 from "./../../assets/images/user1.jpg";
+import user1 from "../../../assets/images/user1.jpg";
 import Badge from "@mui/material/Badge";
 import EditIcon from "@mui/icons-material/Edit";
 import Permissions from "./permissions";
-import MDButton from "./../../components/MDButton/index";
+import MDButton from "../../../components/MDButton/index";
 interface IProps {
   user: any;
 }
@@ -38,8 +38,6 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
     number: yup.number(),
     brief: yup.string("اكتب هنا..."),
   });
-  console.clear();
-  console.log(user);
   const initialValues = useMemo(() => {
     return {
       name: user?.name,

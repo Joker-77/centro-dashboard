@@ -1,15 +1,21 @@
 /* eslint-disable */
 import Icon from "@mui/material/Icon";
 import React from "react";
-import Users from "./views/users/index.tsx";
+// Admin
+import Users from "./views/admin/users/index.tsx";
+import Dashboard from "./views/admin/dashboard/index.tsx";
+// Secretary
+import { MeetingsRequests } from "./views/secretary/meetings/index.tsx";
+// Protocol
 import PendingRequests from "./views/pendingRequests/index.tsx";
-import SignIn from "./views/authentication/sign-in.tsx";
-import Dashboard from "./views/dashboard/index.tsx";
-import Dashboard2 from "./views/dashboard2/index.tsx";
 import { Protocols } from "./views/protocols";
+// Information
+
+// Shared
 import Calendar from "./views/calendar/index.tsx";
+import SignIn from "./views/authentication/sign-in.tsx";
+import Dashboard2 from "./views/dashboard2/index.tsx";
 import { Dashboard3 } from "./views/dashboard3";
-import { MeetingsRequests } from "./views/meetings";
 const appRoles = [
   "All",
   "Administrator",

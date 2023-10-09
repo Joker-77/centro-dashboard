@@ -2,7 +2,7 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
-import MDTypography from "./../../components/MDTypography/index";
+import MDTypography from "../../../components/MDTypography/index";
 interface IProps {
   num: number;
   title: string;

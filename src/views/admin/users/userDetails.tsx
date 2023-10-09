@@ -2,8 +2,8 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import MDButton from "./../../components/MDButton/index";
-import MDBox from "./../../components/MDBox/index";
+import MDButton from "../../../components/MDButton/index";
+import MDBox from "../../../components/MDBox/index";
 import Drawer from "@mui/material/Drawer";
 import Avatar from "@mui/material/Avatar";
 import CloseIcon from "@mui/icons-material/Close";

@@ -1,14 +1,14 @@
 // @ts-nocheck
 import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
-import DashboardLayout from "./../layouts/index";
-import StatisticCard from "../shared/statisticsCard";
-import DailyCalender from "../shared/dailyCalendar";
-import MDTypography from "./../../components/MDTypography/index";
-import { DateHelper } from "./../../Helpers/DateHelper";
+import DashboardLayout from "../../layouts/index";
+import StatisticCard from "../../shared/statisticsCard";
+import DailyCalender from "../../shared/dailyCalendar";
+import MDTypography from "../../../components/MDTypography/index";
+import { DateHelper } from "../../../Helpers/DateHelper";
 import { Link } from "react-router-dom";
 import Request from "./request";
-import Meetings from "../shared/meetings";
+import Meetings from "../../shared/meetings";
 interface IProps {}
 const Dashboard: React.FC<IProps> = () => {
   const [date, setDate] = useState("");

@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import MDButton from "../../components/MDButton/index";
-import MDTypography from "../../components/MDTypography/index";
+import MDButton from "../../../components/MDButton/index";
+import MDTypography from "../../../components/MDTypography/index";
 
 interface IProps {}
 

@@ -1,18 +1,18 @@
 // @ts-nocheck
 import React, { useState, useEffect } from "react";
-import UserCard from "../shared/userCard";
-import DashboardLayouts from "../layouts/index";
+import UserCard from "../../shared/userCard";
+import DashboardLayouts from "../../layouts/index";
 import Grid from "@mui/material/Grid";
-import MDBox from "../../components/MDBox/index";
-import MDTypography from "../../components/MDTypography/index";
-import MDButton from "../../components/MDButton/index";
+import MDBox from "../../../components/MDBox/index";
+import MDTypography from "../../../components/MDTypography/index";
+import MDButton from "../../../components/MDButton/index";
 import CreateUser from "./createUser";
 import UserDetails from "./userDetails";
-import UserService from "./../../services/UserService";
+import UserService from "../../../services/UserService";
 import { toast } from "react-toastify";
 import Skeleton from "@mui/material/Skeleton";
 import CircularProgress from "@mui/material/CircularProgress";
-import "./../../assets/drawer.css";
+import "./../../../assets/drawer.css";
 interface UsersProps {}
 const Users: React.FC<UsersProps> = ({}) => {
   const [open, setOpen] = React.useState(false);

@@ -7,7 +7,7 @@ import DailyCalender from "../shared/dailyCalendar";
 import { DateHelper } from "./../../Helpers/DateHelper";
 import Meetings from "../shared/meetings";
 import { Link } from "react-router-dom";
-import Request from "./../dashboard/request";
+import Request from "../admin/dashboard/request";
 
 interface IProps {}
 
