@@ -17,6 +17,7 @@ import twitter from "../../assets/images/twitter.svg";
 import twitter2 from "../../assets/images/twitter2.svg";
 import TextField from "@mui/material/TextField";
 import addImage from "../../assets/images/addImage.svg";
+import Button from "@mui/material/Button";
 
 interface IProps {}
 
@@ -28,8 +29,31 @@ const Dashboard2: React.FC<IProps> = () => {
     doc2.style.display = "flex";
   };
 
+  const uploadPic = (e) => {
+    document.getElementById("imgupload").click();
+  };
+  const changePic = (e) => {
+    let img1 = document.getElementById("img1");
+    let d = document.getElementById("firstImg");
+    // e.preventDefault();
+    let im = document.getElementById("imgupload");
+    const [file] = im.files;
+    if (file) {
+      img1.src = URL.createObjectURL(file);
+      img1.style.display = "flex";
+      d.style.display = "none";
+    }
+  };
+
   return (
     <DashboardLayout>
+      <input
+        type="file"
+        id="imgupload"
+        style={{ display: "none" }}
+        accept="image/png, image/jpeg, image/*"
+        onChange={changePic}
+      />
       <Grid
         direction="column"
         container
@@ -510,6 +534,7 @@ const Dashboard2: React.FC<IProps> = () => {
                 marginTop: "50px",
                 display: "flex",
                 flexDirection: "column",
+                gap: "10px",
               }}
             >
               <Grid
@@ -541,9 +566,11 @@ const Dashboard2: React.FC<IProps> = () => {
                   //   label="...تفاصيل التغريدة"
                   placeholder="تفاصيل التغريدة..."
                   //   multiline
+                  rows={5}
                   maxRows={5}
                   minRows={5}
                   style={{ width: "100%", background: "white" }}
+                  //   inputProps={{ sx: { height: "100px" } }}
                 />
               </Box>
               <Grid
@@ -569,6 +596,8 @@ const Dashboard2: React.FC<IProps> = () => {
                   }}
                 >
                   <Card
+                    onClick={() => uploadPic()}
+                    id="firstImg"
                     style={{
                       background: "#ced4da",
                       display: "flex",
@@ -586,7 +615,25 @@ const Dashboard2: React.FC<IProps> = () => {
                       <div color="text.secondary">إضافة صورة</div>
                     </CardContent>
                   </Card>
+                  <img
+                    src=""
+                    id="img1"
+                    // style={{ display: "none" }}
+                    style={{
+                      // background: "#ced4da",
+                      display: "none",
+                      // justifyContent: "center",
+                      height: "20em",
+                      width: "100%",
+                      margin: "auto",
+                      textAlign: "center",
+                      padding: "0px",
+                      borderRadius: "6%",
+                    }}
+                    alt=""
+                  />
                 </Box>
+
                 <Box
                   style={{
                     textAlign: "center",
@@ -650,43 +697,61 @@ const Dashboard2: React.FC<IProps> = () => {
                   </Card>
                 </Box>
               </Grid>
-              <Box
-                style={{
-                  textAlign: "center",
-                  //   display: "flex",
-                  //   justifyContent: "center",
-                  //   justifyItems: "center",
-                }}
-              >
-                <Card
-                  onClick={() => addNew()}
+              {/* <Grid>
+                <Box
+                  style={
+                    {
+                      //   textAlign: "center",
+                      //   display: "flex",
+                      //   justifyContent: "center",
+                      //   justifyItems: "center",
+                    }
+                  }
+                >
+                  <Card
+                    onClick={() => addNew()}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      height: "6em",
+                      width: "20em",
+                      margin: "auto",
+                      textAlign: "center",
+                      padding: "0px",
+                      cursor: "pointer",
+                    }}
+                    sx={{
+                      color: "white",
+                      background:
+                        "linear-gradient(to left ,  #43A047 ,#66BB6A)",
+                    }}
+                  >
+                    <CardContent>
+                      <Typography
+                        sx={{ fontSize: 14 }}
+                        color="text.secondary"
+                        //   gutterBottom
+                        style={{ color: "white" }}
+                      >
+                        ارسال الطلب
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Box>
+              </Grid> */}
+              <Grid style={{ marginTop: "25px" }}>
+                <Button
+                  variant="contained"
                   style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    height: "6em",
-                    width: "20em",
-                    margin: "auto",
-                    textAlign: "center",
-                    padding: "0px",
-                    cursor: "pointer",
-                  }}
-                  sx={{
+                    width: "25%",
                     color: "white",
-                    background: "linear-gradient(to left ,  #43A047 ,#66BB6A)",
+                    background: "linear-gradient(to right ,  #43A047 ,#66BB6A)",
                   }}
                 >
-                  <CardContent>
-                    <Typography
-                      sx={{ fontSize: 14 }}
-                      color="text.secondary"
-                      //   gutterBottom
-                      style={{ color: "white" }}
-                    >
-                      ارسال الطلب
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Box>
+                  {" "}
+                  ارسال الطلب
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
