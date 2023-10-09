@@ -184,6 +184,17 @@ export const adminRoutes = [
 export const secretaryRoutes = [
   {
     type: "collapse",
+    name: "Home",
+    ar_name: "الرئيسية",
+    key: "home",
+    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    route: "/dashboard",
+    component: <Dashboard />, //<Dashboard />,
+    isPrivate: true,
+    roles: appRoles[0],
+  },
+  {
+    type: "collapse",
     name: "Calendar",
     ar_name: "التقويم",
     key: "calendar",
@@ -203,6 +214,17 @@ export const secretaryRoutes = [
     component: <PendingRequests />, //<Dashboard />,
     isPrivate: true,
     roles: appRoles[2],
+  },
+  {
+    type: "collapse",
+    name: "MeetingsRequests",
+    ar_name: "طلبات الاجتماعات",
+    key: "meetings_requests",
+    icon: null,
+    route: "/meetings",
+    component: <MeetingsRequests />,
+    isPrivate: true,
+    roles: appRoles[4],
   },
 ];
 export const protocolRoutes = [
