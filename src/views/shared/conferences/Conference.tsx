@@ -2,7 +2,7 @@
 import { Box, FormControl, FormControlLabel, Radio, RadioGroup, Typography } from '@mui/material';
 import React, { useState } from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { CheckCircle, CheckCircleOutline, Circle, KeyboardArrowLeft, PanoramaFishEye } from '@mui/icons-material';
+import { CheckCircleOutline, Circle, KeyboardArrowLeft, PanoramaFishEye } from '@mui/icons-material';
 import user3 from '../../../assets/images/user3.jpg'
 
 export const Conference = ({ onClick }) => {
