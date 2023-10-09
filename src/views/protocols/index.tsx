@@ -16,7 +16,7 @@ export const Protocols: React.FC<IProps> = () => {
 	const [users, setUsers] = useState<any>([]);
 
 	const addUser = () => {
-		setIsAdd(true);
+		setIsAdd(!isAdd);
 	};
 
 	useEffect(() => {
@@ -84,7 +84,7 @@ export const Protocols: React.FC<IProps> = () => {
 					</Grid>
 				</>
 			)}
-			{isAdd && <AddProtocol />}
+			{isAdd && <AddProtocol onClick={addUser} />}
 		</DashboardLayouts>
 	)
 }
