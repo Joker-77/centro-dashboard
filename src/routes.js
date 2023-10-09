@@ -106,6 +106,16 @@ const routes = [
     isPrivate: true,
     roles: appRoles[0],
   },
+  // {
+  //   type: "collapse",
+  //   name: "calendar",
+  //   ar_name: "التقويم",
+  //   key: "calendar",
+  //   icon: null, //<Icon fontSize="small">dashboard</Icon>,
+  //   route: "/calendar",
+  //   component: <Calendar />, //<Dashboard />,
+  //   isPrivate: true,
+  // },
   {
     type: "collapse",
     name: "Protocols",
