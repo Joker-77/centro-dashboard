@@ -11,7 +11,7 @@ import MDBox from '../../components/MDBox';
 import { CheckCircle } from '@mui/icons-material';
 
 
-export const AddProtocol = () => {
+export const AddProtocol = ({ onClick }) => {
 
 	const initialValues = useMemo(() => {
 		return {};
@@ -23,9 +23,9 @@ export const AddProtocol = () => {
 		<Grid container spacing={2} my={{ sx: 1, md: 2 }}>
 			<Grid item xs={12} sx={{ display: 'flex', justifyContent: 'space-between' }} >
 				<MDTypography>إضافة بروتكول للرحلة</MDTypography>
-				<Grid item xs={1} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+				<Grid item xs={1} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }} onClick={onClick}>
 					<Typography color={'#e54562'} fontSize={'small'}>عودة</Typography>
-					<KeyboardArrowLeft  sx={{ color: '#e54562' }} />
+					<KeyboardArrowLeft sx={{ color: '#e54562' }} />
 				</Grid>
 			</Grid>
 			<Formik
