@@ -19,9 +19,12 @@ import { toast } from "react-toastify";
 interface Props {}
 const SignIn: React.FC<Props> = (props) => {
   let userState = useAuthState();
-  const userDetails =
-    JSON.parse(localStorage.getItem("currentUser")!) || userState?.userDetails;
-
+  console.clear();
+  console.log(
+    JSON.parse(localStorage.getItem("currentUser")!),
+    userState?.userDetails
+  );
+  const userDetails = JSON.parse(localStorage.getItem("currentUser")!);
   const dispatch = useAuthDispatch();
   if (!!userDetails && userDetails?.isLoggedIn) {
     localStorage.setItem("userDetails", JSON.stringify(userDetails));

@@ -93,6 +93,10 @@ function DashboardNavbar({ absolute, light, isMini, name }) {
   const logoutUser = async () => {
     await logout(authDispatch);
     navigate("/authentication/sign-in");
+    // setTimeout(() => {
+    //   alert("signing out");
+    //   navigate("/authentication/sign-in");
+    // }, 5000);
   };
   // Render the notifications menu
   const renderMenu = () => (

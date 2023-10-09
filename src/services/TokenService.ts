@@ -24,8 +24,8 @@ class TokenService {
   };
 
   static removecurrentUser() {
-    localStorage.removeItem("x-user-token");
     localStorage.removeItem("currentUser");
+    localStorage.removeItem("x-user-token");
     localStorage.removeItem("userDetails");
   }
 

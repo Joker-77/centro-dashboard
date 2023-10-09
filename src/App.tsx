@@ -32,9 +32,7 @@ function App() {
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
   let userState = useAuthState();
-  const userDetails =
-    JSON.parse(localStorage.getItem("currentUser")!) || userState?.userDetails;
-
+  const userDetails = JSON.parse(localStorage.getItem("currentUser")!)
   useMemo(() => {
     const cacheRtl = createCache({
       key: "rtl",
@@ -67,7 +65,7 @@ function App() {
   useEffect(() => {
     document.body.setAttribute("dir", direction);
   }, [direction]);
-
+  console.log("userDetails", userDetails);
   const getRoutes = (allRoutes: any) =>
     allRoutes.map((route: any) => {
       if (route.collapse) {
@@ -88,7 +86,6 @@ function App() {
           />
         );
       }
-
       return null;
     });
   return (
