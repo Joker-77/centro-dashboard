@@ -17,7 +17,7 @@ import "@fontsource/readex-pro"; // Defaults to weight 400
 import "@fontsource/readex-pro/400.css"; // Specify weight
 import routes, { adminRoutes, protocolRoutes, secretaryRoutes,InformationCommunicationRoutes } from "./routes";
 import SignIn from "./views/authentication/sign-in";
-import logo from "./assets/images/logo.png";
+import logo from "./assets/images/centro-white.png";
 import {
   useMaterialUIController,
   setMiniSidenav,

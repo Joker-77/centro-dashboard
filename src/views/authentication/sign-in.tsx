@@ -7,7 +7,7 @@ import MDBox from "../../components/MDBox/index";
 import MDButton from "../../components/MDButton/index";
 import MDTypography from "../../components/MDTypography/index";
 
-import bgLogo from "../../assets/images/bgLogo.png";
+import bgLogo from "../../assets/images/centro-white.png";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
