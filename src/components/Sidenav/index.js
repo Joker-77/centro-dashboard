@@ -88,119 +88,60 @@ function Sidenav({ color, brand, brandName, routes, userRoles, ...rest }) {
       index
     ) => {
       let returnValue;
-      if (roles == "All") {
-        if (type === "collapse" && key !== "sign-in") {
-          returnValue = href ? (
-            <Link
-              href={href}
-              key={key}
-              target="_blank"
-              rel="noreferrer"
-              sx={{ textDecoration: "none" }}
-            >
-              <SidenavCollapse
-                name={direction == "ltr" ? name : ar_name}
-                icon={icon}
-                active={key === collapseName}
-                noCollapse={noCollapse}
-              />
-            </Link>
-          ) : (
-            <NavLink key={key} to={route}>
-              <SidenavCollapse
-                name={direction == "ltr" ? name : ar_name}
-                icon={icon}
-                active={key === collapseName}
-              />
-            </NavLink>
-          );
-        } else if (type === "title") {
-          returnValue = (
-            <MDTypography
-              key={key}
-              color={textColor}
-              display="block"
-              variant="caption"
-              fontWeight="bold"
-              textTransform="uppercase"
-              pl={3}
-              mt={2}
-              mb={1}
-              ml={1}
-            >
-              {title}
-            </MDTypography>
-          );
-        } else if (type === "divider") {
-          returnValue = (
-            <Divider
-              key={key}
-              light={
-                (!darkMode && !whiteSidenav && !transparentSidenav) ||
-                (darkMode && !transparentSidenav && whiteSidenav)
-              }
+      if (type === "collapse" && key !== "sign-in") {
+        returnValue = href ? (
+          <Link
+            href={href}
+            key={key}
+            target="_blank"
+            rel="noreferrer"
+            sx={{ textDecoration: "none" }}
+          >
+            <SidenavCollapse
+              name={direction == "ltr" ? name : ar_name}
+              icon={icon}
+              active={key === collapseName}
+              noCollapse={noCollapse}
             />
-          );
-        }
-        return returnValue;
-      } else if (userRoles != undefined) {
-        if (userRoles.some((r) => r === roles)) {
-          if (type === "collapse" && key !== "sign-in") {
-            returnValue = href ? (
-              <Link
-                href={href}
-                key={key}
-                target="_blank"
-                rel="noreferrer"
-                sx={{ textDecoration: "none" }}
-              >
-                <SidenavCollapse
-                  name={direction == "ltr" ? name : ar_name}
-                  icon={icon}
-                  active={key === collapseName}
-                  noCollapse={noCollapse}
-                />
-              </Link>
-            ) : (
-              <NavLink key={key} to={route}>
-                <SidenavCollapse
-                  name={direction == "ltr" ? name : ar_name}
-                  icon={icon}
-                  active={key === collapseName}
-                />
-              </NavLink>
-            );
-          } else if (type === "title") {
-            returnValue = (
-              <MDTypography
-                key={key}
-                color={textColor}
-                display="block"
-                variant="caption"
-                fontWeight="bold"
-                textTransform="uppercase"
-                pl={3}
-                mt={2}
-                mb={1}
-                ml={1}
-              >
-                {title}
-              </MDTypography>
-            );
-          } else if (type === "divider") {
-            returnValue = (
-              <Divider
-                key={key}
-                light={
-                  (!darkMode && !whiteSidenav && !transparentSidenav) ||
-                  (darkMode && !transparentSidenav && whiteSidenav)
-                }
-              />
-            );
-          }
-          return returnValue;
-        }
+          </Link>
+        ) : (
+          <NavLink key={key} to={route}>
+            <SidenavCollapse
+              name={direction == "ltr" ? name : ar_name}
+              icon={icon}
+              active={key === collapseName}
+            />
+          </NavLink>
+        );
+      } else if (type === "title") {
+        returnValue = (
+          <MDTypography
+            key={key}
+            color={textColor}
+            display="block"
+            variant="caption"
+            fontWeight="bold"
+            textTransform="uppercase"
+            pl={3}
+            mt={2}
+            mb={1}
+            ml={1}
+          >
+            {title}
+          </MDTypography>
+        );
+      } else if (type === "divider") {
+        returnValue = (
+          <Divider
+            key={key}
+            light={
+              (!darkMode && !whiteSidenav && !transparentSidenav) ||
+              (darkMode && !transparentSidenav && whiteSidenav)
+            }
+          />
+        );
       }
+      return returnValue;
     }
   );
 

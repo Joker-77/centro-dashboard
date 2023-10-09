@@ -16,6 +16,7 @@ import Calendar from "./views/calendar/index.tsx";
 import SignIn from "./views/authentication/sign-in.tsx";
 import Dashboard2 from "./views/dashboard2/index.tsx";
 import { Dashboard3 } from "./views/dashboard3";
+import { ConferencesPage } from "./views/shared/conferences/index.tsx";
 const appRoles = [
   "All",
   "Administrator",
@@ -226,6 +227,17 @@ export const secretaryRoutes = [
     isPrivate: true,
     roles: appRoles[4],
   },
+  {
+    type: "collapse",
+    name: "conferences",
+    ar_name: "رحلات السفر",
+    key: "conferences",
+    icon: null,
+    route: "/conferences",
+    component: <ConferencesPage />,
+    isPrivate: true,
+    roles: appRoles[4],
+  },
 ];
 export const protocolRoutes = [
   {
@@ -249,6 +261,19 @@ export const protocolRoutes = [
     component: <MeetingsRequests />,
     isPrivate: true,
     roles: appRoles[4],
+  },
+];
+export const InformationCommunicationRoutes = [
+  {
+    type: "collapse",
+    name: "Home2",
+    ar_name: "الرئيسية 2",
+    key: "home2",
+    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    route: "/dashboard2",
+    component: <Dashboard2 />, //<Dashboard />,
+    isPrivate: true,
+    roles: appRoles[0],
   },
 ];
 export default routes;
