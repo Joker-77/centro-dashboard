@@ -37,7 +37,7 @@ import {
 import { logout } from "../../context/Auth/index";
 import { useAuthDispatch } from "../../context/Auth/index";
 
-function Sidenav({ color, brand, brandName, routes, ...rest }) {
+function Sidenav({ color, brand, brandName, routes, userRoles, ...rest }) {
   const [controller, dispatch] = useMaterialUIController();
   const { direction, miniSidenav, transparentSidenav, whiteSidenav, darkMode } =
     controller;
@@ -84,64 +84,124 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
   // Render all the routes from the routes.js (All the visible items on the Sidenav)
   const renderRoutes = routes.map(
     (
-      { type, name, ar_name, icon, title, noCollapse, key, href, route },
+      { type, name, ar_name, icon, title, noCollapse, key, href, route, roles },
       index
     ) => {
       let returnValue;
-      if (type === "collapse" && key !== "sign-in") {
-        returnValue = href ? (
-          <Link
-            href={href}
-            key={key}
-            target="_blank"
-            rel="noreferrer"
-            sx={{ textDecoration: "none" }}
-          >
-            <SidenavCollapse
-              name={direction == "ltr" ? name : ar_name}
-              icon={icon}
-              active={key === collapseName}
-              noCollapse={noCollapse}
+      console.log(name, roles);
+      if (roles == "All") {
+        if (type === "collapse" && key !== "sign-in") {
+          returnValue = href ? (
+            <Link
+              href={href}
+              key={key}
+              target="_blank"
+              rel="noreferrer"
+              sx={{ textDecoration: "none" }}
+            >
+              <SidenavCollapse
+                name={direction == "ltr" ? name : ar_name}
+                icon={icon}
+                active={key === collapseName}
+                noCollapse={noCollapse}
+              />
+            </Link>
+          ) : (
+            <NavLink key={key} to={route}>
+              <SidenavCollapse
+                name={direction == "ltr" ? name : ar_name}
+                icon={icon}
+                active={key === collapseName}
+              />
+            </NavLink>
+          );
+        } else if (type === "title") {
+          returnValue = (
+            <MDTypography
+              key={key}
+              color={textColor}
+              display="block"
+              variant="caption"
+              fontWeight="bold"
+              textTransform="uppercase"
+              pl={3}
+              mt={2}
+              mb={1}
+              ml={1}
+            >
+              {title}
+            </MDTypography>
+          );
+        } else if (type === "divider") {
+          returnValue = (
+            <Divider
+              key={key}
+              light={
+                (!darkMode && !whiteSidenav && !transparentSidenav) ||
+                (darkMode && !transparentSidenav && whiteSidenav)
+              }
             />
-          </Link>
-        ) : (
-          <NavLink key={key} to={route}>
-            <SidenavCollapse
-              name={direction == "ltr" ? name : ar_name}
-              icon={icon}
-              active={key === collapseName}
-            />
-          </NavLink>
-        );
-      } else if (type === "title") {
-        returnValue = (
-          <MDTypography
-            key={key}
-            color={textColor}
-            display="block"
-            variant="caption"
-            fontWeight="bold"
-            textTransform="uppercase"
-            pl={3}
-            mt={2}
-            mb={1}
-            ml={1}
-          >
-            {title}
-          </MDTypography>
-        );
-      } else if (type === "divider") {
-        returnValue = (
-          <Divider
-            key={key}
-            light={
-              (!darkMode && !whiteSidenav && !transparentSidenav) ||
-              (darkMode && !transparentSidenav && whiteSidenav)
-            }
-          />
-        );
+          );
+        }
+        return returnValue;
+      } else if (userRoles != undefined) {
+        if (userRoles.some((r) => r === roles)) {
+          if (type === "collapse" && key !== "sign-in") {
+            returnValue = href ? (
+              <Link
+                href={href}
+                key={key}
+                target="_blank"
+                rel="noreferrer"
+                sx={{ textDecoration: "none" }}
+              >
+                <SidenavCollapse
+                  name={direction == "ltr" ? name : ar_name}
+                  icon={icon}
+                  active={key === collapseName}
+                  noCollapse={noCollapse}
+                />
+              </Link>
+            ) : (
+              <NavLink key={key} to={route}>
+                <SidenavCollapse
+                  name={direction == "ltr" ? name : ar_name}
+                  icon={icon}
+                  active={key === collapseName}
+                />
+              </NavLink>
+            );
+          } else if (type === "title") {
+            returnValue = (
+              <MDTypography
+                key={key}
+                color={textColor}
+                display="block"
+                variant="caption"
+                fontWeight="bold"
+                textTransform="uppercase"
+                pl={3}
+                mt={2}
+                mb={1}
+                ml={1}
+              >
+                {title}
+              </MDTypography>
+            );
+          } else if (type === "divider") {
+            returnValue = (
+              <Divider
+                key={key}
+                light={
+                  (!darkMode && !whiteSidenav && !transparentSidenav) ||
+                  (darkMode && !transparentSidenav && whiteSidenav)
+                }
+              />
+            );
+          }
+          return returnValue;
+        }
       }
-      return returnValue;
     }
   );
 

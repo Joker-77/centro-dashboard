@@ -10,7 +10,13 @@ import { Protocols } from "./views/protocols";
 import Calendar from "./views/calendar/index.tsx";
 import { Dashboard3 } from "./views/dashboard3";
 import { MeetingsRequests } from "./views/meetings";
-
+const appRoles = [
+  "All",
+  "Administrator",
+  "Secretary",
+  "InformationCommunication",
+  "Protocol",
+];
 const routes = [
   {
     type: "collapse",
@@ -21,6 +27,7 @@ const routes = [
     route: "/authentication/sign-in",
     component: <SignIn />, //<Dashboard />,
     isPrivate: false,
+    roles: appRoles[0],
   },
   {
     type: "collapse",
@@ -31,6 +38,7 @@ const routes = [
     route: "/dashboard",
     component: <Dashboard />, //<Dashboard />,
     isPrivate: true,
+    roles: appRoles[0],
   },
   {
     type: "collapse",
@@ -41,6 +49,7 @@ const routes = [
     route: "/users",
     component: <Users />, //<Dashboard />,
     isPrivate: true,
+    roles: appRoles[1],
   },
   {
     type: "collapse",
@@ -51,6 +60,7 @@ const routes = [
     route: "/calendar",
     component: <Calendar />, //<Dashboard />,
     isPrivate: true,
+    roles: appRoles[2],
   },
   {
     type: "collapse",
@@ -61,6 +71,7 @@ const routes = [
     route: "/places",
     component: <> </>, //<Dashboard />,
     isPrivate: true,
+    roles: appRoles[1],
   },
   {
     type: "collapse",
@@ -71,6 +82,7 @@ const routes = [
     route: "/pendingRequests",
     component: <PendingRequests />, //<Dashboard />,
     isPrivate: true,
+    roles: appRoles[2],
   },
   {
     type: "collapse",
@@ -81,6 +93,7 @@ const routes = [
     route: "/dashboard2",
     component: <Dashboard2 />, //<Dashboard />,
     isPrivate: true,
+    roles: appRoles[0],
   },
   {
     type: "collapse",
@@ -91,6 +104,7 @@ const routes = [
     route: "/dashboard3",
     component: <Dashboard3 />, //<Dashboard />,
     isPrivate: true,
+    roles: appRoles[0],
   },
   {
     type: "collapse",
@@ -101,6 +115,7 @@ const routes = [
     route: "/protocols",
     component: <Protocols />, //<Dashboard />,
     isPrivate: true,
+    roles: appRoles[4],
   },
   {
     type: "collapse",
@@ -111,6 +126,7 @@ const routes = [
     route: "/meetings",
     component: <MeetingsRequests />,
     isPrivate: true,
+    roles: appRoles[4],
   },
 ];
 
