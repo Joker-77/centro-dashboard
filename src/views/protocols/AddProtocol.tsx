@@ -6,7 +6,7 @@ import { Add, KeyboardArrowLeft } from '@mui/icons-material';
 import MDTypography from '../../components/MDTypography'
 import { Form, Formik } from 'formik';
 import MDInput from '../../components/MDInput';
-import user3 from '../../assets/images/user3.jpg'
+import user3 from '../../assets/images/user1.jpg'
 import MDBox from '../../components/MDBox';
 import { CheckCircle } from '@mui/icons-material';
 

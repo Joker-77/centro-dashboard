@@ -3,7 +3,7 @@ import { Box, FormControl, FormControlLabel, Radio, RadioGroup, Typography } fro
 import React, { useState } from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CheckCircleOutline, Circle, KeyboardArrowLeft, PanoramaFishEye } from '@mui/icons-material';
-import user3 from '../../../assets/images/user3.jpg'
+import user3 from '../../../assets/images/user1.jpg'
 
 export const Conference = ({ onClick }) => {
 	const [selectedValue, setSelectedValue] = useState('');

@@ -7,7 +7,7 @@ import MDTypography from "../../../components/MDTypography";
 import Meetings from "../meetings";
 import { DateHelper } from "../../../Helpers/DateHelper";
 import { ConferenceCard } from "./ConferenceCard";
-import user3 from "../../../assets/images/user3.jpg";
+import user3 from "../../../assets/images/user1.jpg";
 import { Conference } from "./Conference";
 interface IProps {}
 export const ConferencesPage: React.FC<IProps> = () => {
