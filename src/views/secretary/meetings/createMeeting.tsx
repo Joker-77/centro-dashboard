@@ -4,6 +4,7 @@ import { Grid, FormControlLabel } from "@mui/material";
 import MDTypography from "../../../components/MDTypography/index";
 import * as yup from "yup";
 import MDInput from "../../../components/MDInput/index";
+import MDButton from "../../../components/MDButton/index";
 import { useFormik, Formik, Field, Form, ErrorMessage } from "formik";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -32,7 +33,16 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
   });
   const _label = "اكتب هنا..";
   const initialValues = useMemo(() => {
-    return {};
+    return {
+      subject: "",
+      date: "",
+      priority: "",
+      type: "",
+      time: "",
+      brief: "",
+      place: false,
+      security: false,
+    };
   }, [meeting]);
   const priorities = ["قصوى", "متوسطة", "ضعيفة"];
   const types = ["داخلي", "خارجي"];
@@ -58,6 +68,8 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
           handleReset,
           setFieldValue,
         } = props;
+        console.clear();
+        console.log("values", values);
         return (
           <Form
             style={{
@@ -252,11 +264,11 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
                   }}
                 />
               </Grid>
-              <Grid item xs={12} md={3} mt={2}>
+              <Grid item xs={12} md={5} mt={2}>
                 <MDTypography style={{ fontSize: "15px" }} mb={2}>
                   مكان الاجتماع <span style={{ color: "red" }}>*</span>
                 </MDTypography>
-                <Grid item style={{ display:"flex" }}>
+                <Grid item style={{ display: "flex" }}>
                   <FormControlLabel
                     control={<Checkbox checked={values.place} />}
                     name="place"
@@ -264,11 +276,27 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
                     onChange={handleChange}
                   />
                   <FormControlLabel
-                    control={<Checkbox checked={values.place} />}
+                    control={<Checkbox checked={values.security} />}
                     name="security"
                     label="أمن"
                     onChange={handleChange}
                   />
+                </Grid>
+              </Grid>
+              <Grid item xs={12} md={6} mt={2}>
+                <MDTypography style={{ fontSize: "15px" }} mb={2}>
+                  مكان الاجتماع الحضوري <span style={{ color: "red" }}>*</span>
+                </MDTypography>
+                <Grid item display="flex" justifyContent="space-around">
+                  <MDButton
+                    style={{
+                      backgroundColor: "rgb(19, 113, 77)",
+                      color: "white",
+                    }}
+                  >
+                    ادخل اسم المكان
+                  </MDButton>
+                  <MDButton color="primary">ادخل من الخريطة</MDButton>
                 </Grid>
               </Grid>
             </Grid>
