@@ -88,7 +88,6 @@ function Sidenav({ color, brand, brandName, routes, userRoles, ...rest }) {
       index
     ) => {
       let returnValue;
-      console.log(name, roles);
       if (roles == "All") {
         if (type === "collapse" && key !== "sign-in") {
           returnValue = href ? (

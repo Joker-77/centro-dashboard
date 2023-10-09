@@ -43,7 +43,7 @@ instance.interceptors.response.use(
   },
   async (err: any) => {
     const originalConfig = err.config;
-    console.log(err);
+    console.error(err);
     if (originalConfig.url !== "/authentication/sign-in" && err.response) {
       // Access Token was expired
       if (err.response.status === 401 && !originalConfig._retry) {

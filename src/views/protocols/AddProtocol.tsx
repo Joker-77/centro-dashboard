@@ -17,7 +17,7 @@ export const AddProtocol = ({ onClick }) => {
 		return {};
 	}, []);
 	const submitCreate = (values, setSubmitting) => {
-		console.log(values);
+		// console.log(values);
 	};
 	return (
 		<Grid container spacing={2} my={{ sx: 1, md: 2 }}>

@@ -35,8 +35,6 @@ export default function Permissions() {
     const {
       target: { value },
     } = event;
-    console.clear();
-    console.log(event.target.value);
     const filterdValue = value.filter(
       (item) => permissionName.findIndex((o) => o === item) >= 0
     );
@@ -44,15 +42,6 @@ export default function Permissions() {
     let duplicatesRemoved = value.filter((item, itemIndex) =>
       value.findIndex((o, oIndex) => o === item && oIndex !== itemIndex)
     );
-
-    // console.log(duplicatesRemoved);
-
-    // let map = {};
-
-    // for (let list of value) {
-    //   map[Object.values(list).join('')] = list;
-    // }
-    // console.log('Using Map', Object.values(map));
 
     let duplicateRemoved = [];
     value.forEach((item) => {

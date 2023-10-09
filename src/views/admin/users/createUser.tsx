@@ -55,7 +55,7 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
     setFile(URL.createObjectURL(e.target.files[0]));
   };
   const submitCreate = (values, setSubmitting) => {
-    console.log(values);
+    // console.log(values);
   };
   return (
     <Grid container spacing={2} my={{ sx: 1, md: 2 }}>

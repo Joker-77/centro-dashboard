@@ -4,7 +4,6 @@ import TokenService from "./TokenService";
 
 class AuthService {
   login(payload: any) {
-    console.log("auth", payload);
     return api
       .post("/Users/Login", payload, {
         headers: {

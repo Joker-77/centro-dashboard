@@ -41,7 +41,6 @@ const SignUpForm: React.FC<Props> = () => {
     formData.append("PhoneNumber", values.phone);
     formData.append("FullName", values.name);
     formData.append("Roles", "Administrator");
-    console.log(values);
     UserService.createUser(formData)
       .then((resp) => {
         toast.success(resp);

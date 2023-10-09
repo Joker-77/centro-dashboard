@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useState, useMemo } from "react";
-import { Grid } from "@mui/material";
+import { Grid, FormControlLabel } from "@mui/material";
 import MDTypography from "../../../components/MDTypography/index";
 import * as yup from "yup";
 import MDInput from "../../../components/MDInput/index";
@@ -14,6 +14,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import "../../../assets/main.css";
+import Checkbox from "@mui/material/Checkbox";
 interface IProps {
   meeting: any;
 }
@@ -26,6 +27,8 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
     type: yup.string("اكتب هنا...").required("حقل النوع مطلوب"),
     time: yup.string("اكتب هنا...").required("حقل الوقت مطلوب"),
     brief: yup.string("اكتب هنا...").required("هذا الحقل مطلوب"),
+    place: yup.boolean(),
+    security: yup.boolean(),
   });
   const _label = "اكتب هنا..";
   const initialValues = useMemo(() => {
@@ -33,7 +36,7 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
   }, [meeting]);
   const priorities = ["قصوى", "متوسطة", "ضعيفة"];
   const types = ["داخلي", "خارجي"];
-  const times = ['12:00 AM', "01:00 AM"];
+  const times = ["12:00 AM", "01:00 AM"];
   return (
     <Formik
       initialValues={initialValues}
@@ -248,6 +251,25 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
                     },
                   }}
                 />
+              </Grid>
+              <Grid item xs={12} md={3} mt={2}>
+                <MDTypography style={{ fontSize: "15px" }} mb={2}>
+                  مكان الاجتماع <span style={{ color: "red" }}>*</span>
+                </MDTypography>
+                <Grid item style={{ display:"flex" }}>
+                  <FormControlLabel
+                    control={<Checkbox checked={values.place} />}
+                    name="place"
+                    label="حضوري"
+                    onChange={handleChange}
+                  />
+                  <FormControlLabel
+                    control={<Checkbox checked={values.place} />}
+                    name="security"
+                    label="أمن"
+                    onChange={handleChange}
+                  />
+                </Grid>
               </Grid>
             </Grid>
           </Form>

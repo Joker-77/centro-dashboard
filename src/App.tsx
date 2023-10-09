@@ -15,7 +15,8 @@ import DashboardNavbar from "./components/Navbars/DashboardNavbar";
 import DefaultNavbar from "./components/Navbars/DefaultNavbar/index";
 import "@fontsource/readex-pro"; // Defaults to weight 400
 import "@fontsource/readex-pro/400.css"; // Specify weight
-import routes from "./routes";
+import routes, { adminRoutes, protocolRoutes, secretaryRoutes } from "./routes";
+import SignIn from "./views/authentication/sign-in";
 import logo from "./assets/images/logo.png";
 import {
   useMaterialUIController,
@@ -27,7 +28,6 @@ import { useAuthState } from "./context/Auth";
 function App() {
   const [controller, dispatch] = useMaterialUIController();
   const { direction } = controller;
-
   const [rtlCache, setRtlCache] = useState<any>(null);
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
@@ -65,7 +65,7 @@ function App() {
   useEffect(() => {
     document.body.setAttribute("dir", direction);
   }, [direction]);
-  console.log("userDetails", userDetails);
+
   const getRoutes = (allRoutes: any) =>
     allRoutes.map((route: any) => {
       if (route.collapse) {
@@ -88,6 +88,25 @@ function App() {
       }
       return null;
     });
+  const _routes = userDetails?.roles.some((r: any) => r === "Administrator")
+    ? adminRoutes
+    : userDetails?.roles.some((r: any) => r === "Protocol")
+    ? protocolRoutes
+    : userDetails?.roles.some((r: any) => r === "Secretary")
+    ? secretaryRoutes
+    : routes;
+  const getRoutesByRoles = (roles: string[]) => {
+    if (roles === undefined || roles.length === 0) return;
+    if (roles.some((r: any) => r === "Administrator")) {
+      return getRoutes(adminRoutes);
+    }
+    if (roles.some((r: any) => r === "Protocol")) {
+      return getRoutes(protocolRoutes);
+    }
+    if (roles.some((r: any) => r === "Secretary")) {
+      return getRoutes(secretaryRoutes);
+    }
+  };
   return (
     <CacheProvider value={rtlCache}>
       <ThemeProvider theme={themeRTL}>
@@ -98,7 +117,7 @@ function App() {
               color={"info"}
               brand={logo}
               brandName=""
-              routes={routes}
+              routes={_routes}
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}
               userRoles={userDetails?.roles}
@@ -107,7 +126,13 @@ function App() {
           </>
         )}
         <Routes>
-          {getRoutes(routes)}
+          {getRoutesByRoles(userDetails?.roles)}
+          {/* {getRoutes(routes)} */}
+          <Route
+            path={"/authentication/sign-in"}
+            element={<SignIn />}
+            key={"sign-in"}
+          />
           <Route path="*" element={<Navigate to="/dashboard" />} />
         </Routes>
       </ThemeProvider>

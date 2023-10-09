@@ -13,8 +13,6 @@ const UserDetails: React.FC<any> = ({
   toggleDrawer,
   toggleClose,
 }) => {
-  console.clear();
-  console.log(user);
   return (
     <Drawer
       open={open}

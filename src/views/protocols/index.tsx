@@ -24,7 +24,6 @@ export const Protocols: React.FC<IProps> = () => {
 		UserService.getUsers()
 			.then((resp) => {
 				setUsers(resp);
-				console.log("🚀 ~ file: index.tsx:27 ~ .then ~ resp:", resp)
 				setLoading(false);
 			})
 			.catch((e) => {

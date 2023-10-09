@@ -5,8 +5,6 @@ import MDTypography from "../../../components/MDTypography/index";
 import logo from "../../../assets/images/user1.jpg";
 import Avatar from "@mui/material/Avatar";
 const EventComponent: React.FC<any> = ({ event, ...props }) => {
-  console.clear();
-  console.log(props);
   return (
     <Grid
       container
