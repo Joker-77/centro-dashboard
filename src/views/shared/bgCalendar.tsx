@@ -4,7 +4,6 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
 import DashboardLayouts from "../layouts/index";
-import Grid from "@mui/material/Grid";
 import "moment/locale/ar-sa";
 import "moment/locale/ar";
 import EventComponent from "./calendarEvent/event";
@@ -28,10 +27,9 @@ const BgCalendar: React.FC<IProps> = ({ events, ...props }) => {
     showMore: (total) => `+${total} إضافي`,
   };
   return (
-    <DashboardLayouts height={"600%"}>
+    <DashboardLayouts height={"550%"}>
       <Calendar
         culture={"ar-sa"}
-        style={{ width: "200%" }}
         localizer={localizer}
         events={events}
         timeslots={2}
