@@ -296,7 +296,7 @@ export const InformationCommunicationRoutes = [
     route: "/dashboard2",
     component: <Dashboard2 />, //<Dashboard />,
     isPrivate: true,
-    roles: appRoles[0],
+    roles: appRoles[4],
   },
   {
     type: "collapse",
