@@ -760,4 +760,4 @@ const Dashboard2: React.FC<IProps> = () => {
   );
 };
 
-export default tweetRequest;
+export default TweetRequest;
