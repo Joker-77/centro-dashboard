@@ -289,9 +289,9 @@ export const protocolRoutes = [
 export const InformationCommunicationRoutes = [
   {
     type: "collapse",
-    name: "Home2",
+    name: "Home",
     ar_name: "الرئيسية ",
-    key: "home2",
+    key: "home",
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard2",
     component: <Dashboard2 />, //<Dashboard />,
