@@ -269,7 +269,7 @@ export const protocolRoutes = [
     key: "protocols",
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/protocols",
-    component: <Protocols />, //<Dashboard />,
+    component: <ConferencesPage />, //<Dashboard />,
     isPrivate: true,
     roles: appRoles[4],
   },
