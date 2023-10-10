@@ -307,7 +307,7 @@ export const InformationCommunicationRoutes = [
     route: "/tweetRequest",
     component: <tweetRequest />, //<Dashboard />,
     isPrivate: true,
-    roles: appRoles[3],
+    roles: appRoles[4],
   },
 ];
 export default routes;
