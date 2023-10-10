@@ -21,7 +21,7 @@ import Button from "@mui/material/Button";
 
 interface IProps {}
 
-const Dashboard2: React.FC<IProps> = () => {
+const TweetRequest: React.FC<IProps> = () => {
   let addNew = () => {
     let doc = document.getElementById("allTweets");
     doc.style.display = "none";
@@ -66,9 +66,6 @@ const Dashboard2: React.FC<IProps> = () => {
           justifyContent: "space-between",
         }}
       >
-        <Grid item md={8}>
-          <MDTyporgraphy>مرحباً بك مرة أخرى...</MDTyporgraphy>
-        </Grid>
 
         <Grid
           container
@@ -80,173 +77,6 @@ const Dashboard2: React.FC<IProps> = () => {
             justifyContent: "space-around",
           }}
         >
-          <Grid
-            rowSpacing={1}
-            container
-            // spacing={4}
-            style={{
-              position: "relative",
-              top: "2em",
-              display: "flex",
-              gap: "2em",
-              // justifyContent: "space-around",
-            }}
-          >
-            <Box
-              style={{
-                textAlign: "center",
-                display: "flex",
-                justifyContent: "center",
-                justifyItems: "center",
-              }}
-            >
-              <Card
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  height: "6em",
-                  width: "8em",
-                  margin: "auto",
-                  textAlign: "center",
-                  padding: "0px",
-                }}
-              >
-                <CardContent>
-                  <Typography
-                    sx={{ fontSize: 14 }}
-                    color="text.secondary"
-                    gutterBottom
-                  >
-                    التغريدات
-                  </Typography>
-                  <Typography variant="h5" component="div">
-                    6520
-                  </Typography>
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    تغريدة
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
-
-            <Box
-              style={{
-                textAlign: "center",
-                display: "flex",
-                justifyContent: "center",
-                justifyItems: "center",
-              }}
-            >
-              <Card
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  height: "6em",
-                  width: "8em",
-                  margin: "auto",
-                  textAlign: "center",
-                  padding: "0px",
-                }}
-              >
-                <CardContent>
-                  <Typography
-                    sx={{ fontSize: 14 }}
-                    color="text.secondary"
-                    gutterBottom
-                  >
-                    الطلبات
-                  </Typography>
-                  <Typography variant="h5" component="div">
-                    6
-                  </Typography>
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    طلبات
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
-
-            <Box
-              style={{
-                textAlign: "center",
-                display: "flex",
-                justifyContent: "center",
-                justifyItems: "center",
-              }}
-            >
-              <Card
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  height: "6em",
-                  width: "8em",
-                  margin: "auto",
-                  textAlign: "center",
-                  padding: "0px",
-                }}
-              >
-                <CardContent>
-                  <Typography
-                    sx={{ fontSize: 14 }}
-                    color="text.secondary"
-                    gutterBottom
-                  >
-                    المرفوضة
-                  </Typography>
-                  <Typography variant="h5" component="div">
-                    3
-                  </Typography>
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    طلبات
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
-
-            <Box
-              style={{
-                textAlign: "center",
-                display: "flex",
-                justifyContent: "center",
-                justifyItems: "center",
-              }}
-            >
-              <Card
-                onClick={() => addNew()}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  height: "6em",
-                  width: "20em",
-                  margin: "auto",
-                  textAlign: "center",
-                  padding: "0px",
-                  cursor: "pointer",
-                }}
-                sx={{
-                  color: "white",
-                  background: "linear-gradient(to left ,  #43A047 ,#66BB6A)",
-                }}
-                //   style={{
-                //     background:
-                //       "linearGradient(to right, gradients.primary, gradients.secondary)",
-                //   }}
-              >
-                <CardContent>
-                  <Typography sx={{ fontSize: 14 }} color="white" gutterBottom>
-                    <img src={twitter} alt="" style={{ height: "20px" }} />
-                  </Typography>
-                  <Typography
-                    variant="h5"
-                    component="div"
-                    style={{ color: "white" }}
-                  >
-                    إضافة تغريدة جديدة
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
-          </Grid>
           <Grid
             item
             // md={8}
@@ -518,33 +348,9 @@ const Dashboard2: React.FC<IProps> = () => {
             justifyContent: "space-around",
           }}
         >
-          <Grid
-            item
-            // md={8}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              fontSize: "12px",
-              marginTop: "4em",
-            }}
-          >
-            <MDTyporgraphy>انشاء تغريدة جديدة</MDTyporgraphy>
-            <Grid
-              style={{
-                marginTop: "50px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "10px",
-              }}
-            >
-              <Grid
-                style={{ display: "flex", gap: "8px", alignItems: "center" }}
-              >
-                <img src={twitter2} alt="" style={{ height: "16px" }} />
-                <div style={{ fontSize: "15px", fontWeight: "lighter" }}>
-                  تغريدة جديدة
-                </div>
-              </Grid>
+          <Grid></Grid>
+          
+         
               <Box
                 component="form"
                 sx={{
@@ -754,8 +560,6 @@ const Dashboard2: React.FC<IProps> = () => {
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </Grid>
     </DashboardLayout>
   );
 };

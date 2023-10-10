@@ -15,7 +15,7 @@ import { Protocols } from "./views/protocols";
 import Calendar from "./views/calendar/index.tsx";
 import SignIn from "./views/authentication/sign-in.tsx";
 import Dashboard2 from "./views/dashboard2/index.tsx";
-import TweetRequest from "./views/dashboard2/tweetRequest.jsx";
+import TweetRequest from "./views/dashboard2/tweetRequest.tsx";
 import { Dashboard3 } from "./views/dashboard3";
 import { ConferencesPage } from "./views/shared/conferences/index.tsx";
 const appRoles = [
@@ -290,7 +290,7 @@ export const InformationCommunicationRoutes = [
   {
     type: "collapse",
     name: "Home2",
-    ar_name: "تاننتنتالرئيسية ",
+    ar_name: "الرئيسية ",
     key: "home2",
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard2",
@@ -307,7 +307,7 @@ export const InformationCommunicationRoutes = [
     route: "/tweetRequest",
     component: <TweetRequest />, //<Dashboard />,
     isPrivate: true,
-    roles: appRoles[0],
+    roles: appRoles[5],
   },
 ];
 export default routes;
