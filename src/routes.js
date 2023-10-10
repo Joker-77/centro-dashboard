@@ -290,7 +290,7 @@ export const InformationCommunicationRoutes = [
   {
     type: "collapse",
     name: "Home5",
-    ar_name: "الرئيسية ",
+    ar_name: "تاننتنتالرئيسية ",
     key: "home5",
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard2",
