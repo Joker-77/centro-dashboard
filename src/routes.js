@@ -72,17 +72,6 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Places",
-    ar_name: "المناطق والأماكن",
-    key: "places",
-    icon: null, //<Icon fontSize="small">dashboard</Icon>,
-    route: "/places",
-    component: <> </>, //<Dashboard />,
-    isPrivate: true,
-    roles: appRoles[1],
-  },
-  {
-    type: "collapse",
     name: "pendingRequests",
     ar_name: "الطلبات المعلّقة",
     key: "pendingRequests",
@@ -307,7 +296,7 @@ export const InformationCommunicationRoutes = [
     route: "/tweetRequest",
     component: <TweetRequest />, //<Dashboard />,
     isPrivate: true,
-    roles: appRoles[5],
+    roles: appRoles[3],
   },
 ];
 export default routes;
