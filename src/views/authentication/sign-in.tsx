@@ -91,7 +91,7 @@ const SignIn: React.FC<Props> = (props) => {
                 mt={2}
                 px={1}
               >
-                {`مرحبا بك في بوابة دخول وزارة الاستثمار`}
+                {`مرحبا بك في CENTRO`}
               </MDTypography>
               <BasicTabs dispatch={dispatch} />
             </CardContent>
