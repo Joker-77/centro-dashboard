@@ -289,14 +289,14 @@ export const protocolRoutes = [
 export const InformationCommunicationRoutes = [
   {
     type: "collapse",
-    name: "Home5",
+    name: "Home2",
     ar_name: "تاننتنتالرئيسية ",
-    key: "home5",
+    key: "home2",
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard2",
     component: <Dashboard2 />, //<Dashboard />,
     isPrivate: true,
-    roles: appRoles[4],
+    roles: appRoles[0],
   },
   {
     type: "collapse",
