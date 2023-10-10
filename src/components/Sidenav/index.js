@@ -151,9 +151,15 @@ function Sidenav({ color, brand, brandName, routes, userRoles, ...rest }) {
       ownerState={{ transparentSidenav, whiteSidenav, miniSidenav, darkMode }}
     >
       <MDBox pb={1} px={4} textAlign="center">
-        <MDBox component={NavLink} to="/" display="flex" alignItems="center">
+        <MDBox
+          pt={1}
+          component={NavLink}
+          to="/"
+          display="flex"
+          alignItems="center"
+        >
           {brand && (
-            <MDBox component="img" src={brand} alt="Brand" width="14rem" />
+            <MDBox component="img" src={brand} alt="Brand" width="12rem" />
           )}
           <MDBox
             width={!brandName && "100%"}
