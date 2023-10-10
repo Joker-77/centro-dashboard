@@ -15,6 +15,7 @@ import { Protocols } from "./views/protocols";
 import Calendar from "./views/calendar/index.tsx";
 import SignIn from "./views/authentication/sign-in.tsx";
 import Dashboard2 from "./views/dashboard2/index.tsx";
+import tweetRequest from "./views/dashboard2/tweetRequest.jsx"
 import { Dashboard3 } from "./views/dashboard3";
 import { ConferencesPage } from "./views/shared/conferences/index.tsx";
 const appRoles = [
@@ -296,6 +297,17 @@ export const InformationCommunicationRoutes = [
     component: <Dashboard2 />, //<Dashboard />,
     isPrivate: true,
     roles: appRoles[0],
+  },
+  {
+    type: "collapse",
+    name: "tweetRequest",
+    ar_name: "طلبات التغريدات ",
+    key: "tweetRequest",
+    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    route: "/tweetRequest",
+    component: <tweetRequest />, //<Dashboard />,
+    isPrivate: true,
+    roles: appRoles[3],
   },
 ];
 export default routes;
