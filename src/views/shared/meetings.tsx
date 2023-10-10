@@ -2,7 +2,7 @@
 import React from "react";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
-import logo from "./../../assets/images/bgLogo.png";
+import logo from "./../../assets/images/centro-white.png";
 import MDButton from "../../components/MDButton/index";
 interface IProps {}
 
