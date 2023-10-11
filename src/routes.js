@@ -8,7 +8,7 @@ import Dashboard from "./views/admin/dashboard/index.tsx";
 import { MeetingsRequests } from "./views/secretary/meetings/index.tsx";
 // Protocol
 import PendingRequests from "./views/pendingRequests/index.tsx";
-import { Protocols } from "./views/protocols";
+import { Protocols } from "./views/protocols/protocolsRequests/index.tsx";
 // Information
 
 // Shared
@@ -259,7 +259,7 @@ export const protocolRoutes = [
     key: "protocols",
     icon: null, //<Icon fontSize="small">dashboard</Icon>,
     route: "/protocols",
-    component: <ConferencesPage />, //<Dashboard />,
+    component: <Protocols />, //<Dashboard />,
     isPrivate: true,
     roles: appRoles[4],
   },
