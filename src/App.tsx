@@ -105,9 +105,6 @@ function App() {
     : userDetails?.roles.some((r: any) => r === "MinisterOffice")
     ? MinistryRoutes
     : routes;
-  console.clear();
-  console.log(userDetails?.roles);
-  console.log(_routes);
   const getRoutesByRoles = (roles: string[]) => {
     if (roles === undefined || roles.length === 0) return;
     if (roles.some((r: any) => r === "Administrator")) {
