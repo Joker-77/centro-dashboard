@@ -24,7 +24,12 @@ const EventComponent: React.FC<any> = ({ event, ...props }) => {
 				</MDTypography>
 			</Grid>
 			<Grid md={12}>
-				<MDTypography variant={'body2'} style={{ textAlign: "start", color: event.color }} fontSize="9px">
+				<MDTypography variant={'body2'} style={{
+					textAlign: "start",
+					color: event.color,
+					whiteSpace: 'normal',
+					overflowWrap: 'break-word'
+				}} fontSize="9px">
 					{event.desc}
 				</MDTypography>
 			</Grid>

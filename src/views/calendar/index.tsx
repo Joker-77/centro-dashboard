@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import BigCalendar from "../shared/bgCalendar";
-import moment from "moment";
+import DashboardLayouts from "../layouts/index";
+import MDTypography from "../../components/MDTypography";
 interface IProps { }
 const Calendar: React.FC<IProps> = ({ }) => {
 	const [events, setEvents] = useState([
@@ -98,14 +99,21 @@ const Calendar: React.FC<IProps> = ({ }) => {
 		setEvents(updatedEvent);
 	};
 	return (
-		<Grid container md={10}>
-			<BigCalendar
-				events={events}
-				selectable={true}
-				onSelectEvent={(event) => this.handleEventSelected(event)}
-				onSelectSlot={(slotInfo) => this.handleSlotSelected(slotInfo)}
-			/>
-		</Grid>
+		<DashboardLayouts height={"1rem"}>
+			<Grid container>
+				<Grid item md={12} height={".1em"}>
+					<MDTypography fontSize="14px">مرحباً بك مرة أخرى...</MDTypography>
+				</Grid>
+				<Grid item md={12} mt={5} >
+					<BigCalendar
+						events={events}
+						selectable={true}
+						onSelectEvent={(event) => this.handleEventSelected(event)}
+						onSelectSlot={(slotInfo) => this.handleSlotSelected(slotInfo)}
+					/>
+				</Grid>
+			</Grid>
+		</DashboardLayouts>
 	);
 };
 export default Calendar;
