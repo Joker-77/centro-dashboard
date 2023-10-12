@@ -299,4 +299,51 @@ export const InformationCommunicationRoutes = [
     roles: appRoles[3],
   },
 ];
+
+export const MinistryRoutes = [
+  {
+    type: "collapse",
+    name: "sign-in",
+    ar_name: "تسجيل الدخول",
+    key: "sign-in",
+    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    route: "/authentication/sign-in",
+    component: <SignIn />, //<Dashboard />,
+    isPrivate: false,
+    roles: appRoles[0],
+  },
+  {
+    type: "collapse",
+    name: "Home",
+    ar_name: "الرئيسية",
+    key: "home",
+    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    route: "/dashboard",
+    component: <Dashboard />, //<Dashboard />,
+    isPrivate: true,
+    roles: appRoles[0],
+  },
+  {
+    type: "collapse",
+    name: "Users",
+    ar_name: "الأعضاء والصلاحيات",
+    key: "users",
+    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    route: "/users",
+    component: <Users />, //<Dashboard />,
+    isPrivate: true,
+    roles: appRoles[1],
+  },
+  {
+    type: "collapse",
+    name: "Places",
+    ar_name: "المناطق والأماكن",
+    key: "places",
+    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    route: "/places",
+    component: <> </>, //<Dashboard />,
+    isPrivate: true,
+    roles: appRoles[1],
+  },
+];
 export default routes;

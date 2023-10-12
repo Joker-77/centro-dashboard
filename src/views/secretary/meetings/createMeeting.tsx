@@ -24,6 +24,10 @@ import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "../../../assets/main.css";
 interface IProps {
   meeting: any;
@@ -435,6 +439,44 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
                       }}
                     />
                   </FormControl>
+                </Grid>
+                <Grid item xs={12} md={12} mt={2}>
+                  <MDTypography style={{ fontSize: "15px" }} mb={2}>
+                    أعضاء الاجتماع <span style={{ color: "red" }}>*</span>
+                  </MDTypography>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <MDTypography>Accordion 1</MDTypography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <MDTypography>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Suspendisse malesuada lacus ex, sit amet blandit leo
+                        lobortis eget.
+                      </MDTypography>
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion mt={2}>
+                    <AccordionSummary
+                      style={{ marginTop: "1em" }}
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel2a-content"
+                      id="panel2a-header"
+                    >
+                      <MDTypography>Accordion 2</MDTypography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <MDTypography>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Suspendisse malesuada lacus ex, sit amet blandit leo
+                        lobortis eget.
+                      </MDTypography>
+                    </AccordionDetails>
+                  </Accordion>
                 </Grid>
                 <Grid item md={12} display="flex" justifyContent="start" mt={6}>
                   <MDButton

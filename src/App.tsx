@@ -20,6 +20,7 @@ import routes, {
   protocolRoutes,
   secretaryRoutes,
   InformationCommunicationRoutes,
+  MinistryRoutes,
 } from "./routes";
 import SignIn from "./views/authentication/sign-in";
 import logo from "./assets/images/centro-black.png";
@@ -101,9 +102,11 @@ function App() {
     ? secretaryRoutes
     : userDetails?.roles.some((r: any) => r === "InformationCommunication")
     ? InformationCommunicationRoutes
+    : userDetails?.roles.some((r: any) => r === "MinisterOffice")
+    ? MinistryRoutes
     : routes;
   console.clear();
-  console.log(secretaryRoutes);
+  console.log(userDetails?.roles);
   console.log(_routes);
   const getRoutesByRoles = (roles: string[]) => {
     if (roles === undefined || roles.length === 0) return;
@@ -118,6 +121,9 @@ function App() {
     }
     if (roles.some((r: any) => r === "InformationCommunication")) {
       return getRoutes(InformationCommunicationRoutes);
+    }
+    if (roles.some((r: any) => r === "MinisterOffice")) {
+      return getRoutes(MinistryRoutes);
     }
   };
   return (
