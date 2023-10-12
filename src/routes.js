@@ -17,7 +17,7 @@ import SignIn from "./views/authentication/sign-in.tsx";
 import Dashboard2 from "./views/dashboard2/index.tsx";
 import TweetRequest from "./views/dashboard2/tweetRequest.tsx";
 import { Dashboard3 } from "./views/dashboard3";
-import { ConferencesPage } from "./views/shared/conferences/index.tsx";
+import { ConferencesPage } from "./views/secretary/conferences/index.tsx";
 const appRoles = [
   "All",
   "Administrator",

@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 import DashboardLayout from "../../layouts";
-import DailyCalender from "../dailyCalendar";
+import DailyCalender from "../../shared/dailyCalendar";
 import MDTypography from "../../../components/MDTypography";
-import Meetings from "../meetings";
+import Meetings from "../../shared//meetings";
 import { DateHelper } from "../../../Helpers/DateHelper";
 import { ConferenceCard } from "./ConferenceCard";
 import user3 from "../../../assets/images/climate.jpg";

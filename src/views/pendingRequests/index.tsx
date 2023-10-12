@@ -34,33 +34,35 @@ const PendingRequests: React.FC<IProps> = () => {
           <Grid item md={12} height={".1em"}>
             <MDTypography fontSize="14px">الطلبات المعلّقة</MDTypography>
           </Grid>
-          <Request
-            num={0}
-            type="غير محدد"
-            title="اجتماع"
-            dateRange={"2/12-10/12"}
-            subTitle="اجتماع لجنة الطاقة"
-            subject="اسم الموضوع أو نوع الموضوع الخاص بالحدث"
-            color="#0095FF"
-          />
-          <Request
-            num={0}
-            type="غير محدد"
-            title="اجتماع"
-            dateRange={"2/12-10/12"}
-            subTitle="اجتماع لجنة الطاقة"
-            subject="اسم الموضوع أو نوع الموضوع الخاص بالحدث"
-            color="#0095FF"
-          />
-          <Request
-            num={0}
-            type="غير محدد"
-            title="اجتماع"
-            dateRange={"2/12-10/12"}
-            subTitle="اجتماع لجنة الطاقة"
-            subject="اسم الموضوع أو نوع الموضوع الخاص بالحدث"
-            color="#0095FF"
-          />
+          <Grid container md={12} sx={{ marginTop: "-8em" }}>
+            <Request
+              num={0}
+              type="غير محدد"
+              title="اجتماع"
+              dateRange={"2/12-10/12"}
+              subTitle="اجتماع لجنة الطاقة"
+              subject="اسم الموضوع أو نوع الموضوع الخاص بالحدث"
+              color="#0095FF"
+            />
+            <Request
+              num={0}
+              type="غير محدد"
+              title="اجتماع"
+              dateRange={"2/12-10/12"}
+              subTitle="اجتماع لجنة الطاقة"
+              subject="اسم الموضوع أو نوع الموضوع الخاص بالحدث"
+              color="#0095FF"
+            />
+            <Request
+              num={0}
+              type="غير محدد"
+              title="اجتماع"
+              dateRange={"2/12-10/12"}
+              subTitle="اجتماع لجنة الطاقة"
+              subject="اسم الموضوع أو نوع الموضوع الخاص بالحدث"
+              color="#0095FF"
+            />
+          </Grid>
         </Grid>
         <Grid container md={3} mr={8}>
           <DailyCalender date={date} />

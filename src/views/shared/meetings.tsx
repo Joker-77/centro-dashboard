@@ -8,7 +8,7 @@ interface IProps {}
 
 const Meetings: React.FC<IProps> = () => {
   return (
-    <Card sx={{ maxWidth: 440, width: 440, backgroundColor: "#13714D" }}>
+    <Card sx={{ maxWidth: 440, width: "100%", height:"12em", backgroundColor: "#13714D" }}>
       <Grid
         container
         md={12}

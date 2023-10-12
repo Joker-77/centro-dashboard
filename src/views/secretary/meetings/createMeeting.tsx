@@ -17,11 +17,27 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import "../../../assets/main.css";
 import Checkbox from "@mui/material/Checkbox";
 import Card from "@mui/material/Card";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import InputAdornment from "@mui/material/InputAdornment";
+import TextField from "@mui/material/TextField";
+import IconButton from "@mui/material/IconButton";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import AddIcon from "@mui/icons-material/Add";
+import "../../../assets/main.css";
 interface IProps {
   meeting: any;
 }
 const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
   const [files, setFiles] = useState([]);
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
   const validationSchema = yup.object({
     subject: yup.string("اكتب هنا...").required("حقل العنوان مطلوب"),
     priority: yup.string("اكتب هنا...").required("حقل الأولوية مطلوب"),
@@ -301,6 +317,124 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
                     </MDButton>
                     <MDButton color="primary">ادخل من الخريطة</MDButton>
                   </Grid>
+                </Grid>
+                <Grid item xs={12} md={10} mt={2}>
+                  <MDTypography style={{ fontSize: "15px" }}>
+                    ملفات الاجتماع <span style={{ color: "red" }}>*</span>
+                  </MDTypography>
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  md={2}
+                  mt={2}
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <MDButton
+                    color="primary"
+                    size="small"
+                    p={0}
+                    style={{
+                      minWidth: "3em",
+                      padding: "0",
+                      marginRight: "1em",
+                    }}
+                  >
+                    <AddIcon size="large" />
+                  </MDButton>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <FormControl variant="standard">
+                    <TextField type="file" style={{ display: "none" }} />
+                    <TextField
+                      id="outlined-start-adornment"
+                      sx={{ m: 1 }}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                              edge="end"
+                            >
+                              <EditIcon color="primary" />
+                            </IconButton>
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                              edge="end"
+                            >
+                              <DeleteIcon sx={{ color: "red" }} />
+                            </IconButton>
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <FormControl variant="standard">
+                    <TextField type="file" style={{ display: "none" }} />
+                    <TextField
+                      id="outlined-start-adornment"
+                      sx={{ m: 1 }}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                              edge="end"
+                            >
+                              <EditIcon color="primary" />
+                            </IconButton>
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                              edge="end"
+                            >
+                              <DeleteIcon sx={{ color: "red" }} />
+                            </IconButton>
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <FormControl variant="standard">
+                    <TextField type="file" style={{ display: "none" }} />
+                    <TextField
+                      id="outlined-start-adornment"
+                      sx={{ m: 1 }}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                              edge="end"
+                            >
+                              <EditIcon color="primary" />
+                            </IconButton>
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                              edge="end"
+                            >
+                              <DeleteIcon sx={{ color: "red" }} />
+                            </IconButton>
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                  </FormControl>
                 </Grid>
                 <Grid item md={12} display="flex" justifyContent="start" mt={6}>
                   <MDButton

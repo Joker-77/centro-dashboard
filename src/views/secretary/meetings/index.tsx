@@ -9,6 +9,7 @@ import Meetings from "../../shared/meetings";
 import { RequestCard } from "./requestCard";
 import MDButton from "../../../components/MDButton/index";
 import CreateMeeting from "./createMeeting";
+
 interface IProps {}
 
 export const MeetingsRequests: React.FC<IProps> = () => {
@@ -31,6 +32,7 @@ export const MeetingsRequests: React.FC<IProps> = () => {
       <Grid
         container
         spacing={2}
+        md={12}
         style={{
           position: "relative",
           top: "2em",
@@ -38,8 +40,8 @@ export const MeetingsRequests: React.FC<IProps> = () => {
           justifyContent: "space-between",
         }}
       >
-        <Grid container md={8} style={{ height: "8em" }} spacing={2}>
-          <Grid item md={9} height={".1em"} mb={5}>
+        <Grid container md={8}>
+          <Grid item md={8} height={".1em"} mb={5}>
             {!isCreate ? (
               <MDTypography fontSize="14px">الاجتماعات</MDTypography>
             ) : (
@@ -47,9 +49,10 @@ export const MeetingsRequests: React.FC<IProps> = () => {
             )}
           </Grid>
           <Grid
-            md={3}
+            item
+            md={4}
             height={".1em"}
-            style={{ display: "flex", justifyContent: "end", marginTop: "1em" }}
+            style={{ display: "flex", justifyContent: "end" }}
           >
             {!isCreate && (
               <MDButton
@@ -60,37 +63,19 @@ export const MeetingsRequests: React.FC<IProps> = () => {
               </MDButton>
             )}
           </Grid>
-          {!isCreate ? (
-            <Grid container spacing={2}>
-              <Grid md={8}></Grid>
-            </Grid>
-          ) : (
-            <CreateMeeting />
-          )}
+          <Grid item md={12}>
+            {isCreate ? <CreateMeeting /> : <> </>}
+          </Grid>
         </Grid>
-        <Grid container md={3} mr={8}>
-          <DailyCalender date={date} />
-        </Grid>
-      </Grid>
-      <Grid
-        container
-        style={{
-          position: "relative",
-          top: "4em",
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
         <Grid
           container
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            height: "250px",
-          }}
+          md={3}
+          style={{ display: "flex", justifyContent: "start" }}
         >
-          <Grid container md={8} />
-          <Grid container md={3} mr={8}>
+          <Grid item md={12}>
+            <DailyCalender />
+          </Grid>
+          <Grid item md={12} mt={1}>
             <Meetings />
           </Grid>
         </Grid>
@@ -98,3 +83,6 @@ export const MeetingsRequests: React.FC<IProps> = () => {
     </DashboardLayout>
   );
 };
+
+//
+// <Meetings />
