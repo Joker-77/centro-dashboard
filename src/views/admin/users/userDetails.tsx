@@ -47,7 +47,7 @@ const UserDetails: React.FC<any> = ({
               src={user?.profilePicture}
             />
           </Grid>
-          <Grid item md={2}>
+          <Grid item md={2} style={{ display: "flex", justifyContent: "end" }}>
             <CloseIcon style={{ cursor: "pointer" }} onClick={toggleClose} />
           </Grid>
         </Grid>

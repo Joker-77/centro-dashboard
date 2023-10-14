@@ -4,7 +4,6 @@ import DashboardLayouts from "./../layouts/index";
 import { Grid } from "@mui/material";
 import MDTypography from "./../../components/MDTypography/index";
 import DailyCalender from "../shared/dailyCalendar";
-import { DateHelper } from "./../../Helpers/DateHelper";
 import Meetings from "../shared/meetings";
 import { Link } from "react-router-dom";
 import Request from "../admin/dashboard/request";
@@ -12,12 +11,6 @@ import Request from "../admin/dashboard/request";
 interface IProps {}
 
 const PendingRequests: React.FC<IProps> = () => {
-  const [date, setDate] = useState("");
-  useEffect(() => {
-    let day = DateHelper.getDay(new Date().getDay());
-    let date = new Date().toLocaleDateString();
-    setDate(`${day}، ${date}`);
-  }, []);
   return (
     <DashboardLayouts>
       <Grid
@@ -65,7 +58,7 @@ const PendingRequests: React.FC<IProps> = () => {
           </Grid>
         </Grid>
         <Grid container md={3} mr={8}>
-          <DailyCalender date={date} />
+          <DailyCalender />
         </Grid>
       </Grid>
       <Grid

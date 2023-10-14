@@ -29,13 +29,18 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "../../../assets/main.css";
+import { DateHelper } from '../../../helpers/dateHelper'
 interface IProps {
   meeting: any;
 }
 const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
-  const [files, setFiles] = useState([]);
+  const [files, setFiles] = useState<string[]>(["file1", "file2", "file3"]);
+  const [membersGroups, setMembersGroup] = useState<string[]>([
+    "group1",
+    "group2",
+    "group2",
+  ]);
   const [showPassword, setShowPassword] = React.useState(false);
-
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (
     event: React.MouseEvent<HTMLButtonElement>
@@ -68,6 +73,16 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
   const priorities = ["قصوى", "متوسطة", "ضعيفة"];
   const types = ["داخلي", "خارجي"];
   const times = ["12:00 AM", "01:00 AM"];
+  const createFileInput = () => {
+    let _files = files.slice();
+    _files.push(`file${_files.length}`);
+    setFiles(_files);
+  };
+  const createGroup = () => {
+    let _groups = membersGroups.slice();
+    _groups.push(`file${_groups.length}`);
+    setMembersGroup(_groups);
+  };
   return (
     <Card style={{ padding: "1em 0" }}>
       <Formik
@@ -143,6 +158,7 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
                     <Select
                       labelId="priority"
                       id="priority"
+                      name="priority"
                       value={values.priority}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -169,6 +185,7 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
                       <DatePicker
                         onChange={(value) => setFieldValue("date", value, true)}
                         value={values.date}
+                        name="date"
                         sx={{
                           backgroundColor: "white",
                           width: "75%",
@@ -209,6 +226,7 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
                     style={{ fontSize: "15px" }}
                   >
                     <Select
+                      name="type"
                       labelId="type"
                       id="type"
                       value={values.type}
@@ -242,6 +260,7 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
                     <Select
                       labelId="time"
                       id="time"
+                      name="time"
                       value={values.time}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -251,7 +270,7 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
                         height: 45,
                       }}
                     >
-                      {times.map((p) => (
+                      {DateHelper.getQuarterHourTimes().map((p) => (
                         <MenuItem key={p} value={p}>
                           {p}
                         </MenuItem>
@@ -338,6 +357,7 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
                     color="primary"
                     size="small"
                     p={0}
+                    onClick={createFileInput}
                     style={{
                       minWidth: "3em",
                       padding: "0",
@@ -347,137 +367,87 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
                     <AddIcon size="large" />
                   </MDButton>
                 </Grid>
-                <Grid item xs={12} md={4}>
-                  <FormControl variant="standard">
-                    <TextField type="file" style={{ display: "none" }} />
-                    <TextField
-                      id="outlined-start-adornment"
-                      sx={{ m: 1 }}
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <IconButton
-                              aria-label="toggle password visibility"
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                              edge="end"
-                            >
-                              <EditIcon color="primary" />
-                            </IconButton>
-                            <IconButton
-                              aria-label="toggle password visibility"
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                              edge="end"
-                            >
-                              <DeleteIcon sx={{ color: "red" }} />
-                            </IconButton>
-                          </InputAdornment>
-                        ),
-                      }}
-                    />
-                  </FormControl>
-                </Grid>
-                <Grid item xs={12} md={4}>
-                  <FormControl variant="standard">
-                    <TextField type="file" style={{ display: "none" }} />
-                    <TextField
-                      id="outlined-start-adornment"
-                      sx={{ m: 1 }}
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <IconButton
-                              aria-label="toggle password visibility"
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                              edge="end"
-                            >
-                              <EditIcon color="primary" />
-                            </IconButton>
-                            <IconButton
-                              aria-label="toggle password visibility"
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                              edge="end"
-                            >
-                              <DeleteIcon sx={{ color: "red" }} />
-                            </IconButton>
-                          </InputAdornment>
-                        ),
-                      }}
-                    />
-                  </FormControl>
-                </Grid>
-                <Grid item xs={12} md={4}>
-                  <FormControl variant="standard">
-                    <TextField type="file" style={{ display: "none" }} />
-                    <TextField
-                      id="outlined-start-adornment"
-                      sx={{ m: 1 }}
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <IconButton
-                              aria-label="toggle password visibility"
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                              edge="end"
-                            >
-                              <EditIcon color="primary" />
-                            </IconButton>
-                            <IconButton
-                              aria-label="toggle password visibility"
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                              edge="end"
-                            >
-                              <DeleteIcon sx={{ color: "red" }} />
-                            </IconButton>
-                          </InputAdornment>
-                        ),
-                      }}
-                    />
-                  </FormControl>
-                </Grid>
-                <Grid item xs={12} md={12} mt={2}>
+                {files.map((file: string, index: number) => {
+                  return (
+                    <Grid item xs={12} md={4} key={index}>
+                      <FormControl variant="standard">
+                        <TextField type="file" style={{ display: "none" }} />
+                        <TextField
+                          id="outlined-start-adornment"
+                          sx={{ m: 1 }}
+                          InputProps={{
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <IconButton
+                                  aria-label="toggle password visibility"
+                                  onClick={handleClickShowPassword}
+                                  onMouseDown={handleMouseDownPassword}
+                                  edge="end"
+                                >
+                                  <EditIcon color="primary" />
+                                </IconButton>
+                                <IconButton
+                                  aria-label="toggle password visibility"
+                                  onClick={handleClickShowPassword}
+                                  onMouseDown={handleMouseDownPassword}
+                                  edge="end"
+                                >
+                                  <DeleteIcon sx={{ color: "red" }} />
+                                </IconButton>
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
+                      </FormControl>
+                    </Grid>
+                  );
+                })}
+                <Grid item xs={12} md={10} mt={2}>
                   <MDTypography style={{ fontSize: "15px" }} mb={2}>
                     أعضاء الاجتماع <span style={{ color: "red" }}>*</span>
                   </MDTypography>
-                  <Accordion>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel1a-content"
-                      id="panel1a-header"
-                    >
-                      <MDTypography>Accordion 1</MDTypography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <MDTypography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Suspendisse malesuada lacus ex, sit amet blandit leo
-                        lobortis eget.
-                      </MDTypography>
-                    </AccordionDetails>
-                  </Accordion>
-                  <Accordion mt={2}>
-                    <AccordionSummary
-                      style={{ marginTop: "1em" }}
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel2a-content"
-                      id="panel2a-header"
-                    >
-                      <MDTypography>Accordion 2</MDTypography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <MDTypography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Suspendisse malesuada lacus ex, sit amet blandit leo
-                        lobortis eget.
-                      </MDTypography>
-                    </AccordionDetails>
-                  </Accordion>
                 </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  md={2}
+                  mt={2}
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <MDButton
+                    color="primary"
+                    size="small"
+                    p={0}
+                    onClick={createGroup}
+                    style={{
+                      minWidth: "3em",
+                      padding: "0",
+                      marginRight: "1em",
+                    }}
+                  >
+                    <AddIcon size="large" />
+                  </MDButton>
+                </Grid>
+                {membersGroups.map((group: string, index: number) => {
+                  return (
+                    <Grid item key={index} md={12} mt={index > 0 ? 1 : 1}>
+                      <Accordion>
+                        <AccordionSummary
+                          expandIcon={<ExpandMoreIcon />}
+                          aria-controls="panel2a-content"
+                          id="panel2a-header"
+                        >
+                          <MDTypography fontSize="12px">
+                            مجموعة أعضاء الإدارة
+                          </MDTypography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          <MDTypography></MDTypography>
+                        </AccordionDetails>
+                      </Accordion>
+                    </Grid>
+                  );
+                })}
                 <Grid item md={12} display="flex" justifyContent="start" mt={6}>
                   <MDButton
                     style={{

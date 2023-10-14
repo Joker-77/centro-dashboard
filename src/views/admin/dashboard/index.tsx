@@ -5,18 +5,11 @@ import DashboardLayout from "../../layouts/index";
 import StatisticCard from "../../shared/statisticsCard";
 import DailyCalender from "../../shared/dailyCalendar";
 import MDTypography from "../../../components/MDTypography/index";
-import { DateHelper } from "../../../Helpers/DateHelper";
 import { Link } from "react-router-dom";
 import Request from "./request";
 import Meetings from "../../shared/meetings";
 interface IProps {}
-const Dashboard: React.FC<IProps> = () => {
-  const [date, setDate] = useState("");
-  useEffect(() => {
-    let day = DateHelper.getDay(new Date().getDay());
-    let date = new Date().toLocaleDateString();
-    setDate(`${day}، ${date}`);
-  }, []);
+const Dashboard: React.FC<IProps> = () => {  
   return (
     <DashboardLayout>
       <Grid
@@ -128,7 +121,7 @@ const Dashboard: React.FC<IProps> = () => {
           />
         </Grid>
         <Grid container md={3} mr={8}>
-          <DailyCalender date={date} />
+          <DailyCalender />
         </Grid>
       </Grid>
       <Grid

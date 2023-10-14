@@ -5,19 +5,13 @@ import DashboardLayout from "../../layouts";
 import DailyCalender from "../../shared/dailyCalendar";
 import MDTypography from "../../../components/MDTypography";
 import Meetings from "../../shared//meetings";
-import { DateHelper } from "../../../Helpers/DateHelper";
+import { DateHelper } from "../../../helpers/dateHelper";
 import { ConferenceCard } from "./ConferenceCard";
 import user3 from "../../../assets/images/climate.jpg";
 import { Conference } from "./Conference";
 interface IProps {}
 export const ConferencesPage: React.FC<IProps> = () => {
-  const [date, setDate] = useState("");
   const [clicked, setClicked] = useState(false);
-  useEffect(() => {
-    let day = DateHelper.getDay(new Date().getDay());
-    let date = new Date().toLocaleDateString();
-    setDate(`${day}، ${date}`);
-  }, []);
   const handleClick = () => {
     setClicked(!clicked);
   };
@@ -65,7 +59,7 @@ export const ConferencesPage: React.FC<IProps> = () => {
               </Grid>
             </Grid>
             <Grid container md={3}>
-              <DailyCalender date={date} />
+              <DailyCalender />
             </Grid>
           </Grid>
           <Grid

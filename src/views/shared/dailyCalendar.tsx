@@ -1,13 +1,20 @@
 // @ts-nocheck
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import MDTypography from "./../../components/MDTypography/index";
 import Grid from "@mui/material/Grid";
 import Calender from "./calender";
+import { DateHelper } from "./../../helpers/dateHelper";
 interface IProps {}
-const DailyCalendar: React.FC<IProps> = ({ date }) => {
+const DailyCalendar: React.FC<IProps> = () => {
+  const [date, setDate] = useState("");
+  useEffect(() => {
+    let day = DateHelper.getDay(new Date().getDay());
+    let date = new Date().toLocaleDateString();
+    setDate(`${day}، ${date}`);
+  }, []);
   return (
-    <>
+    <Grid item md={12}>
       <Grid item md={12}>
         <MDTypography fontSize="14px">التقويم اليومي ومواعيدك</MDTypography>
       </Grid>
@@ -72,7 +79,7 @@ const DailyCalendar: React.FC<IProps> = ({ date }) => {
           <Calender />
         </Card>
       </Grid>
-    </>
+    </Grid>
   );
 };
 
