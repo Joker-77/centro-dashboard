@@ -13,6 +13,8 @@ export const Dashboard3: React.FC<IProps> = () => {
       <Grid
         container
         spacing={2}
+        md={12}
+        xs={12}
         style={{
           position: "relative",
           top: "2em",
@@ -20,7 +22,18 @@ export const Dashboard3: React.FC<IProps> = () => {
           justifyContent: "space-between",
         }}
       >
-        <Grid container md={8} height={".1em"}>
+        <Grid
+          container
+          md={9}
+          xs={12}
+          pr={2}
+          sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
+            [breakpoints.down("md")]: {},
+            [breakpoints.up("md")]: {
+              height: ".1em",
+            },
+          })}
+        >
           <Grid item md={8} height={".1em"} mb={5}>
             <MDTypography fontSize="14px">مرحباً بك مرّة أخرى</MDTypography>
           </Grid>
@@ -85,10 +98,16 @@ export const Dashboard3: React.FC<IProps> = () => {
         <Grid
           container
           md={3}
+          xs={12}
           style={{
             display: "flex",
             justifyContent: "start",
           }}
+          sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
+            [breakpoints.down("md")]: {
+              marginTop: "1em",
+            },
+          })}
         >
           <DailyCalender />
           <Meetings />

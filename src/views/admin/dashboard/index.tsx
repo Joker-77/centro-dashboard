@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Grid from "@mui/material/Grid";
 import DashboardLayout from "../../layouts/index";
 import StatisticCard from "../../shared/statisticsCard";
@@ -9,12 +9,15 @@ import { Link } from "react-router-dom";
 import Request from "./request";
 import Meetings from "../../shared/meetings";
 interface IProps {}
-const Dashboard: React.FC<IProps> = () => {  
+const Dashboard: React.FC<IProps> = () => {
   return (
     <DashboardLayout>
       <Grid
         container
         spacing={2}
+        md={9}
+        xs={12}
+        pr={2}
         style={{
           position: "relative",
           top: "2em",

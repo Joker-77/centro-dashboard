@@ -27,6 +27,7 @@ export const MeetingsRequests: React.FC<IProps> = () => {
         container
         spacing={2}
         md={12}
+        xs={12}
         style={{
           position: "relative",
           top: "2em",
@@ -34,18 +35,29 @@ export const MeetingsRequests: React.FC<IProps> = () => {
           justifyContent: "space-between",
         }}
       >
-        <Grid container md={8} height={".1em"}>
-          <Grid item md={8} height={".1em"} mb={5}>
+        <Grid
+          container
+          md={9}
+          xs={12}
+          pr={2}
+          sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
+            [breakpoints.down("md")]: {},
+            [breakpoints.up("md")]: {
+              height: ".1em",
+            },
+          })}
+        >
+          <Grid item md={8} xs={9} height={".1em"} mb={5}>
             {!isCreate ? (
               <MDTypography fontSize="14px">الاجتماعات</MDTypography>
             ) : (
               <MDTypography fontSize="18px">إنشاء اجتماع جديد</MDTypography>
             )}
-            
           </Grid>
           <Grid
             item
             md={4}
+            xs={3}
             height={".1em"}
             style={{ display: "flex", justifyContent: "end" }}
           >
@@ -65,6 +77,7 @@ export const MeetingsRequests: React.FC<IProps> = () => {
         <Grid
           container
           md={3}
+          xs={12}
           style={{
             display: "flex",
             justifyContent: "start",

@@ -14,14 +14,14 @@ const DailyCalendar: React.FC<IProps> = () => {
     setDate(`${day}، ${date}`);
   }, []);
   return (
-    <Grid item md={12}>
-      <Grid item md={12}>
+    <Grid item md={12} xs={12}>
+      <Grid item md={12} xs={12}>
         <MDTypography fontSize="14px">التقويم اليومي ومواعيدك</MDTypography>
       </Grid>
       <Grid item md={12} xs={12}>
         <Card style={{ marginTop: "1em" }}>
-          <Grid container md={12}>
-            <Grid item md={1} p={1} mt={0.5}>
+          <Grid container xs={12} md={12}>
+            <Grid item xs={1} md={1} p={1} mt={0.5}>
               <svg width="18.008" height="18" viewBox="0 0 18.008 18">
                 <defs>
                   <linearGradient
@@ -51,7 +51,7 @@ const DailyCalendar: React.FC<IProps> = () => {
                 </g>
               </svg>
             </Grid>
-            <Grid item md={8} p={1}>
+            <Grid item md={8} xs={8} p={1}>
               <MDTypography variant="span" fontSize={14}>
                 {date}
               </MDTypography>
@@ -59,6 +59,7 @@ const DailyCalendar: React.FC<IProps> = () => {
             <Grid
               item
               md={3}
+              xs={3}
               style={{
                 backgroundColor: "#13714D",
                 borderTopLeftRadius: "10px",

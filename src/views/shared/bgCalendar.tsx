@@ -12,39 +12,45 @@ import { Card } from "@mui/material";
 require("react-big-calendar/lib/css/react-big-calendar.css");
 
 interface IProps {
-	events: [];
+  events: [];
 }
 const BgCalendar: React.FC<IProps> = ({ events, ...props }) => {
-	const localizer = momentLocalizer(moment);
-	const messages = {
-		week: "أسبوع",
-		work_week: "أسبوع العمل",
-		day: "يوم",
-		month: "شهر",
-		previous: "سابق",
-		next: "التالي",
-		today: "اليوم",
-		agenda: "جدول أعمال",
-		showMore: (total) => `+${total} إضافي`,
-	};
-	return (
-		<Card style={{ width: '59rem', height: '47rem', padding: '1rem' }}>
-			<Calendar
-				culture={"ar-sa"}
-				localizer={localizer}
-				events={events}
-				timeslots={2}
-				defaultDate={new Date()}
-				messages={messages}
-				components={{
-					event: EventComponent,
-				}}
-			// selectable={true}
-			// onSelectEvent={(event) => this.handleEventSelected(event)}
-			// onSelectSlot={(slotInfo) => this.handleSlotSelected(slotInfo)}
-			/>
-		</Card>
-	);
+  const localizer = momentLocalizer(moment);
+  const messages = {
+    week: "أسبوع",
+    work_week: "أسبوع العمل",
+    day: "يوم",
+    month: "شهر",
+    previous: "سابق",
+    next: "التالي",
+    today: "اليوم",
+    agenda: "جدول أعمال",
+    showMore: (total) => `+${total} إضافي`,
+  };
+  return (
+    <Card
+      style={{
+        width: "59rem",
+        height: "47rem",
+        padding: "1rem",
+      }}
+    >
+      <Calendar
+        culture={"ar-sa"}
+        localizer={localizer}
+        events={events}
+        timeslots={2}
+        defaultDate={new Date()}
+        messages={messages}
+        components={{
+          event: EventComponent,
+        }}
+        // selectable={true}
+        // onSelectEvent={(event) => this.handleEventSelected(event)}
+        // onSelectSlot={(slotInfo) => this.handleSlotSelected(slotInfo)}
+      />
+    </Card>
+  );
 };
 
 export default BgCalendar;
