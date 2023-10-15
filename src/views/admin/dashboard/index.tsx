@@ -15,14 +15,8 @@ const Dashboard: React.FC<IProps> = () => {
       <Grid
         container
         spacing={2}
-        md={9}
+        md={12}
         xs={12}
-        sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
-          [breakpoints.down("md")]: {},
-          [breakpoints.up("md")]: {
-            p: 3,
-          },
-        })}
         style={{
           position: "relative",
           top: "2em",
@@ -30,9 +24,30 @@ const Dashboard: React.FC<IProps> = () => {
           justifyContent: "space-between",
         }}
       >
-        <Grid container md={8}>
-          <Grid item md={12} height={".1em"}>
-            <MDTypography fontSize="14px">مرحباً بك مرة أخرى...</MDTypography>
+        <Grid
+          container
+          md={9}
+          xs={12}
+          sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
+            [breakpoints.down("md")]: {},
+            [breakpoints.up("md")]: {
+              display: "flex",
+              px: 2,
+            },
+          })}
+        >
+          <Grid
+            item
+            md={12}
+            xs={12}
+            sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
+              [breakpoints.down("md")]: {},
+              [breakpoints.up("md")]: {
+                height: ".1em",
+              },
+            })}
+          >
+            <MDTypography fontSize="14px">مرحباً بك مرّة أخرى</MDTypography>
           </Grid>
           <StatisticCard
             num={0}
@@ -127,70 +142,86 @@ const Dashboard: React.FC<IProps> = () => {
             bgLeftColor={"#0095FF"}
             style={{ border: "1px solid #0095FF", borderRadius: "10px" }}
           />
-        </Grid>
-        <Grid container md={3} mr={8}>
-          <DailyCalender />
-        </Grid>
-      </Grid>
-      <Grid
-        container
-        spacing={2}
-        style={{
-          position: "relative",
-          top: "4em",
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <Grid container md={8}>
-          <Grid item style={{ margin: "0 0 .5em 0" }} md={10}>
-            <MDTypography fontSize="12px">أحدث الطلبات</MDTypography>
-          </Grid>
-          <Grid item md={2} style={{ display: "flex", justifyContent: "end" }}>
-            <Link>
-              <MDTypography
-                style={{ textDecoration: "underline" }}
-                fontSize="12px"
-              >
-                عرض الكل
-              </MDTypography>
-            </Link>
-          </Grid>
           <Grid
             container
-            md={12}
-            style={{ display: "flex", justifyContent: "space-between" }}
+            style={{
+              position: "relative",
+              top: "2em",
+              display: "flex",
+              justifyContent: "space-between",
+            }}
           >
-            <Request
-              num={0}
-              type="غير محدد"
-              title="اجتماع"
-              dateRange={"2/12-10/12"}
-              subTitle="اجتماع لجنة الطاقة"
-              subject="اسم الموضوع أو نوع الموضوع الخاص بالحدث"
-              color="#0095FF"
-            />
-            <Request
-              num={1}
-              type="غير محدد"
-              title="اجتماع"
-              dateRange={"2/12-10/12"}
-              subTitle="اجتماع لجنة الطاقة"
-              subject="اسم الموضوع أو نوع الموضوع الخاص بالحدث"
-              color="#0095FF"
-            />
-            <Request
-              num={2}
-              type="غير محدد"
-              title="اجتماع"
-              dateRange={"2/12-10/12"}
-              subTitle="اجتماع لجنة الطاقة"
-              subject="اسم الموضوع أو نوع الموضوع الخاص بالحدث"
-              color="#0095FF"
-            />
+            <Grid container md={12} xs={12} mb={{ xs: 5 }}>
+              <Grid item style={{ margin: "0 0 .5em 0" }} md={10} xs={9}>
+                <MDTypography fontSize="12px">أحدث الطلبات</MDTypography>
+              </Grid>
+              <Grid
+                item
+                md={2}
+                xs={3}
+                style={{ display: "flex", justifyContent: "end" }}
+              >
+                <Link>
+                  <MDTypography
+                    style={{ textDecoration: "underline" }}
+                    fontSize="12px"
+                  >
+                    عرض الكل
+                  </MDTypography>
+                </Link>
+              </Grid>
+              <Grid
+                container
+                md={12}
+                xs={12}
+                style={{ display: "flex", justifyContent: "space-between" }}
+              >
+                <Request
+                  num={0}
+                  type="غير محدد"
+                  title="اجتماع"
+                  dateRange={"2/12-10/12"}
+                  subTitle="اجتماع لجنة الطاقة"
+                  subject="اسم الموضوع أو نوع الموضوع الخاص بالحدث"
+                  color="#0095FF"
+                />
+                <Request
+                  num={1}
+                  type="غير محدد"
+                  title="اجتماع"
+                  dateRange={"2/12-10/12"}
+                  subTitle="اجتماع لجنة الطاقة"
+                  subject="اسم الموضوع أو نوع الموضوع الخاص بالحدث"
+                  color="#0095FF"
+                />
+                <Request
+                  num={2}
+                  type="غير محدد"
+                  title="اجتماع"
+                  dateRange={"2/12-10/12"}
+                  subTitle="اجتماع لجنة الطاقة"
+                  subject="اسم الموضوع أو نوع الموضوع الخاص بالحدث"
+                  color="#0095FF"
+                />
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
-        <Grid container md={3} mr={8}>
+        <Grid
+          container
+          md={3}
+          xs={12}
+          style={{
+            display: "flex",
+            justifyContent: "start",
+          }}
+          sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
+            [breakpoints.down("md")]: {
+              marginTop: "1em",
+            },
+          })}
+        >
+          <DailyCalender />
           <Meetings />
         </Grid>
       </Grid>

@@ -31,11 +31,11 @@ const BgCalendar: React.FC<IProps> = ({ events, ...props }) => {
     <Card
       sx={({ breakpoints }) => ({
         [breakpoints.down("md")]: {
-          height: "25em",
+          height: "30em",
           padding: "1rem",
         },
         [breakpoints.up("md")]: {
-          height: "25em",
+          height: "30em",
           padding: "1rem",
         },
       })}

@@ -29,6 +29,7 @@ export const Dashboard3: React.FC<IProps> = () => {
           sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
             [breakpoints.down("md")]: {},
             [breakpoints.up("md")]: {
+              display: "flex",
               p: 3,
             },
           })}

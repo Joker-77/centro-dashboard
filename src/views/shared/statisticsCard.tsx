@@ -14,10 +14,11 @@ const StatisticCard: React.FC<IProps> = ({
 }) => {
   return (
     <Grid
+      item
       container
       md={12}
       xs={12}
-      mt={num > 0 ? 4 : 0}
+      mt={{ xs: 3, md: num > 0 ? 3 : 0 }}
       {...props}
       style={{ backgroundColor: "white" }}
       {...props.style}
@@ -42,7 +43,7 @@ const StatisticCard: React.FC<IProps> = ({
             alignItems: "center",
           }}
           item
-          xs={7}
+          xs={8}
           md={5}
         >
           <MDTypography

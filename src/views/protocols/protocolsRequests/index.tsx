@@ -35,7 +35,7 @@ export const Protocols: React.FC<IProps> = () => {
     <DashboardLayouts>
       {!isAdd && (
         <>
-		<Grid container mt={5}>
+          <Grid container mt={5}>
             <Grid item>
               <MDButton
                 style={{
@@ -61,7 +61,7 @@ export const Protocols: React.FC<IProps> = () => {
             ) : users.length > 0 ? (
               <Grid container spacing={3} justifyContent="start">
                 {users.slice(3, 10).map((user: any) => (
-                  <Grid key={user?.id} item md={2} xs={4}>
+                  <Grid key={user?.id} item md={2} xs={6}>
                     {user ? (
                       <UserInfoCard key={user?.id} user={user} />
                     ) : (
@@ -80,7 +80,6 @@ export const Protocols: React.FC<IProps> = () => {
               </Grid>
             )}
           </Grid>
-          
         </>
       )}
       {isAdd && <AddProtocol onClick={addUser} />}

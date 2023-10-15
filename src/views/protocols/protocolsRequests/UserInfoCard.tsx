@@ -25,15 +25,18 @@ export const UserInfoCard: React.FC<UserInfoCardProps> = ({ user }) => {
       <CardMedia
         sx={{ height: 140 }}
         style={{
-          width: "50%",
+          width: "70%",
           borderRadius: "100px",
-          marginTop: "1em",
+          margin: "auto",
         }}
         image={user?.profilePicture}
         title="test"
       />
       <CardContent>
-        <MDTypography style={{ textAlign: "center" }} fontSize="12px">
+        <MDTypography
+          style={{ textAlign: "center", height: "3em" }}
+          fontSize="12px"
+        >
           {user?.name}
         </MDTypography>
         <MDTypography

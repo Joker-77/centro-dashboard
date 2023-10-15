@@ -25,13 +25,20 @@ const Request: React.FC<IProps> = ({
     <Grid
       item
       md={4}
-      style={
-        num === 2
-          ? { display: "flex", justifyContent: "end" }
-          : num === 1
-          ? { display: "flex", justifyContent: "center" }
-          : {}
-      }
+      xs={12}
+      sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
+        [breakpoints.down("md")]: {
+          display: "flex",
+          justifyContent: "center",
+          mt: 2,
+        },
+        [breakpoints.up("md")]:
+          num === 2
+            ? { display: "flex", justifyContent: "end" }
+            : num === 1
+            ? { display: "flex", justifyContent: "center" }
+            : {},
+      })}
     >
       <Card
         sx={{ maxWidth: 240, height: "10em" }}
