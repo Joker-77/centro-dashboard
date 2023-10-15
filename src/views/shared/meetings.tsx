@@ -7,7 +7,6 @@ import MDButton from "../../components/MDButton/index";
 interface IProps {}
 
 const Meetings: React.FC<IProps> = () => {
-  
   return (
     <Grid item md={12} mt={2}>
       <Card

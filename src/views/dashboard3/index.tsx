@@ -26,11 +26,10 @@ export const Dashboard3: React.FC<IProps> = () => {
           container
           md={9}
           xs={12}
-          pr={2}
           sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
             [breakpoints.down("md")]: {},
             [breakpoints.up("md")]: {
-              height: ".1em",
+              p: 3,
             },
           })}
         >
@@ -98,6 +97,7 @@ export const Dashboard3: React.FC<IProps> = () => {
         <Grid
           container
           md={3}
+          mt={3}
           xs={12}
           style={{
             display: "flex",

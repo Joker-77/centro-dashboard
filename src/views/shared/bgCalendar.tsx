@@ -29,11 +29,16 @@ const BgCalendar: React.FC<IProps> = ({ events, ...props }) => {
   };
   return (
     <Card
-      style={{
-        width: "59rem",
-        height: "47rem",
-        padding: "1rem",
-      }}
+      sx={({ breakpoints }) => ({
+        [breakpoints.down("md")]: {
+          height: "25em",
+          padding: "1rem",
+        },
+        [breakpoints.up("md")]: {
+          height: "25em",
+          padding: "1rem",
+        },
+      })}
     >
       <Calendar
         culture={"ar-sa"}

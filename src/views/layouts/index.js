@@ -39,8 +39,10 @@ function DashboardLayout({ children, ...props }) {
       <Container
         maxWidth={false}
         position="relative"
+        md={12}
+        xs={12}
         sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
-          p: 3,
+          p: 1,
           position: "relative",
           width: "100%",
           height: `${props.height}`,

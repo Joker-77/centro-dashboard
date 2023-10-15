@@ -24,14 +24,14 @@ const Calendar: React.FC<IProps> = ({}) => {
       start: moment().add(5, "days").toDate(),
       end: moment().add(5, "days").toDate(),
     },
-	{
-		bgColor: "#f5faf0",
-		color: "#82c43c",
-		title: "اسم الحدث هنا",
-		desc: "تفاصيل صغيره عن الحدث هنا",
-		start: moment().add(7, "days").toDate(),
-		end: moment().add(7, "days").toDate(),
-	  },
+    {
+      bgColor: "#f5faf0",
+      color: "#82c43c",
+      title: "اسم الحدث هنا",
+      desc: "تفاصيل صغيره عن الحدث هنا",
+      start: moment().add(7, "days").toDate(),
+      end: moment().add(7, "days").toDate(),
+    },
   ]);
   const [title, setTitle] = useState();
   const [desc, setDesc] = useState();
@@ -77,11 +77,11 @@ const Calendar: React.FC<IProps> = ({}) => {
   };
   return (
     <DashboardLayouts height={"1rem"}>
-      <Grid container>
+      <Grid container md={12} xs={12} mt={2} xs={12}>
         <Grid item md={12} height={".1em"}>
           <MDTypography fontSize="14px">مرحباً بك مرة أخرى...</MDTypography>
         </Grid>
-        <Grid item md={12} mt={5}>
+        <Grid item md={12} xs={12} mt={5}>
           <BigCalendar
             events={events}
             selectable={true}

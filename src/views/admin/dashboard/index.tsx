@@ -17,7 +17,12 @@ const Dashboard: React.FC<IProps> = () => {
         spacing={2}
         md={9}
         xs={12}
-        pr={2}
+        sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
+          [breakpoints.down("md")]: {},
+          [breakpoints.up("md")]: {
+            p: 3,
+          },
+        })}
         style={{
           position: "relative",
           top: "2em",

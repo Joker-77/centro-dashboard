@@ -29,7 +29,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "../../../assets/main.css";
-import { DateHelper } from '../../../helpers/dateHelper'
+import { DateHelper } from "../../../helpers/dateHelper";
 interface IProps {
   meeting: any;
 }
@@ -430,7 +430,13 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
                 </Grid>
                 {membersGroups.map((group: string, index: number) => {
                   return (
-                    <Grid item key={index} md={12} mt={index > 0 ? 1 : 1}>
+                    <Grid
+                      item
+                      key={index}
+                      xs={12}
+                      md={12}
+                      mt={index > 0 ? 1 : 1}
+                    >
                       <Accordion>
                         <AccordionSummary
                           expandIcon={<ExpandMoreIcon />}
