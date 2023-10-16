@@ -18,6 +18,7 @@ export const Dashboard3: React.FC<IProps> = () => {
         style={{
           position: "relative",
           top: "2em",
+          right: ".8em",
           display: "flex",
           justifyContent: "space-between",
         }}
@@ -31,10 +32,11 @@ export const Dashboard3: React.FC<IProps> = () => {
             [breakpoints.up("md")]: {
               display: "flex",
               p: 3,
+              height: "13em",
             },
           })}
         >
-          <Grid item md={8} height={".1em"} mb={5}>
+          <Grid item md={12} height={".1em"} mb={5}>
             <MDTypography fontSize="14px">مرحباً بك مرّة أخرى</MDTypography>
           </Grid>
           <StatisticCard

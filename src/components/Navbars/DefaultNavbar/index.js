@@ -122,6 +122,10 @@ function DefaultNavbar({ transparent, light, action }) {
           paddingRight: "0 !important",
           paddingLeft: "0 !important",
         },
+        [breakpoints.up("md")]: {
+          paddingRight: "0 !important",
+          paddingLeft: "0 !important",
+        },
       })}
     >
       <MDBox
@@ -147,8 +151,8 @@ function DefaultNavbar({ transparent, light, action }) {
             marginLeft: "0",
           },
           [breakpoints.up("md")]: {
-            width: "calc(84% - 0px)",
-            marginLeft: "11em",
+            width: "calc(84.5% - 0px)",
+            marginLeft: "11.75em",
           },
         })}
       >
@@ -169,7 +173,7 @@ function DefaultNavbar({ transparent, light, action }) {
           //py={transparent ? 2 : 2}
           lineHeight={0.2}
           p={{ md: "13px", xs: "5px" }}
-          ml={{ md: 4, xs: 1 }}
+          mx={{ md: 2, xs: 1 }}
           style={{ backgroundColor: "#e2e9ed", borderRadius: "10px" }}
         >
           <MessageIcon />
@@ -179,88 +183,81 @@ function DefaultNavbar({ transparent, light, action }) {
           lineHeight={1}
           p={{ xs: 0, lg: 2 }}
           ml={2}
+          sx={({
+            palette: { transparent: transparentColor, white, background },
+            functions: { rgba },
+            breakpoints,
+          }) => ({
+            display: "flex",
+            alignItems: "center",
+            backgroundColor: transparent
+              ? transparentColor.main
+              : rgba(darkMode ? background.sidenav : white.main, 0.8),
+            backdropFilter: transparent ? "none" : `saturate(200%) blur(30px)`,
+            [breakpoints.down("md")]: {
+              borderRadius: "10px",
+              marginLeft: "0.5em",
+              width: "84%",
+            },
+            [breakpoints.up("md")]: {
+              borderRadius: "10px",
+              width: "70%",
+              padding: 0,
+            },
+            [breakpoints.up("lg")]: {
+              borderRadius: "10px",
+              marginLeft: "0.5em",
+              width: "30%",
+            },
+          })}
         >
-          <Paper
-            sx={({
-              palette: { transparent: transparentColor, white, background },
-              functions: { rgba },
-              breakpoints,
-            }) => ({
-              display: "flex",
-              alignItems: "center",
-              backgroundColor: transparent
-                ? transparentColor.main
-                : rgba(darkMode ? background.sidenav : white.main, 0.8),
-              backdropFilter: transparent
-                ? "none"
-                : `saturate(200%) blur(30px)`,
-              [breakpoints.down("md")]: {
-                borderRadius: "10px",
-                marginLeft: "0.5em",
-                width: "84%",
-              },
-              [breakpoints.up("md")]: {
-                borderRadius: "10px",
-                width: "100%",
-              },
-              [breakpoints.up("lg")]: {
-                borderRadius: "10px",
-                marginLeft: "0.5em",
-                width: "100%",
-              },
-            })}
-            component="form"
-            style={{ boxShadow: "none" }}
+          <IconButton
+            style={{ position: "absolute", zIndex: "9999" }}
+            type="button"
+            sx={{ p: "10px" }}
+            aria-label="search"
           >
-            <IconButton
-              style={{ position: "absolute", zIndex: "9999" }}
-              type="button"
-              sx={{ p: "10px" }}
-              aria-label="search"
-            >
-              <SearchIcon />
-            </IconButton>
-            <MDInput
-              placeholder="ابحث هنا..."
-              style={{
-                width: "100%",
-              }}
-              InputProps={{
-                style: {
-                  paddingRight: 40,
-                  borderTopLeftRadius: "0",
-                  borderBottomLeftRadius: "0",
-                  backgroundColor: "#e2e9ed",
-                },
-              }}
-              onChange={() => {}}
-            />
-            <IconButton
-              color="primary"
-              sx={{ p: "10px" }}
-              aria-label="directions"
-              style={{ position: "relative", left: "2em" }}
-            >
-              <TuneIcon style={{ color: "grey" }} />
-            </IconButton>
-            <MDButton
-              style={{
-                position: "relative",
-                left: "3.85em",
-                borderTopRightRadius: 0,
-                borderBottomRightRadius: 0,
-                padding: "1.15em",
-              }}
-              color="primary"
-            >
-              ابحث
-            </MDButton>
-          </Paper>
+            <SearchIcon />
+          </IconButton>
+          <MDInput
+            placeholder="ابحث هنا..."
+            style={{
+              width: "100%",
+            }}
+            InputProps={{
+              style: {
+                paddingRight: 40,
+                borderTopLeftRadius: "0",
+                borderBottomLeftRadius: "0",
+                backgroundColor: "#e2e9ed",
+              },
+            }}
+            onChange={() => {}}
+          />
+          <IconButton
+            color="primary"
+            sx={{ p: "10px" }}
+            aria-label="directions"
+            style={{ position: "relative", left: "2em" }}
+          >
+            <TuneIcon style={{ color: "grey" }} />
+          </IconButton>
+          <MDButton
+            style={{
+              position: "relative",
+              left: "3.85em",
+              borderTopRightRadius: 0,
+              borderBottomRightRadius: 0,
+              padding: "1.15em",
+            }}
+            color="primary"
+          >
+            ابحث
+          </MDButton>
         </MDBox>
         <MDBox
           component={Link}
           to="/"
-          //py={transparent ? 2 : 2}
           lineHeight={0.15}
           display="flex"
           p={{ md: "13px" }}
@@ -291,7 +288,7 @@ function DefaultNavbar({ transparent, light, action }) {
             [breakpoints.up("lg")]: {
               backgroundColor: "#e2e9ed",
               borderRadius: "10px",
-              width: "30%",
+              width: "24%",
             },
           })}
         >

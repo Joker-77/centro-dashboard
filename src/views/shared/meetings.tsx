@@ -8,7 +8,7 @@ interface IProps {}
 
 const Meetings: React.FC<IProps> = () => {
   return (
-    <Grid item md={12} mt={2}>
+    <Grid item md={12} xs={12} mt={2}>
       <Card
         sx={{
           maxWidth: 440,
@@ -20,6 +20,7 @@ const Meetings: React.FC<IProps> = () => {
         <Grid
           container
           md={12}
+          xs={12}
           style={{
             display: "flex",
             justifyContent: "center",
@@ -40,6 +41,7 @@ const Meetings: React.FC<IProps> = () => {
           <Grid
             item
             md={12}
+            xs={12}
             style={{
               display: "flex",
               justifyContent: "center",
