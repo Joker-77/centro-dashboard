@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useEffect, useState } from "react";
-import DashboardLayouts from "./../layouts/index";
+import DashboardLayout from "./../layouts/index";
 import { Grid } from "@mui/material";
 import MDTypography from "./../../components/MDTypography/index";
 import DailyCalender from "../shared/dailyCalendar";
@@ -12,22 +12,37 @@ interface IProps {}
 
 const PendingRequests: React.FC<IProps> = () => {
   return (
-    <DashboardLayouts>
+    <DashboardLayout>
       <Grid
         container
         spacing={2}
+        md={12}
+        xs={12}
         style={{
           position: "relative",
           top: "2em",
+          right: ".8em",
           display: "flex",
           justifyContent: "space-between",
         }}
       >
-        <Grid container md={8}>
-          <Grid item md={12} height={".1em"}>
-            <MDTypography fontSize="14px">الطلبات المعلّقة</MDTypography>
+        <Grid
+          container
+          md={9}
+          xs={12}
+          sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
+            [breakpoints.down("md")]: {},
+            [breakpoints.up("md")]: {
+              display: "flex",
+              p: 3,
+              height: ".1em",
+            },
+          })}
+        >
+          <Grid item md={12} height={".1em"} mb={5}>
+            <MDTypography fontSize="14px">مرحباً بك مرّة أخرى</MDTypography>
           </Grid>
-          <Grid container md={12} sx={{ marginTop: "-8em" }}>
+          <Grid container md={12} xs={12}>
             <Request
               num={0}
               type="غير محدد"
@@ -57,33 +72,26 @@ const PendingRequests: React.FC<IProps> = () => {
             />
           </Grid>
         </Grid>
-        <Grid container md={3} mr={8}>
+        <Grid
+          container
+          md={3}
+          mt={3}
+          xs={12}
+          style={{
+            display: "flex",
+            justifyContent: "start",
+          }}
+          sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
+            [breakpoints.down("md")]: {
+              marginTop: "1em",
+            },
+          })}
+        >
           <DailyCalender />
-        </Grid>
-      </Grid>
-      <Grid
-        container
-        spacing={2}
-        style={{
-          position: "relative",
-          top: "4em",
-          height: "13em",
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <Grid container md={8}>
-          <Grid
-            container
-            md={12}
-            style={{ display: "flex", justifyContent: "space-between" }}
-          ></Grid>
-        </Grid>
-        <Grid container md={3} mr={8}>
           <Meetings />
         </Grid>
       </Grid>
-    </DashboardLayouts>
+    </DashboardLayout>
   );
 };
 

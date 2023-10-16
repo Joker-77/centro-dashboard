@@ -77,7 +77,19 @@ const Calendar: React.FC<IProps> = ({}) => {
   };
   return (
     <DashboardLayouts height={"1rem"}>
-      <Grid container md={12} xs={12} mt={2} xs={12}>
+      <Grid
+        container
+        md={12}
+        xs={12}
+        mt={2}
+        sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
+          [breakpoints.down("md")]: {},
+          [breakpoints.up("md")]: {
+            display: "flex",
+            p: 3,
+          },
+        })}
+      >
         <Grid item md={12} height={".1em"}>
           <MDTypography fontSize="14px">مرحباً بك مرة أخرى...</MDTypography>
         </Grid>
