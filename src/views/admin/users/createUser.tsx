@@ -315,10 +315,28 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                   }}
                 >
                   <Badge
-                    style={{
+                    sx={({
+                      palette: {
+                        transparent,
+                        transparentColor,
+                        white,
+                        background,
+                      },
+                      functions: { rgba },
+                      breakpoints,
+                    }) => ({
                       cursor: "pointer",
-                      margin: "0 1em",
-                    }}
+                      margin: "1em 1em",
+                      "& .MuiBadge-badge.MuiBadge-standard.MuiBadge-anchorOriginTopRight":
+                        {
+                          top: "1em",
+                          right: "1em",
+                        },
+                      "& .MuiSvgIcon-root.MuiSvgIcon-fontSizeInherit.rtl-eimhud-MuiSvgIcon-root":
+                        {
+                          fontSize: "1rem !important",
+                        },
+                    })}
                     badgeContent={<EditIcon />}
                     color="primary"
                     onClick={() =>

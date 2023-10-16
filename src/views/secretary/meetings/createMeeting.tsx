@@ -17,7 +17,6 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import "../../../assets/main.css";
 import Checkbox from "@mui/material/Checkbox";
 import Card from "@mui/material/Card";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import IconButton from "@mui/material/IconButton";
@@ -28,7 +27,6 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import "../../../assets/main.css";
 import { DateHelper } from "../../../helpers/dateHelper";
 interface IProps {
   meeting: any;

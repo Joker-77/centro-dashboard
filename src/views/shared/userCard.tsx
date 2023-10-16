@@ -24,11 +24,16 @@ const UserCard = ({ user, toggleUser, editUser, hasbuttons }) => {
         title="test"
       />
       <CardContent>
-        <MDTypography style={{ textAlign: "center" }}>
+        <MDTypography style={{ textAlign: "center", height: "2em" }}>
           {user?.name}
         </MDTypography>
         <MDTypography
-          style={{ margin: "auto", textAlign: "center", fontSize: "12px" }}
+          style={{
+            margin: "auto",
+            textAlign: "center",
+            fontSize: "12px",
+            height: "3em",
+          }}
         >
           منصب العضو
           <MDTypography variant="caption" ml={1} style={{ color: "orange" }}>
@@ -36,7 +41,12 @@ const UserCard = ({ user, toggleUser, editUser, hasbuttons }) => {
           </MDTypography>
         </MDTypography>
         <MDTypography
-          style={{ margin: "auto", textAlign: "center", fontSize: "12px" }}
+          style={{
+            margin: "auto",
+            textAlign: "center",
+            fontSize: "12px",
+            height: "3em",
+          }}
         >
           رقم الهاتف:
           <MDTypography variant="caption" ml={1} style={{ color: "orange" }}>
@@ -63,7 +73,7 @@ const UserCard = ({ user, toggleUser, editUser, hasbuttons }) => {
               محادثة
             </MDButton>
             <MDButton
-              onClick={(event) => editUser(event,user)}
+              onClick={(event) => editUser(event, user)}
               color="primary"
               style={{ width: "50%" }}
             >

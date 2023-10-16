@@ -65,7 +65,19 @@ const Users: React.FC<UsersProps> = ({}) => {
         toggleDrawer={toggleDrawer}
       ></UserDetails>
       {!isCreate && (
-        <>
+        <Grid
+          container
+          spacing={2}
+          md={12}
+          xs={12}
+          style={{
+            position: "relative",
+            top: "2em",
+            right: ".8em",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
           <Grid container spacing={2} my={{ sx: 1, md: 2 }}>
             <Grid item xs={8}>
               <MDBox
@@ -170,7 +182,7 @@ const Users: React.FC<UsersProps> = ({}) => {
               </Grid>
             )}
           </Grid>
-        </>
+        </Grid>
       )}
       {isCreate && <CreateUser user={user} />}
     </DashboardLayouts>
