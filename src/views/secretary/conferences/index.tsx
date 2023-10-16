@@ -18,78 +18,91 @@ export const ConferencesPage: React.FC<IProps> = () => {
   return (
     <DashboardLayout>
       {!clicked ? (
-        <>
+        <Grid
+          container
+          spacing={2}
+          md={12}
+          xs={12}
+          style={{
+            position: "relative",
+            top: "2em",
+            right: ".8em",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
           <Grid
             container
-            spacing={2}
-            style={{
-              position: "relative",
-              top: "2em",
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
-            <Grid container md={9} spacing={2}>
-              <Grid item md={12} height={".1em"}>
-                <MDTypography fontSize="14px">
-                  مرحباً بك مره أخرى...
-                </MDTypography>
-              </Grid>
-              <Grid item md={6}>
-                <ConferenceCard
-                  imageUrl={user3}
-                  title={"مؤتمر المناخ 2022"}
-                  text={"مصر"}
-                  goDate={"نوفمبر 14, 2021"}
-                  returnDate={"نوفمبر 17, 2021"}
-                  tripOfficial={"عبدالله الاحمدي"}
-                  onClick={handleClick}
-                />
-              </Grid>
-              <Grid item md={6}>
-                <ConferenceCard
-                  imageUrl={user3}
-                  title={"مؤتمر المناخ 2022"}
-                  text={"مصر"}
-                  goDate={"نوفمبر 14, 2021"}
-                  returnDate={"نوفمبر 17, 2021"}
-                  tripOfficial={"عبدالله الاحمدي"}
-                  onClick={handleClick}
-                />
-              </Grid>
-            </Grid>
-            <Grid container md={3}>
-              <DailyCalender />
-            </Grid>
-          </Grid>
-          <Grid
-            container
-            style={{
-              position: "relative",
-              top: "4em",
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
-            <Grid
-              container
-              style={{
+            md={9}
+            xs={12}
+            sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
+              [breakpoints.down("md")]: {},
+              [breakpoints.up("md")]: {
                 display: "flex",
-                justifyContent: "space-between",
-                height: "250px",
-              }}
+                p: 3,
+                height: ".1em",
+              },
+            })}
+          >
+            <Grid item md={12} height={".1em"} mb={5}>
+              <MDTypography fontSize="14px">مرحباً بك مرّة أخرى</MDTypography>
+            </Grid>
+            <Grid
+              item
+              md={12}
+              sx={({ breakpoints }) => ({
+                [breakpoints.up("md")]: {
+                  height: "18em",
+                },
+              })}
             >
-              <Grid container md={8} />
-              <Grid container md={3}>
-                <Meetings />
+              <Grid container md={12} xs={12}>
+                <Grid item md={6} xs={12}>
+                  <ConferenceCard
+                    imageUrl={user3}
+                    title={"مؤتمر المناخ 2022"}
+                    text={"مصر"}
+                    goDate={"نوفمبر 14, 2021"}
+                    returnDate={"نوفمبر 17, 2021"}
+                    tripOfficial={"عبدالله الاحمدي"}
+                    onClick={handleClick}
+                  />
+                </Grid>
+                <Grid item md={6} xs={12}>
+                  <ConferenceCard
+                    imageUrl={user3}
+                    title={"مؤتمر المناخ 2022"}
+                    text={"مصر"}
+                    goDate={"نوفمبر 14, 2021"}
+                    returnDate={"نوفمبر 17, 2021"}
+                    tripOfficial={"عبدالله الاحمدي"}
+                    onClick={handleClick}
+                  />
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </>
+          <Grid
+            container
+            md={3}
+            mt={3}
+            xs={12}
+            style={{
+              display: "flex",
+              justifyContent: "start",
+            }}
+            sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
+              [breakpoints.down("md")]: {
+                marginTop: "1em",
+              },
+            })}
+          >
+            <DailyCalender />
+            <Meetings />
+          </Grid>
+        </Grid>
       ) : (
-        <>
-          <Conference onClick={handleClick} />
-        </>
+        <Conference onClick={handleClick} />
       )}
     </DashboardLayout>
   );

@@ -31,6 +31,7 @@ export const MeetingsRequests: React.FC<IProps> = () => {
         style={{
           position: "relative",
           top: "2em",
+          right: ".8em",
           display: "flex",
           justifyContent: "space-between",
         }}
