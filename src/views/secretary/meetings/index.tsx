@@ -44,6 +44,7 @@ export const MeetingsRequests: React.FC<IProps> = () => {
             [breakpoints.down("md")]: {},
             [breakpoints.up("md")]: {
               p: 3,
+              height: ".1em",
             },
           })}
         >

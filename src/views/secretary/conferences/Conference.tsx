@@ -17,7 +17,6 @@ import {
 } from "@mui/icons-material";
 import user3 from "../../../assets/images/climate.jpg";
 import Grid from "@mui/material/Grid";
-import DashboardLayout from "../../layouts/index";
 
 export const Conference = ({ onClick }) => {
   const [selectedValue, setSelectedValue] = useState("");
@@ -153,7 +152,10 @@ export const Conference = ({ onClick }) => {
                         }}
                       />
                       <Typography
-                        fontSize={16}
+                        style={{
+                          width: "1em",
+                          fontSize: "16px",
+                        }}
                         sx={{
                           color: selectedValue === option ? "#000" : "#d3dde4",
                         }}
