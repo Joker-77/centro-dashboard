@@ -17,12 +17,18 @@ const UserDetails: React.FC<any> = ({
     <Drawer
       open={open}
       onClose={toggleDrawer(false)}
-      style={{ width: "35rem !important" }}
+      sx={({ breakpoints }) => ({
+        [breakpoints.down("md")]: {},
+        [breakpoints.up("md")]: {
+          width: "35rem !important",
+        },
+      })}
     >
-      <Grid container md={12} p={5}>
+      <Grid container md={12} xs={12} p={5}>
         <Grid
           container
           md={12}
+          xs={12}
           style={{
             display: "flex",
             flexDirection: "row",
@@ -33,6 +39,7 @@ const UserDetails: React.FC<any> = ({
           <Grid
             item
             md={8}
+            xs={8}
             style={{
               display: "flex",
               flexDirection: "row",
@@ -53,43 +60,44 @@ const UserDetails: React.FC<any> = ({
         </Grid>
         <Grid item md={12} style={{ display: "flex", height: "0" }}>
           <Typography>رقم الهاتف:</Typography>
-          <Typography sx={{ ml: 4 }} color="primary">
+          <Typography ml={{ md: 4, xs: 2 }} color="primary">
             {user?.mobileNumber}
           </Typography>
         </Grid>
         <Grid item md={12} style={{ display: "flex", height: "0" }}>
           <Typography> البريد الإلكتروني:</Typography>
-          <Typography sx={{ ml: 4 }} color="primary">
+          <Typography ml={{ md: 4, xs: 1 }} color="primary">
             {user?.userName}
           </Typography>
         </Grid>
         <Grid item md={12} style={{ display: "flex", height: "0" }}>
           <Typography>دولة العضو:</Typography>
-          <Typography sx={{ ml: 4 }} color="primary">
+          <Typography ml={{ md: 4, xs: 2 }} color="primary">
             {user?.userName}
           </Typography>
         </Grid>
-        <Grid item md={12} style={{ display: "flex", height: "0" }}>
+        <Grid item md={12} xs={12} style={{ display: "flex", height: "0" }}>
           <Typography>جهة العضو:</Typography>
-          <Typography sx={{ ml: 4 }} color="primary">
+          <Typography ml={{ md: 4, xs: 2 }} color="primary">
             {user?.memberSide}
           </Typography>
         </Grid>
-        <Grid item md={12} style={{ display: "flex", height: "0" }}>
+        <Grid item md={12} xs={12} style={{ display: "flex", height: "0" }}>
           <Typography>رمز وكود العضو:</Typography>
           <Typography>{user?.code}</Typography>
         </Grid>
-        <Grid item md={12} style={{ display: "flex", height: "0" }}>
+        <Grid item md={12} xs={12} style={{ display: "flex", height: "0" }}>
           <Typography>نبذة عن العضو:</Typography>
           <Typography>{user?.brief}</Typography>
         </Grid>
-        <Grid item md={12} style={{ display: "flex", height: "0" }}>
+        <Grid item md={12} xs={12} style={{ display: "flex", height: "0" }}>
           <Typography>صلاحيات العضو:</Typography>
           <Typography>{user?.permissions}</Typography>
         </Grid>
         <Grid
           item
           md={12}
+          xs={12}
           style={{ display: "flex", justifyContent: "center", height: "0" }}
         >
           <MDButton color="primary" style={{ width: "17em" }}>

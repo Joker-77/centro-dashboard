@@ -58,7 +58,19 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
     // console.log(values);
   };
   return (
-    <Grid container spacing={2} my={{ sx: 1, md: 2 }}>
+    <Grid
+      container
+      spacing={2}
+      md={12}
+      xs={12}
+      style={{
+        position: "relative",
+        top: "2em",
+        right: ".8em",
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
       <Grid item xs={8}>
         <MDBox
           color="inherit"
