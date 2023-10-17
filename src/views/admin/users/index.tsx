@@ -157,7 +157,15 @@ const Users: React.FC<UsersProps> = ({}) => {
             ) : users.length > 0 ? (
               users.map((item: any, index) => {
                 return (
-                  <Grid key={index} item md={3} xs={12} my={1}>
+                  <Grid
+                    key={index}
+                    item
+                    md={3}
+                    xs={12}
+                    my={1}
+                    display="flex"
+                    justifyContent="center"
+                  >
                     {item ? (
                       <UserCard
                         hasbuttons

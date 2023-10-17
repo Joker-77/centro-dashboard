@@ -149,6 +149,10 @@ function DefaultNavbar({ transparent, light, action }) {
             width: "100%",
             marginLeft: "0",
           },
+          [breakpoints.only("sm")]: {
+            width: "100%",
+            marginLeft: "0",
+          },
           [breakpoints.up("md")]: {
             width: "calc(84.5% - 0px)",
             marginLeft: "11.75em",

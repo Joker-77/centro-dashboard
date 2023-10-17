@@ -16,6 +16,8 @@ import Badge from "@mui/material/Badge";
 import EditIcon from "@mui/icons-material/Edit";
 import Permissions from "./permissions";
 import MDButton from "../../../components/MDButton/index";
+import Tooltip from "@mui/material/Tooltip";
+
 interface IProps {
   user: any;
 }
@@ -326,37 +328,39 @@ const CreateUser: React.FC<IProps> = ({ user }) => {
                     alignItems: "end",
                   }}
                 >
-                  <Badge
-                    sx={({
-                      palette: {
-                        transparent,
-                        transparentColor,
-                        white,
-                        background,
-                      },
-                      functions: { rgba },
-                      breakpoints,
-                    }) => ({
-                      cursor: "pointer",
-                      margin: "1em 1em",
-                      "& .MuiBadge-badge.MuiBadge-standard.MuiBadge-anchorOriginTopRight":
-                        {
-                          top: "1em",
-                          right: "1em",
+                  <Tooltip title={"تعديل الصورة"} placement="bottom-start">
+                    <Badge
+                      sx={({
+                        palette: {
+                          transparent,
+                          transparentColor,
+                          white,
+                          background,
                         },
-                      "& .MuiSvgIcon-root.MuiSvgIcon-fontSizeInherit.rtl-eimhud-MuiSvgIcon-root":
-                        {
-                          fontSize: "1rem !important",
-                        },
-                    })}
-                    badgeContent={<EditIcon />}
-                    color="primary"
-                    onClick={() =>
-                      uploadInputRef.current && uploadInputRef.current.click()
-                    }
-                  >
-                    <Avatar alt="العضو" src={!!file ? file : user1} />
-                  </Badge>
+                        functions: { rgba },
+                        breakpoints,
+                      }) => ({
+                        cursor: "pointer",
+                        margin: "1em 1em",
+                        "& .MuiBadge-badge.MuiBadge-standard.MuiBadge-anchorOriginTopRight":
+                          {
+                            top: "1em",
+                            right: "1em",
+                          },
+                        "& .MuiSvgIcon-root.MuiSvgIcon-fontSizeInherit.rtl-eimhud-MuiSvgIcon-root":
+                          {
+                            fontSize: "1rem !important",
+                          },
+                      })}
+                      badgeContent={<EditIcon />}
+                      color="primary"
+                      onClick={() =>
+                        uploadInputRef.current && uploadInputRef.current.click()
+                      }
+                    >
+                      <Avatar alt="العضو" src={!!file ? file : user1} />
+                    </Badge>
+                  </Tooltip>
                   <MDTypography
                     style={{
                       alignSelf: "center",

@@ -11,7 +11,7 @@ import Avatar from "@mui/material/Avatar";
 import user1 from "./../../assets/images/user1.jpg";
 const UserCard = ({ user, toggleUser, editUser, hasbuttons }) => {
   return (
-    <Card sx={{ maxWidth: 250 }}>
+    <Card sx={{ maxWidth: 350, width: "250px" }}>
       <CardMedia
         sx={{ height: 140 }}
         style={{
