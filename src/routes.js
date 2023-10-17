@@ -18,6 +18,12 @@ import Dashboard2 from "./views/dashboard2/index.tsx";
 import TweetRequest from "./views/dashboard2/tweetRequest.tsx";
 import { Dashboard3 } from "./views/dashboard3";
 import { ConferencesPage } from "./views/secretary/conferences/index.tsx";
+import HomeIcon from "@mui/icons-material/Home";
+import PeopleIcon from "@mui/icons-material/People";
+import PlaceIcon from "@mui/icons-material/Place";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import Diversity3Icon from "@mui/icons-material/Diversity3";
+import PendingActionsIcon from "@mui/icons-material/PendingActions";
 const appRoles = [
   "All",
   "Administrator",
@@ -143,7 +149,7 @@ export const adminRoutes = [
     name: "Home",
     ar_name: "الرئيسية",
     key: "home",
-    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    icon: <HomeIcon />, //<Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard",
     component: <Dashboard />, //<Dashboard />,
     isPrivate: true,
@@ -154,7 +160,7 @@ export const adminRoutes = [
     name: "Users",
     ar_name: "الأعضاء والصلاحيات",
     key: "users",
-    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    icon: <PeopleIcon />, //<Icon fontSize="small">dashboard</Icon>,
     route: "/users",
     component: <Users />, //<Dashboard />,
     isPrivate: true,
@@ -165,7 +171,7 @@ export const adminRoutes = [
     name: "Places",
     ar_name: "المناطق والأماكن",
     key: "places",
-    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    icon: <PlaceIcon />, //<Icon fontSize="small">dashboard</Icon>,
     route: "/places",
     component: <> </>, //<Dashboard />,
     isPrivate: true,
@@ -178,7 +184,7 @@ export const secretaryRoutes = [
     name: "Home",
     ar_name: "الرئيسية",
     key: "home",
-    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    icon: <HomeIcon />, //<Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard",
     component: <Dashboard />, //<Dashboard />,
     isPrivate: true,
@@ -235,7 +241,7 @@ export const protocolRoutes = [
     name: "Home",
     ar_name: "الرئيسية",
     key: "home",
-    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    icon: <HomeIcon />, //<Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard",
     component: <Dashboard3 />, //<Dashboard />,
     isPrivate: true,
@@ -246,7 +252,7 @@ export const protocolRoutes = [
     name: "Calendar",
     ar_name: "التقويم",
     key: "calendar",
-    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    icon: <CalendarMonthIcon />, //<Icon fontSize="small">dashboard</Icon>,
     route: "/calendar",
     component: <Calendar />, //<Dashboard />,
     isPrivate: true,
@@ -281,7 +287,7 @@ export const InformationCommunicationRoutes = [
     name: "Home9",
     ar_name: "الرئيسية ",
     key: "home9",
-    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    icon: <HomeIcon />, //<Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard2",
     component: <Dashboard2 />, //<Dashboard />,
     isPrivate: true,
@@ -317,7 +323,7 @@ export const MinistryRoutes = [
     name: "Home",
     ar_name: "الرئيسية",
     key: "home",
-    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    icon: <HomeIcon />, //<Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard",
     component: <Dashboard />, //<Dashboard />,
     isPrivate: true,
@@ -328,7 +334,7 @@ export const MinistryRoutes = [
     name: "Users",
     ar_name: "الأعضاء والصلاحيات",
     key: "users",
-    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    icon: <PeopleIcon />, //<Icon fontSize="small">dashboard</Icon>,
     route: "/users",
     component: <Users />, //<Dashboard />,
     isPrivate: true,
@@ -339,7 +345,7 @@ export const MinistryRoutes = [
     name: "Places",
     ar_name: "المناطق والأماكن",
     key: "places",
-    icon: null, //<Icon fontSize="small">dashboard</Icon>,
+    icon: <PlaceIcon />, //<Icon fontSize="small">dashboard</Icon>,
     route: "/places",
     component: <> </>, //<Dashboard />,
     isPrivate: true,

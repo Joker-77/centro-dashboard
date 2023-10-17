@@ -10,7 +10,7 @@ function collapseItem(theme, ownerState) {
   const { pxToRem, rgba, linearGradient } = functions;
 
   return {
-    background: active ? '#e2e9ed' : transparent.main,
+    background: active ? "#e2e9ed" : transparent.main,
     color:
       (transparentSidenav && !darkMode && !active) || (whiteSidenav && !active)
         ? dark.main
@@ -57,14 +57,15 @@ function collapseIconBox(theme, ownerState) {
   const { white, dark } = palette;
   const { borderRadius } = borders;
   const { pxToRem } = functions;
-
+  console.clear();
+  console.log(palette);
   return {
     minWidth: pxToRem(32),
     minHeight: pxToRem(32),
     color:
       (transparentSidenav && !darkMode && !active) || (whiteSidenav && !active)
-        ? dark.main
-        : white.main,
+        ? palette.primary.main
+        : palette.primary.main,
     borderRadius: borderRadius.md,
     display: "grid",
     placeItems: "center",

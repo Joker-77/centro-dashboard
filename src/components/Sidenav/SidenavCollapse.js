@@ -31,7 +31,15 @@ function SidenavCollapse({ icon, name, active, ...rest }) {
     darkMode,
     sidenavColor,
   } = controller;
-
+  const iconsStyle = ({
+    palette: { primary, dark, white, text },
+    functions: { rgba },
+  }) => ({
+    color: () => {
+      let colorValue = primary.main;
+      return colorValue;
+    },
+  });
   return (
     <ListItem component="li">
       <MDBox
@@ -63,10 +71,7 @@ function SidenavCollapse({ icon, name, active, ...rest }) {
           )}
         </ListItemIcon>
 
-        <Tooltip
-          title={name}
-          placement="bottom-start"
-        >
+        <Tooltip title={name} placement="bottom-start">
           <ListItemText
             primary={name}
             style={{
