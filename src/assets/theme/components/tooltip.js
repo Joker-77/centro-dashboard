@@ -9,7 +9,7 @@ import borders from "../base/borders";
 // Material Dashboard 2 React helper functions
 import pxToRem from "../functions/pxToRem";
 
-const { black, light } = colors;
+const { black, light, primary } = colors;
 const { size, fontWeightRegular } = typography;
 const { borderRadius } = borders;
 
@@ -22,7 +22,7 @@ const tooltip = {
   styleOverrides: {
     tooltip: {
       maxWidth: pxToRem(200),
-      backgroundColor: black.main,
+      backgroundColor: primary.main,
       color: light.main,
       fontSize: size.sm,
       fontWeight: fontWeightRegular,
@@ -33,7 +33,7 @@ const tooltip = {
     },
 
     arrow: {
-      color: black.main,
+      color: primary.main,
     },
   },
 };

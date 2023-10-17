@@ -8,8 +8,7 @@ import PropTypes from "prop-types";
 
 // @mui material components
 import Container from "@mui/material/Container";
-import Icon from "@mui/material/Icon";
-
+import Tooltip from "@mui/material/Tooltip";
 // Material Dashboard 2 React components
 import MDBox from "../../MDBox/index";
 import MDInput from "../../MDInput/index";
@@ -165,7 +164,9 @@ function DefaultNavbar({ transparent, light, action }) {
           ml={{ md: 4, xs: 0.5 }}
           style={{ backgroundColor: "#e2e9ed", borderRadius: "10px" }}
         >
-          <NotificationsIcon />
+          <Tooltip title={"الإشعارات"} placement="bottom-start">
+            <NotificationsIcon />
+          </Tooltip>
         </MDBox>
         <MDBox
           component={Link}
@@ -176,7 +177,9 @@ function DefaultNavbar({ transparent, light, action }) {
           mx={{ md: 2, xs: 1 }}
           style={{ backgroundColor: "#e2e9ed", borderRadius: "10px" }}
         >
-          <MessageIcon />
+          <Tooltip title={"مراسلة"} placement="bottom-start">
+            <MessageIcon />
+          </Tooltip>
         </MDBox>
         <MDBox
           py={transparent ? 2 : 2}
@@ -211,14 +214,16 @@ function DefaultNavbar({ transparent, light, action }) {
             },
           })}
         >
-          <IconButton
-            style={{ position: "absolute", zIndex: "9999" }}
-            type="button"
-            sx={{ p: "10px" }}
-            aria-label="search"
-          >
-            <SearchIcon />
-          </IconButton>
+          <Tooltip title={"بحث"} placement="bottom-start">
+            <IconButton
+              style={{ position: "absolute", zIndex: "9999" }}
+              type="button"
+              sx={{ p: "10px" }}
+              aria-label="search"
+            >
+              <SearchIcon />
+            </IconButton>
+          </Tooltip>
           <MDInput
             placeholder="ابحث هنا..."
             style={{

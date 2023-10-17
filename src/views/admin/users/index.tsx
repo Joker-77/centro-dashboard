@@ -109,7 +109,7 @@ const Users: React.FC<UsersProps> = ({}) => {
               position: "relative",
               [breakpoints.down("md")]: {
                 display: "flex",
-                justifyContent: "start",
+                justifyContent: "center",
                 transition: transitions.create(
                   ["margin-left", "margin-right"],
                   {
