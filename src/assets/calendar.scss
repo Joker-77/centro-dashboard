@@ -1,0 +1,51 @@
+.rbc-event {
+  padding: 0 !important;
+}
+
+.MuiDateCalendar-root {
+  width: 100% !important;
+}
+
+.rbc-header {
+  text-align: center !important;
+  font-size: 1rem !important;
+}
+
+.rbc-header span,
+.rbc-agenda-date-cell,
+.rbc-agenda-time-cell {
+  font-size: 0.8rem;
+}
+
+.rbc-toolbar {
+  flex-direction: row-reverse;
+}
+
+.rbc-btn-group button:first-child {
+  border-top-right-radius: 0.7rem !important;
+  border-bottom-right-radius: 0.7rem !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.rbc-btn-group button:last-child {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-left-radius: 0.7rem !important;
+  border-bottom-left-radius: 0.7rem !important;
+}
+
+.rbc-month-view {
+  border-radius: 0.7rem;
+}
+
+.rbc-header + .rbc-header:last-child {
+  border-top-left-radius: 0.7rem !important;
+}
+
+.rbc-row-bg .rbc-day-bg:last-child {
+  border-bottom-left-radius: 0.7rem !important;
+}
+.rbc-agenda-table {
+  border-radius: 0.7rem;
+}

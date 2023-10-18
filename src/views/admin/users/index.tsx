@@ -12,7 +12,7 @@ import UserService from "../../../services/UserService";
 import { toast } from "react-toastify";
 import Skeleton from "@mui/material/Skeleton";
 import CircularProgress from "@mui/material/CircularProgress";
-import "./../../../assets/drawer.css";
+import "./../../../assets/drawer.scss";
 interface UsersProps {}
 const Users: React.FC<UsersProps> = ({}) => {
   const [open, setOpen] = React.useState(false);

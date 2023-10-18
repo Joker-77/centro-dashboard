@@ -57,8 +57,6 @@ function collapseIconBox(theme, ownerState) {
   const { white, dark } = palette;
   const { borderRadius } = borders;
   const { pxToRem } = functions;
-  console.clear();
-  console.log(palette);
   return {
     minWidth: pxToRem(32),
     minHeight: pxToRem(32),

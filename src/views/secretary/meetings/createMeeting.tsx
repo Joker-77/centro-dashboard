@@ -14,7 +14,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import "../../../assets/main.css";
+import "../../../assets/main.scss";
 import Checkbox from "@mui/material/Checkbox";
 import Card from "@mui/material/Card";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -103,8 +103,6 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
             handleReset,
             setFieldValue,
           } = props;
-          console.clear();
-          console.log("values", values);
           return (
             <Form
               style={{

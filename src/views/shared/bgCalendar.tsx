@@ -1,15 +1,14 @@
 // @ts-nocheck
 import React from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
-import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
 import DashboardLayouts from "../layouts/index";
 import "moment/locale/ar-sa";
 import "moment/locale/ar";
 import EventComponent from "./calendarEvent/event";
-import "../../assets/calendar.css";
+import "../../assets/calendar.scss";
 import { Card } from "@mui/material";
-require("react-big-calendar/lib/css/react-big-calendar.css");
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
 interface IProps {
   events: [];

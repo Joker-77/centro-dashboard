@@ -15,6 +15,7 @@ const UserDetails: React.FC<any> = ({
 }) => {
   return (
     <Drawer
+      className="user-drawer"
       open={open}
       onClose={toggleDrawer(false)}
       sx={({ breakpoints }) => ({

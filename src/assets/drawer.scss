@@ -1,0 +1,19 @@
+.user-drawer .MuiAvatar-img.MuiAvatar-circular {
+  width: 100px;
+  height: 100px;
+}
+@media only screen and (min-width: 600px) {
+  .user-drawer
+    .MuiPaper-root.MuiPaper-elevation.MuiDrawer-paper.MuiDrawer-paperAnchorLeft {
+    width: 35rem !important;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .user-drawer
+    .MuiPaper-root.MuiPaper-elevation.MuiDrawer-paper.MuiDrawer-paperAnchorLeft {
+    width: 20rem !important;
+  }
+  p {
+    font-size: 1rem !important;
+  }
+}
