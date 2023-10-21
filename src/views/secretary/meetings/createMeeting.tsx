@@ -51,10 +51,15 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
   const handleAddFile = (e, index) => {
     inputs?.current[index].click();
   };
-  function handleChangeFile(e, index) {
-    console.clear();
-    console.log(index);
-    console.log(e.target.files[0]);
+  const handleDeleteFile = (e, index) => {
+    let _files = selectedFiles.slice();
+    let _names = fileNames.slice();
+    _names.splice(index, 1);
+    _files.splice(index, 1);
+    setFileNames(_names);
+    setSelectedFiles(_files);
+  };
+  const handleChangeFile = (e, index) => {
     let _files = selectedFiles.slice();
     let _names = fileNames.slice();
     if (selectedFiles == null || selectedFiles.length === 0) {
@@ -67,9 +72,8 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
     _names.splice(index, 0, e.target.files[0].name);
     setFileNames(_names);
     setSelectedFiles(_files);
-    // imageStyle1.display = "inline-block";
-    // setStyle1(imageStyle1);
-  }
+    console.log(_files);
+  };
   // member groups
   const [membersGroups, setMembersGroup] = useState<string[]>([
     "group1",
