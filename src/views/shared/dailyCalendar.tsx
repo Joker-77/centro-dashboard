@@ -32,8 +32,8 @@ const DailyCalendar: React.FC<IProps> = () => {
                     y2="1.232"
                     gradientUnits="objectBoundingBox"
                   >
-                    <stop offset="0" stop-color="#13714d" />
-                    <stop offset="1" stop-color="#88cb60" />
+                    <stop offset="0" stopColor="#13714d" />
+                    <stop offset="1" stopColor="#88cb60" />
                   </linearGradient>
                 </defs>
                 <g
