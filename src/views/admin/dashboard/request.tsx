@@ -50,7 +50,7 @@ const Request: React.FC<IProps> = ({
               {type}
             </MDTypography>
           </Grid>
-          <Grid item mt={1} md={8} xs={8}>
+          <Grid item mt={1} md={8} xs={6}>
             <MDTypography style={{ color: color }} fontSize="13px">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -71,15 +71,15 @@ const Request: React.FC<IProps> = ({
               {title}
             </MDTypography>
           </Grid>
-          <Grid item mt={1} md={4} xs={4}>
+          <Grid item mt={1} md={4} xs={6}>
             <MDTypography fontSize="12px" color="error">
               {dateRange}
             </MDTypography>
           </Grid>
-          <Grid item mt={1} md={10}>
+          <Grid item mt={1} md={10} xs={12}>
             <MDTypography fontSize="14px">{subTitle}</MDTypography>
           </Grid>
-          <Grid item mt={1} md={12}>
+          <Grid item mt={1} md={12} xs={12}>
             <MDTypography fontSize="10px">{subject}</MDTypography>
           </Grid>
         </Grid>
