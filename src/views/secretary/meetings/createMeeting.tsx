@@ -72,7 +72,6 @@ const CreateMeeting: React.FC<IProps> = ({ meeting }) => {
     _names.splice(index, 0, e.target.files[0].name);
     setFileNames(_names);
     setSelectedFiles(_files);
-    console.log(_files);
   };
   // member groups
   const [membersGroups, setMembersGroup] = useState<string[]>([
