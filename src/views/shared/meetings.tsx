@@ -11,7 +11,7 @@ const Meetings: React.FC<IProps> = () => {
     <Grid item md={12} xs={12} mt={2}>
       <Card
         sx={{
-          maxWidth: 440,
+          maxWidth: 840,
           width: "100%",
           height: "12em",
           backgroundColor: "#13714D",
